@@ -10,8 +10,21 @@ const priceRules = [
     {
         item: "A",
         unitPrice: 50
+    },
+
+    {
+        item: "B",
+        unitPrice: 30
+    },
+    {
+        item: "C",
+        unitPrice: 20
+    },
+    {
+        item: "D",
+        unitPrice: 15
     }
-    
+
 ];
 
 
@@ -25,5 +38,21 @@ describe("No products Checkout will return", () =>{
         const checkout = new Checkout(priceRules);
         checkout.scan("A");
         expect(checkout.total()).toBe(50);
+    })
+
+        it("B = 30", () =>{
+            const checkout = new Checkout(priceRules);
+            checkout.scan("B");
+            expect(checkout.total()).toBe(30);
+    })
+        it("C = 20", () =>{
+            const checkout = new Checkout(priceRules);
+            checkout.scan("C");
+            expect(checkout.total()).toBe(20);
+    })
+        it("D = 15", () =>{
+            const checkout = new Checkout(priceRules);
+            checkout.scan("D");
+            expect(checkout.total()).toBe(15);
     })
 })
