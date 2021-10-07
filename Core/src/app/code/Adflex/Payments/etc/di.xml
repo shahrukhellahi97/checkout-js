@@ -1,0 +1,337 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Adflex payment method facade -->
+    <virtualType name="AdflexPaymentsGateway" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Adflex\Payments\Ui\ConfigProvider::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Adflex\Payments\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">AdflexPaymentsGatewayValueHandlerPool</argument>
+            <argument name="commandPool" xsi:type="object">AdflexPaymentsGatewayCommandPool</argument>
+        </arguments>
+    </virtualType>
+    <!-- Vault payment method facade -->
+    <virtualType name="AdflexVaultFacade" type="Magento\Vault\Model\Method\Vault">
+        <arguments>
+            <argument name="config" xsi:type="object">AdflexPaymentsVaultGatewayConfig</argument>
+            <argument name="valueHandlerPool" xsi:type="object">AdflexPaymentsVaultGatewayValueHandlerPool</argument>
+            <argument name="vaultProvider" xsi:type="object">AdflexPaymentsGateway</argument>
+            <argument name="code" xsi:type="const">Adflex\Payments\Ui\ConfigProvider::CC_VAULT_CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Proxy classes that may be run, to avoid needless instantiation -->
+    <type name="Adflex\Payments\Gateway\Request\LevelThreeDataBuilder">
+        <arguments>
+            <argument name="amexCpClid" xsi:type="object">Adflex\Payments\Model\Level3\Types\AmexCpClid\Proxy</argument>
+            <argument name="amexGeneralDataFormat" xsi:type="object">Adflex\Payments\Model\Level3\Types\AmexGeneralDataFormat\Proxy</argument>
+            <argument name="mclid" xsi:type="object">Adflex\Payments\Model\Level3\Types\Mclid\Proxy</argument>
+            <argument name="vgis" xsi:type="object">Adflex\Payments\Model\Level3\Types\Vgis\Proxy</argument>
+        </arguments>
+    </type>
+
+    <!-- Plugins -->
+    <type name="Magento\Vault\Model\Method\Vault">
+        <plugin name="adflex_vault_plugin" type="Adflex\Payments\Plugins\InitVault" />
+    </type>
+
+    <!-- Magento Vault stuff -->
+    <virtualType name="AdflexCommandManager" type="Magento\Payment\Gateway\Command\CommandManager">
+        <arguments>
+            <argument name="commandPool" xsi:type="object">AdflexPaymentsGatewayCommandPool</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Payment\Gateway\Command\CommandManagerPool">
+        <arguments>
+            <argument name="executors" xsi:type="array">
+                <item name="adflex" xsi:type="string">AdflexCommandManager</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- End Vault -->
+
+    <!-- Log handler for functions outside of Payment Gateway flow -->
+    <type name="Adflex\Payments\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Adflex\Payments\Logger\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">Adflex Logger</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Adflex\Payments\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Configuration reader -->
+    <virtualType name="AdflexPaymentsGatewayConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Adflex\Payments\Ui\ConfigProvider::CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Vault configuration reader -->
+    <virtualType name="AdflexPaymentsVaultGatewayConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Adflex\Payments\Ui\ConfigProvider::CC_VAULT_CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Logger, initialized with AdflexPaymentsGatewayLogger -->
+    <virtualType name="AdflexPaymentsGatewayLogger" type="Magento\Payment\Model\Method\Logger">
+        <arguments>
+            <argument name="config" xsi:type="object">AdflexPaymentsGatewayConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Client -->
+    <type name="Adflex\Payments\Gateway\Http\Client\AdflexClient">
+        <arguments>
+            <argument name="logger" xsi:type="object">AdflexPaymentsGatewayLogger</argument>
+        </arguments>
+    </type>
+
+    <!-- Commands infrastructure -->
+    <virtualType name="AdflexPaymentsGatewayCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="session" xsi:type="string">AdflexPaymentsGatewaySessionCommand</item>
+                <item name="initialize" xsi:type="string">AdflexPaymentsTokenInfoCommand</item>
+                <item name="authorize" xsi:type="string">AdflexPaymentsGatewayAuthoriseCommand</item>
+                <item name="capture" xsi:type="string">AdflexPaymentsGatewaySettleCommand</item>
+                <item name="vault_initialize" xsi:type="string">AdflexPaymentsTokenInfoCommand</item>
+                <item name="vault_authorize" xsi:type="string">AdflexVaultAuthoriseCommand</item>
+                <item name="vault_sale" xsi:type="string">AdflexPaymentsVaultSettleCommand</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Session command -->
+    <virtualType name="AdflexPaymentsGatewaySessionCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AdflexPaymentsGatewaySessionDataBuilder</argument>
+            <argument name="handler" xsi:type="object">Adflex\Payments\Gateway\Response\SessionHandler</argument>
+            <argument name="transferFactory" xsi:type="object">Adflex\Payments\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">Adflex\Payments\Gateway\Http\Client\AdflexClient</argument>
+        </arguments>
+    </virtualType>
+    <!-- Session request -->
+    <virtualType name="AdflexPaymentsGatewaySessionDataBuilder" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="session" xsi:type="string">Adflex\Payments\Gateway\Request\SessionDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Adflex\Payments\Gateway\Request\SessionDataBuilder">
+        <arguments>
+            <argument name="config" xsi:type="object">AdflexPaymentsGatewayConfig</argument>
+        </arguments>
+    </type>
+    <!-- Session response handler -->
+    <virtualType name="AdflexPaymentsGatewaySessionResponseHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="session" xsi:type="string">Adflex\Payments\Gateway\Response\SessionHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Authorise command -->
+    <virtualType name="AdflexPaymentsGatewayAuthoriseCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AdflexPaymentsGatewayAuthorisationRequest</argument>
+            <argument name="handler" xsi:type="object">AdflexPaymentsGatewayResponseAuthorisationHandler</argument>
+            <argument name="transferFactory" xsi:type="object">Adflex\Payments\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">Adflex\Payments\Gateway\Http\Client\AdflexClient</argument>
+            <argument name="validator" xsi:type="object">Adflex\Payments\Gateway\Validator\AuthorisationValidator</argument>
+        </arguments>
+    </virtualType>
+    <!-- Authorisation Request -->
+    <virtualType name="AdflexPaymentsGatewayAuthorisationRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="authorise" xsi:type="string">Adflex\Payments\Gateway\Request\AuthorisationDataBuilder</item>
+                <item name="level3" xsi:type="string">Adflex\Payments\Gateway\Request\LevelThreeDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Adflex\Payments\Gateway\Request\AuthorisationDataBuilder">
+        <arguments>
+            <argument name="config" xsi:type="object">AdflexPaymentsGatewayConfig</argument>
+        </arguments>
+    </type>
+    <!-- Authorisation Handler -->
+    <virtualType name="AdflexPaymentsGatewayResponseAuthorisationHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="authorisation" xsi:type="string">Adflex\Payments\Gateway\Response\AuthorisationHandler</item>
+                <item name="vault" xsi:type="string">Adflex\Payments\Gateway\Response\VaultHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Get token information command -->
+    <virtualType name="AdflexPaymentsTokenInfoCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AdflexPaymentsTokenInfoRequest</argument>
+            <argument name="handler" xsi:type="object">AdflexPaymentsTokenInfoHandler</argument>
+            <argument name="transferFactory" xsi:type="object">Adflex\Payments\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">Adflex\Payments\Gateway\Http\Client\AdflexClient</argument>
+        </arguments>
+    </virtualType>
+    <!-- Token Information Request -->
+    <virtualType name="AdflexPaymentsTokenInfoRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="transaction" xsi:type="string">Adflex\Payments\Gateway\Request\TokenInfoDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Adflex\Payments\Gateway\Request\TokenInfoDataBuilder">
+        <arguments>
+            <argument name="config" xsi:type="object">AdflexPaymentsGatewayConfig</argument>
+        </arguments>
+    </type>
+    <!-- Token Information Handler -->
+    <virtualType name="AdflexPaymentsTokenInfoHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="authorisation" xsi:type="string">Adflex\Payments\Gateway\Response\TokenInfoHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Vault Authorise Command -->
+    <virtualType name="AdflexVaultAuthoriseCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AdflexPaymentsVaultAuthorisationRequest</argument>
+            <argument name="transferFactory" xsi:type="object">Adflex\Payments\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">Adflex\Payments\Gateway\Http\Client\AdflexClient</argument>
+            <argument name="handler" xsi:type="object">AdflexPaymentsVaultResponseAuthorisationHandler</argument>
+            <argument name="validator" xsi:type="object">Adflex\Payments\Gateway\Validator\AuthorisationValidator</argument>
+        </arguments>
+    </virtualType>
+    <!-- Vault Authorisation Request -->
+    <virtualType name="AdflexPaymentsVaultAuthorisationRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="authorise" xsi:type="string">Adflex\Payments\Gateway\Request\VaultAuthorisationDataBuilder</item>
+                <item name="level3" xsi:type="string">Adflex\Payments\Gateway\Request\LevelThreeDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Adflex\Payments\Gateway\Request\VaultAuthorisationDataBuilder">
+        <arguments>
+            <argument name="config" xsi:type="object">AdflexPaymentsVaultGatewayConfig</argument>
+        </arguments>
+    </type>
+    <!-- Vault Authorisation Handler -->
+    <virtualType name="AdflexPaymentsVaultResponseAuthorisationHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="session" xsi:type="string">Adflex\Payments\Gateway\Response\VaultAuthorisationHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Capture/Settle command -->
+    <virtualType name="AdflexPaymentsGatewaySettleCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AdflexPaymentsGatewaySettleRequest</argument>
+            <argument name="handler" xsi:type="object">AdflexPaymentsGatewaySettleHandler</argument>
+            <argument name="transferFactory" xsi:type="object">Adflex\Payments\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">Adflex\Payments\Gateway\Http\Client\AdflexClient</argument>
+        </arguments>
+    </virtualType>
+    <!-- Settle Request -->
+    <virtualType name="AdflexPaymentsGatewaySettleRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="transaction" xsi:type="string">Adflex\Payments\Gateway\Request\SettleDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Adflex\Payments\Gateway\Request\VaultSettleDataBuilder">
+        <arguments>
+            <argument name="config" xsi:type="object">AdflexPaymentsGatewayConfig</argument>
+        </arguments>
+    </type>
+    <!-- Settle handler -->
+    <virtualType name="AdflexPaymentsGatewaySettleHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="settle" xsi:type="string">Adflex\Payments\Gateway\Response\SettleHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Vault capture/settle command -->
+    <virtualType name="AdflexPaymentsVaultSettleCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AdflexPaymentsVaultSettleRequest</argument>
+            <argument name="handler" xsi:type="object">AdflexPaymentsVaultSettleHandler</argument>
+            <argument name="transferFactory" xsi:type="object">Adflex\Payments\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">Adflex\Payments\Gateway\Http\Client\AdflexClient</argument>
+        </arguments>
+    </virtualType>
+    <!-- Vault settle Request -->
+    <virtualType name="AdflexPaymentsVaultSettleRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="transaction" xsi:type="string">Adflex\Payments\Gateway\Request\VaultSettleDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Adflex\Payments\Gateway\Request\VaultSettleDataBuilder">
+        <arguments>
+            <argument name="config" xsi:type="object">AdflexPaymentsVaultGatewayConfig</argument>
+        </arguments>
+    </type>
+    <!-- Vault settle handler -->
+    <virtualType name="AdflexPaymentsVaultSettleHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="settle" xsi:type="string">Adflex\Payments\Gateway\Response\VaultSettleHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Value handlers infrastructure -->
+    <virtualType name="AdflexPaymentsGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">AdflexPaymentsGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AdflexPaymentsGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">AdflexPaymentsGatewayConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Vault value handlers infrastructure -->
+    <virtualType name="AdflexPaymentsVaultGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">AdflexPaymentsVaultGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AdflexPaymentsVaultGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">AdflexPaymentsVaultGatewayConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Payment info block -->
+    <type name="Adflex\Payments\Block\Info">
+        <arguments>
+            <argument name="config" xsi:type="object">AdflexPaymentsGatewayConfig</argument>
+        </arguments>
+    </type>
+
+</config>

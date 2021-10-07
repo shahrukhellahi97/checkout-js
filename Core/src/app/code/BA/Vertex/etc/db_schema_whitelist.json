@@ -1,0 +1,18 @@
+{
+    "ba_vertex_tax_rates": {
+        "column": {
+            "destination_country_id": true,
+            "source_country_id": true,
+            "product_source_country_id": true,
+            "basys_id": true,
+            "rate": true,
+            "modified": true
+        },
+        "index": {
+            "IDX_9DD9BF2887AB1C86B35C6C461DEB2CD9": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

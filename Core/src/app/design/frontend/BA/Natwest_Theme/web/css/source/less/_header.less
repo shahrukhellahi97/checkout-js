@@ -1,0 +1,479 @@
+// HEADER STARTS
+
+& when (@media-common = true) { // mobile first to styles-m.css
+    // container outer
+    .page-header .panel.wrapper {
+        background-color: @ba-header-background-colour;
+        border: none;
+        color: @primary__color;
+        line-height: 30px;
+        vertical-align: middle;
+    }
+    // container inner
+    .page-header .header.panel {
+        padding: 18px 20px 0px 20px;
+        text-align: center;
+    }
+    // logo
+    .logo {
+        float: none;
+        display:inline-block;
+        margin: 0;
+        }
+    .header.content {
+        display: none;
+    }
+
+    // header icons
+    .minicart-wrapper .action.showcart:before, .minicart-wrapper .action.showcart.active:before { // cart icon
+        content: url(../images/icon_cart.svg);
+        width: @ba-header-icon-width;
+        height: @ba-header-icon-height;
+        line-height: @ba-header-icon-line-height;
+        display: @ba-header-icon-display;
+        color: @ba-header-icon-color;
+    }
+    /*.customer-name:before { // customer icon
+        content: "\f007";
+        font-family: @ba-header-icon-font-family;
+        font-weight: @ba-header-icon-font-weight;
+        font-size: @ba-header-icon-font-size;
+        display: @ba-header-icon-display;
+        color: @ba-header-icon-color;
+    }*/
+
+    .block-search .label:before, .search-trigger-desktop:before  { // search icon
+        display: none;
+    }
+    .block-search .action.search:before {
+        content: "\f002";
+        font-family: @ba-header-icon-font-family;
+        font-weight: @ba-header-icon-font-weight;
+        font-size: @ba-header-icon-font-size;
+        line-height: @ba-header-icon-line-height;
+        display: @ba-header-icon-display;
+        color: @natwest-mid-green;
+    }
+
+    // search
+    .ba_header_desktop_search {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: block;
+        box-sizing: border-box;
+        transition: all 1s ease-in;
+    }
+    .block.block-search {display: block;} // added for natwest
+    .block-search {
+        margin-top: 0;
+        .control {
+            border: none;
+        }
+        .label { // hide magentos mobile show search trigger
+            display: none;
+        }
+        input {
+            position: relative;
+            left: auto;
+            margin-top: 5px;
+        }
+    }
+
+
+
+    // mini cart
+    .minicart-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        float: none;
+        margin-top: 15px;
+        margin-right: 17px;
+        margin-left: @ba-header-icon-margin-left;
+        .action.showcart .counter.qty {
+            background: transparent;
+            color: @ba-header-icon-color;
+        }
+        .action.showcart .counter.qty:before {
+            content: '(';
+        }
+        .action.showcart .counter.qty:after {
+            content: ')';
+        }
+        .action.showcart .counter-number {
+            text-shadow: none;
+        }
+        .action.showcart .counter.qty {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .nav-toggle {
+        left:17px;
+    }
+    .nav-toggle:before {
+        color: #ffffff;
+    }
+
+
+    // desktop search icon
+    .search-trigger-desktop {
+        display: none;
+    }
+    .page-header .switcher {
+        margin-right: 0;
+        margin-left: @ba-header-icon-margin-left;
+    }
+    // remove carat from currency and language
+    .page-header .panel.wrapper .switcher .options .action.toggle:after, .page-header .panel.wrapper .switcher .options .action.toggle.active:after {
+        display: none;
+    }
+    .header.links .action.switch {
+        display:none;
+    }
+    .customer-welcome {
+        display: none;
+    }
+    .customer-welcome .action.switch {
+        color: @primary__color;
+    }
+    .customer-welcome .action.switch:after {
+        line-height: @ba-header-icon-height;
+    }
+
+
+
+
+    .nav-sections .header.links {
+        padding: 0 20px;
+        border-bottom: none;
+        li.greet.welcome {
+            border-top: none;
+            padding: 0 15px;
+        }
+        a, a:hover {
+        color: @natwest-mid-green;
+        text-decoration: none;
+        display: block;
+        font-weight: 400;
+        padding: 0;
+        line-height: 48px;
+        font-size: 18px;
+        }
+        li>a {
+            border-top: none;
+        }
+    }
+}
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) { // desktop to styles-l.css
+    .page-header .panel.wrapper {
+        background-color: @natwest-dark-purple;
+        border-bottom: none;
+    }
+    .block-search .label { // hide magentos mobile show search trigger
+        display: block;
+    }
+    .block-search input {
+        position: static;
+    }
+    .page-header .header.panel {
+        padding: 0;
+        text-align: left;
+        width: 100%;
+        max-width: 100%;
+        line-height: 30px;
+    }
+    .logo {
+        float: left;
+        display:block;
+        margin: 13px 0 13px 20px;
+    }
+    .search-trigger-desktop {
+        display: block;
+        float: right;
+        margin-left: @ba-header-icon-margin-left;
+        span {
+            display:none
+        }
+    }
+    .minicart {
+        margin-top: 11px;
+    }
+    .minicart-wrapper {
+        float: right;
+        position: relative;
+        margin-top: 11px;
+        margin-right: 0;
+    }
+
+
+    .header.panel {
+        >.header.links {
+            margin-top: 9px;
+            >li {
+                position: relative;
+            }
+            >li>a {
+                line-height: 30px;
+            }
+            >li>a::after { //li a after
+                content: "";
+                height: 1px;
+                position: absolute; 
+                left: 0;
+                background: #ffffff;
+                bottom: 4px;
+                width:0%;
+                transition: width .3s ease;
+            }
+            >li>a:hover {
+                text-decoration: none;
+            }
+            >li:hover>a::after { //li hover a after
+                width:100%;
+            }
+        }
+    }
+
+
+    .customer-welcome ul {
+        top:100%;
+    }
+    #search {
+        border: none;
+        background-color: #ffffff;
+        height: 40px;
+        width: 160px;
+    }
+    .block-search {
+        width: 200px;
+        margin: 4px;
+    }
+    .block-search .control {
+        background-color:  #ffffff;
+    }
+    .block-search .action.search {
+        margin-top: 6px;
+    }
+    .block-search .action.search:before {
+        line-height: 30px;
+    }
+
+    .searchsuite-autocomplete {
+        left: -137px;
+    }
+
+    #switcher-currency-trigger strong:before {
+        font-family: @ba-header-icon-font-family;
+        font-weight: @ba-header-icon-font-weight;
+        font-size: @ba-header-icon-font-size;
+        line-height: @ba-header-icon-line-height;
+        display: @ba-header-icon-display;
+        color: @ba-header-icon-color;
+        margin-left: 7px;
+    }
+    #switcher-currency-trigger strong.language-USD:before {
+        content: "\f155";
+    }
+    #switcher-currency-trigger strong.language-EUR:before {
+        content: "\f153";
+    }
+    #switcher-currency-trigger strong.language-GBP:before {
+        content: "\f154";
+    }
+    #switcher-currency-trigger strong span {
+        display:none
+    }
+
+    .switcher-currency ul li a {
+        line-height: 20px;
+    }
+
+    .block-minicart {
+        line-height: 20px;
+    }
+}
+// HEADER ENDS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// CATEGORIES STARTS
+& when (@media-common = true) { // mobile first to styles-m.css
+    // top level
+    .nav-sections {
+        background: @header-categories-outer;
+        border-top: 1px solid @header-categories-outer-border-bottom;
+        border-bottom: 1px solid @header-categories-outer-border-bottom;
+        padding-bottom: 15px;
+        padding-top: 0;
+    }
+    .nav-sections-item-title {
+        background-color: @natwest-dark-purple;
+        padding-top: 15px;
+        padding-bottom: 30px;
+        height: 60px;
+        line-height: 30px;
+        .active a {
+            color: #ffffff;
+        }
+    }
+    .nav-sections-item-title.active a {
+        color: #303030;
+    }
+    .nav-sections-item-switch {
+        color: #ffffff;
+    }
+    // container level
+    .navigation {
+        background-color: white;
+        padding: 0;
+        ul {
+            text-align:@header-categories-overall-alignment;
+            padding: 0 20px;
+        }
+        .level0 { // li
+            margin:0;
+            padding: 0;
+            transition: all 0.7s ease;
+            border-top: none;
+            position: relative;
+            >.level1 {
+                font-weight: 400;
+            }
+        }
+        li.level0:last-child {
+            border-bottom-width: 0;
+        }
+        .level0>.level-top { // li a
+            color: @natwest-mid-green;
+            line-height: 48px;
+            font-weight: 400;
+            padding: 0;
+            font-size: 18px;
+            text-transform: none;
+        }
+        .level0>.level-top:hover {
+            color: @natwest-mid-green;
+        }
+        .level0.active>a:not(.ui-state-active), .level0.has-active>a:not(.ui-state-active)  {
+            border-left-width: 0;
+        }
+        .level0.active>a:not(.ui-state-active) span:not(.ui-menu-icon), .level0.has-active>a:not(.ui-state-active) span:not(.ui-menu-icon) {
+            margin-left: 0;
+        }
+        .level0.active>.level-top, .navigation .level0.has-active>.level-top {
+            border-color: @natwest-mid-green;
+            border-style: solid;
+            border-width: 0 0 1px 0;
+            color: @natwest-mid-green;
+            text-decoration: none;
+            display: inline-block;
+        }
+        li.level1 {
+            text-align: left;
+        }
+        a, .navigation a:hover {
+            color: @natwest-mid-green;
+        }
+        .submenu>li>a:hover {
+            color: @natwest-mid-green;
+        }
+        .submenu:not(:first-child) .active>a {
+            border-left-width: 0;
+        }
+        .submenu:not(:first-child) .level1.active>a {
+        padding-left: 15px;
+        }
+
+        .parent .level-top:after { // down arrow for category with subcategories
+            font-size: 20px;
+            right: 10px;
+            top: 0px;
+        }
+        .level0:hover a::after { // adjust position of down arrow for hover over category with subcategories
+            width: auto;
+        }
+    }
+}
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) { // desktop to styles-l.css
+        // top level
+        .nav-sections {
+            padding-top: 15px;
+            padding-bottom: 11px;
+        }
+        // container level
+        .navigation {
+            ul {
+                padding: 0 20px;
+            }
+            background-color: transparent;
+            .level0 { // li
+                margin:0 20px 0 0;
+                a::after { //li a after animated underline width on hover
+                    content: "";
+                    height: 1px;
+                    position: absolute; 
+                    left: 0;
+                    background: @natwest-mid-green;
+                    bottom: 4px;
+                    width:0%;
+                    transition: width .3s ease;
+                }
+            }
+            .level0:hover a::after { // animated underline width on hover
+                width: 100%;
+            }
+            .level0>.level-top { // li a
+                line-height: 30px;
+                font-size: 14px;
+                padding: 0;
+                color: @natwest-mid-green;
+            }
+            .level0.active>.level-top, .navigation .level0.has-active>.level-top {
+                border:none;
+            }
+            .level0>.level-top:hover, .navigation .level0>.level-top.ui-state-focus {
+                color: @natwest-mid-green; // a hover color
+            }
+            .level0:hover .submenu a {
+                color: @natwest-mid-green;
+            }        
+            .level0:hover .submenu a::after {
+                display: none;
+            }
+            .level0.active>.level-top, .level0.has-active>.level-top {
+                border-width: 0;;   
+            }
+            .level0 .submenu .active>a {
+                border-left: none;
+            }
+            .submenu:not(:first-child) .level1.active>a {
+                padding-left: 20px;
+                color: #303030;
+            }
+        }
+}
+// CATEGORIES ENDS

@@ -1,0 +1,33 @@
+{
+    "files.eol": "\n",
+    "intelephense.phpdoc.useFullyQualifiedNames": true,
+    "intelephense.files.exclude":[
+        "**/.git/**",
+        "**/.svn/**",
+        "**/.hg/**",
+        "**/CVS/**",
+        "**/.DS_Store/**",
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/dev/**",
+        "**/vendor/**/{Tests,tests}/**"
+    ],
+    // XML Settings
+    "xml.java.home": null,
+    "xml.catalogs": [
+        ".vscode/catalogs.xml"
+    ],
+    "files.exclude": {
+        // "**/*Test": true,
+        "**/*Interceptor": true,
+    },
+    // Add PHPCS
+    "phpcs.enable": true,
+    "phpcs.executablePath": "/var/www/html/vendor/bin/phpcs",
+    "phpcs.standard": "/var/www/html/vendor/magento/magento-coding-standard/Magento2/ruleset.xml",
+    "php-cs-fixer.executablePath": "/var/www/html/vendor/bin/php-cs-fixer",
+    "php-cs-fixer.rules": "/var/www/html/vendor/magento/magento-coding-standard/Magento2/ruleset.xml",
+    "php-cs-fixer.config": "/var/www/html/.php_cs.dist",
+    "php-cs-fixer.formatHtml": true,
+    "php-cs-fixer.onsave": false
+}

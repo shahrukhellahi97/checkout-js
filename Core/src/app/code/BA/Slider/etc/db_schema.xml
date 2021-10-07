@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="ba_slider" resource="default" engine="innodb" comment="SlideShow">
+        <column name="id" xsi:type="int" unsigned="true" nullable="false" comment="ID"  identity="true"/>
+        <column name="title" xsi:type="varchar" nullable="true" length="50"  comment="Main Title"  />
+        <column name="caption" xsi:type="varchar"  nullable="true" length="250"  comment="Caption"  />
+        <column name="slider_price" xsi:type="varchar" nullable="true" length="50"  comment="Price"  />
+        <column name="button" xsi:type="varchar" nullable="true" length="50"  comment="Button Caption"  />
+        <column name="link" xsi:type="varchar" nullable="true" length="250"  comment="Link"  />
+        <column name="description" xsi:type="varchar" nullable="true" length="250" comment="Description"  />
+        <column name="mobimage" xsi:type="varchar" nullable="true" length="250"  comment="Mob Image"  />
+        <column name="image" xsi:type="varchar" nullable="true" length="250" comment="Image"  />
+        <column name="website_id" xsi:type="int" unsigned="true" nullable="false" comment="Website Id" />
+        <column name="enabled" xsi:type="int" unsigned="true" nullable="false" comment="Enable Slider" />
+        <column name="sort_order" xsi:type="int" unsigned="true" nullable="true" comment="Sort Order" />
+        <column xsi:type="timestamp" name="created" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Created Datetime"/>
+        <column xsi:type="timestamp" name="updated_datetime" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Updated Datetime"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

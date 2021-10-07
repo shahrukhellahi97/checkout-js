@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="BA\Freight\Api\Data\TableInterface" type="BA\Freight\Model\Table" />
+    <preference for="BA\Freight\Api\Data\ZoneInterface" type="BA\Freight\Model\Zone" />
+    <preference for="BA\Freight\Api\Data\ZoneRateInterface" type="BA\Freight\Model\ZoneRate" />
+    <preference for="BA\Freight\Api\FreightCalculatorInterface" type="BA\Freight\Model\FreightCalculator" />
+
+    <type name="BA\BasysOrders\Gateway\Request\AddressDataBuilder">
+        <plugin name="add_carrier_ids_to_builder" type="BA\Freight\Plugin\AddCarrierToAddressBuilder" />
+    </type>
+</config>

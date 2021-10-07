@@ -1,0 +1,27 @@
+
+<?php
+    $teamMembers = $block->getMemberCollection();
+?>
+<?php if ($block->getData('enable_heading')) :?>
+<h2 class="meet-team-heading"><?= $block->escapeHtml($block->getData('team_members')) ?></h2>
+<?php endif;?>
+<div class="meet-team-wrapper">
+
+<?php foreach ($teamMembers as $meetTeamData) : ?>
+    <div class="meet-team-person">
+        <div class="meet-team-person-inner">
+            <div class="meet-team-img">
+                <?php $imageUrl = $block->getMediaUrl().$meetTeamData->getImage(); ?>
+                <img class="img" src="<?= /* @noEscape */ $imageUrl; ?>" alt="<?=  /* @noEscape */  $meetTeamData->getName();?>">
+            </div>
+            <div class="meet-team-text">
+                <h3 class="meet-team-name"><?=  /* @noEscape */  $meetTeamData->getName();?></h3>
+                <p class="meet-team-jobtitle"><?=  /* @noEscape */  $meetTeamData->getJobtitle();?></p>
+                <p class="meet-team-phone"><?=  /* @noEscape */  $meetTeamData->getTelephone();?></p>
+                <p class="meet-team-email"><a href="mailto:<?=  /* @noEscape */  $meetTeamData->getEmail();?>"><?=  /* @noEscape */  $meetTeamData->getEmail();?></a></p>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+</div>

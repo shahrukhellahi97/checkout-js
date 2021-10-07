@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget class="BA\Newsletter\Block\Widget\Newsletter" id="ba_Newsletter_Newsletter">
+		<label>Newsletter</label>
+		<description>Newsletter</description>
+		<parameters>
+			<parameter name="heading" sort_order="1" visible="true" xsi:type="text">
+				<label>Heading</label>
+				<value>Newsletter</value>
+			</parameter>
+			<parameter name="text_1" sort_order="2" visible="true" xsi:type="text">
+				<label>Textbox Label</label>
+				<value>Email Address</value>
+			</parameter>
+			<parameter name="radio_button_label_1" sort_order="2" visible="true" xsi:type="text">
+				<label>Radio Button Label</label>
+				<value>Do you want to receive email updates? </value>
+			</parameter>
+			<parameter name="radio_button_text_1" sort_order="2" visible="true" xsi:type="text">
+				<label>Radio Button 1 - Text</label>
+				<value>No</value>
+			</parameter>
+			<parameter name="radio_button_text_2" sort_order="3" visible="true" xsi:type="text">
+				<label>Radio Button 2 - Text</label>
+				<value>Yes</value>
+			</parameter>
+			<parameter name="checkbox_text" sort_order="4" visible="true" xsi:type="text">
+				<label>Checkbox Text</label>
+				<value>Please make sure that you want to receive the email</value>
+			</parameter>
+		</parameters>
+	</widget>
+</widgets>

@@ -1,0 +1,132 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/shahrukhellahi/Documents/Work/API/src/BA.DataAccess/BA.DataAccess.csproj": {}
+  },
+  "projects": {
+    "/Users/shahrukhellahi/Documents/Work/API/src/BA.DataAccess/BA.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/shahrukhellahi/Documents/Work/API/src/BA.DataAccess/BA.DataAccess.csproj",
+        "projectName": "BA.DataAccess",
+        "projectPath": "/Users/shahrukhellahi/Documents/Work/API/src/BA.DataAccess/BA.DataAccess.csproj",
+        "packagesPath": "/Users/shahrukhellahi/.nuget/packages/",
+        "outputPath": "/Users/shahrukhellahi/Documents/Work/API/src/BA.DataAccess/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/shahrukhellahi/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "/Users/shahrukhellahi/Documents/Work/API/src/BA.Domain/BA.Domain.csproj": {
+                "projectPath": "/Users/shahrukhellahi/Documents/Work/API/src/BA.Domain/BA.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/shahrukhellahi/Documents/Work/API/src/BA.Domain/BA.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/shahrukhellahi/Documents/Work/API/src/BA.Domain/BA.Domain.csproj",
+        "projectName": "BA.Domain",
+        "projectPath": "/Users/shahrukhellahi/Documents/Work/API/src/BA.Domain/BA.Domain.csproj",
+        "packagesPath": "/Users/shahrukhellahi/.nuget/packages/",
+        "outputPath": "/Users/shahrukhellahi/Documents/Work/API/src/BA.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/shahrukhellahi/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

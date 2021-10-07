@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="basys_enquiries" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <resource>BA_Basys::webservices_config</resource>
+            <label>Enquiries</label>
+            <tab>brandaddition</tab>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+
+                <field id="enquiries_only" translate="label" type="select"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enquiries Only?</label>
+                    <comment><![CDATA[When switched to "Yes" all checkout operations, tax calculations and delivery methods will be disabled on this store view]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="override" showInDefault="1" showInWebsite="1" showInStore="1" type="select">
+                    <label>Override Store Emails</label>
+                    <comment><![CDATA[Use custom email addresses rather than those provided in General > Store Email Addresses]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="from" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>From Email</label>
+                    <comment>This is the address that the customer will recieve enquiry notification emails form</comment>
+                    <depends>
+                        <field id="basys_enquiries/general/override">1</field>
+                    </depends>
+                </field>
+
+                <field id="from_name" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>From Name</label>
+                    <depends>
+                        <field id="basys_enquiries/general/override">1</field>
+                    </depends>
+                </field>
+
+                <field id="admin" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Admin Email</label>
+                    <comment>This is the email address that receives customer enquiries</comment>
+                    <depends>
+                        <field id="basys_enquiries/general/override">1</field>
+                    </depends>
+                </field>
+
+                <field id="admin_cc" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                    <label>Admin CCs</label>
+                    <frontend_model>BA\Enquiries\Block\Adminhtml\Form\Field\EmailFields</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <depends>
+                        <field id="basys_enquiries/general/override">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="summary" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cart Summary</label>
+                <field id="enabled" showInDefault="1" showInWebsite="1" showInStore="1" type="select">
+                    <label>Enabled</label>
+                    <comment>Allow user to submit an enquriry with the contents of their cart</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="template" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Customer Template</label>
+                    <source_model>BA\Enquiries\Model\Config\Source\Template</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="template_admin" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Admin Template</label>
+                    <source_model>BA\Enquiries\Model\Config\Source\Template</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="fields" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                    <label>Fields</label>
+                    <frontend_model>BA\Enquiries\Block\Adminhtml\Form\Field\EnquiryFields</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="custom" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Special Requests</label>
+                <field id="enabled" showInDefault="1" showInWebsite="1" showInStore="1" type="select">
+                    <label>Enabled</label>
+                    <comment>Display Special/Custom request form on website</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="template" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Customer Template</label>
+                    <source_model>BA\Enquiries\Model\Config\Source\Template</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="template_admin" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Admin Template</label>
+                    <source_model>BA\Enquiries\Model\Config\Source\Template</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="fields" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                    <label>Fields</label>
+                    <frontend_model>BA\Enquiries\Block\Adminhtml\Form\Field\EnquiryFields</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

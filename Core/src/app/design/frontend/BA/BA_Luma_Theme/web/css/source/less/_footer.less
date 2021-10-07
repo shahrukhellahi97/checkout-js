@@ -1,0 +1,58 @@
+// CUSTOMISED FOOTER STARTS    
+.footer_customise {
+    background-color: @ba-footer-background;
+    border-top:1px solid @ba-footer-border-top;
+    padding: 15px 0 0 0;
+    > div { // flex container
+        display: flex;
+        flex-direction: row;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    > div > div { // flex container column
+        width: 25%;
+        padding: 0 15px 15px 15px;
+    }
+    > div > div > ul { // footer list
+        list-style-type:none;
+        padding: 0;
+        margin: 0 0 15px 0;
+    }
+    > div > div > ul > li > a { // footer links
+        color: @ba-footer-links;
+    }
+}
+@media screen and (max-width: 768px) {
+    .footer_customise {
+        > div { // flex container
+            flex-direction: column;
+        }
+        > div > div { // container column
+            width: 100%;
+        }
+        > div > div > h4 { // footer heading
+            font-size: 18px;
+        }
+        > div > div > ul > li { // footer list item
+            font-size: 16px;
+        }
+        .footer_column_contact {
+            order: 4;
+        }
+        .footer_column_information {
+            order: 3;
+        }
+        .footer_column_categories {
+            order: 2;
+        }
+        .footer_column_giftcertificates {
+            order: 1;
+        }
+    }
+}
+.copyright {
+    background-color: transparent;
+    color: @magento-text-color;
+    padding: 10px 10px 25px 10px;
+}
+// CUSTOMISED FOOTER ENDS

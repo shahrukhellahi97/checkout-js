@@ -1,0 +1,27 @@
+.details-form {
+    margin-bottom: 32px;
+    font-size:90%;
+}
+
+.group-label {
+    font-weight: bold;
+    font-size:16px;
+}
+
+.group-label p {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.details-item {
+    font-size:14px;
+}
+.details-item p {
+    margin-bottom:0px;
+}
+.details-item.value p {
+    margin-bottom:10px;
+}
+.details-item.label {
+    font-weight: bold;
+}

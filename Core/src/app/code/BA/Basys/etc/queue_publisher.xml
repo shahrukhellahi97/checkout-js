@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/publisher.xsd">
+    <publisher topic="basys_command_queue">
+        <connection name="amqp" exchange="basys.command" />
+    </publisher>
+
+    <!--
+    <publisher topic="0.#">
+        <connection name="amqp" exchange="basys.command.delay-19" />
+    </publisher>
+
+    <publisher topic="*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-18" />
+    </publisher>
+
+    <publisher topic="*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-17" />
+    </publisher>
+
+    <publisher topic="*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-16" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-15" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-14" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-13" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-12" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-11" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-10" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-9" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-8" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-7" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-6" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-5" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-4" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-3" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-2" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-1" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.delay-0" />
+    </publisher>
+
+    <publisher topic="*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.0.#">
+        <connection name="amqp" exchange="basys.command.queue" />
+    </publisher>
+    -->
+</config>

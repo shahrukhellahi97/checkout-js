@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Configure basic mappings, more complex operations to be completed in dependent modules -->
+    <preference for="BA\Basys\Webservices\Command\AsyncCommandMessageInterface" type="BA\Basys\Webservices\Command\AsyncCommandMessage" />
+    <preference for="BA\Basys\Webservices\Command\AsyncCommandMessageFactoryInterface" type="BA\Basys\Webservices\Command\AsyncCommandMessageFactory" />
+
+    <preference for="BA\Basys\Webservices\Consumer\AsyncCommandConsumerInterface" type="BA\Basys\Webservices\Consumer\AsyncCommandConsumer" />
+
+    <preference for="BA\Basys\Webservices\Command\CommandPoolInterface" type="BA\Basys\Webservices\Command\CommandPool" />
+    <preference for="BA\Basys\Webservices\Http\ClientInterface" type="BA\Basys\Webservices\Http\Client\Soap" />
+    <preference for="BA\Basys\Webservices\Http\ConverterInterface" type="BA\Basys\Webservices\Http\Converter\ObjectToArrayConverter" />
+
+    <preference for="Magento\Framework\Amqp\Queue" type="BA\Basys\Framework\Amqp\Queue" />
+
+    <!-- Will eventually move this offsite - ex: sentry -->
+    <type name="BA\Basys\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+
+    <type name="BA\Basys\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">webservices</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">BA\Basys\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

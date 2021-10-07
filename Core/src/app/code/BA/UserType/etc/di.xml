@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="BA\UserType\Api\UserTypeManagementInterface" type="BA\UserType\Model\UserTypeManagement" />
+    <preference for="BA\UserType\Api\Data\ConfigInterface" type="BA\UserType\Model\Config" />
+    <preference for="BA\UserType\Api\Data\ValueListInterface" type="BA\UserType\Model\ValueList" />
+    <preference for="BA\UserType\Api\Data\ValueListItemInterface" type="BA\UserType\Model\ValueListItem" />
+
+    <type name="BA\BasysCatalog\Model\Catalog\Filter\FilterPool">
+        <arguments>
+            <argument name="filters" xsi:type="array">
+                <item name="available_catalogs" xsi:type="object">BA\UserType\Model\Catalog\Filter\ActiveCatalogs</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Value List -->
+    <virtualType name="BA\UserType\Model\ResourceModel\ValueList\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ba_usertype_value_list</argument>
+            <argument name="resourceModel" xsi:type="string">BA\UserType\Model\ResourceModel\ValueList</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="BA\UserType\Model\ResourceModel\ValueListItem\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ba_usertype_value_list_item</argument>
+            <argument name="resourceModel" xsi:type="string">BA\UserType\Model\ResourceModel\ValueListItem</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="BA\UserType\Model\ResourceModel\Rule\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ba_usertype_rule</argument>
+            <argument name="resourceModel" xsi:type="string">BA\UserType\Model\ResourceModel\Rule</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="BA\UserType\Model\ResourceModel\Config\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ba_usertype_config</argument>
+            <argument name="resourceModel" xsi:type="string">BA\UserType\Model\ResourceModel\Config</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="usertype_config_listing_data_source" xsi:type="string">BA\UserType\Model\ResourceModel\Config\Grid\Collection</item>
+                <item name="usertype_rules_listing_data_source" xsi:type="string">BA\UserType\Model\ResourceModel\Rule\Grid\Collection</item>
+                <item name="usertype_values_listing_data_source" xsi:type="string">BA\UserType\Model\ResourceModel\ValueList\Grid\Collection</item>
+                <item name="usertype_values_items_listing_data_source" xsi:type="string">BA\UserType\Model\ResourceModel\ValueListItem\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

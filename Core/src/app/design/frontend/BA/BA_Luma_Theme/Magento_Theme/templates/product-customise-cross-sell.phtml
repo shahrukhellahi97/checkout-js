@@ -1,0 +1,42 @@
+<div id="tab_element">
+    <ul class="tabs-horiz" >
+        <li>
+            <a href="#tab1_content">
+                <span>
+                    <?php echo __("You may also like"); ?>            
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="#tab2_content">
+                <span>
+                    <?php echo __("Related products"); ?>
+                </span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="tab_element_content">
+    <div id="tab1_content" >
+        <div>
+            <?php echo $this->getBlockHtml('product.info.upsell'); ?>
+        </div>
+    </div>
+    <div id="tab2_content" >
+        <div>
+        <?php echo $this->getBlockHtml('catalog.product.related'); ?>
+        </div>
+    </div>
+</div>
+
+<script>
+    require(["jquery","mage/backend/tabs"], function($){
+        $(function() {
+            $('#tab_element').tabs({
+                active: 'tab1_content',  // active tab elemen id
+                destination: '#tab_element_content', // tab content destination element id
+                shadowTabs: []        
+            });
+        });
+    });
+</script>

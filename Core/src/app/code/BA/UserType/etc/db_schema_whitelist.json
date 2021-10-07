@@ -1,0 +1,76 @@
+{
+    "ba_usertype_value_list": {
+        "column": {
+            "list_id": true,
+            "label": true,
+            "comment": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "ba_usertype_value_list_item": {
+        "column": {
+            "item_id": true,
+            "list_id": true,
+            "value": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BA_USRTYPE_VAL_LIST_ITEM_LIST_ID_BA_USRTYPE_VAL_LIST_LIST_ID": true
+        }
+    },
+    "ba_usertype_rule": {
+        "column": {
+            "rule_id": true,
+            "name": true,
+            "description": true,
+            "from_date": true,
+            "to_date": true,
+            "is_active": true,
+            "conditions_serialized": true,
+            "actions_serialized": true,
+            "sort_order": true
+        },
+        "index": {
+            "BA_USERTYPE_RULE_IS_ACTIVE_SORT_ORDER_TO_DATE_FROM_DATE": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "ba_usertype_config": {
+        "column": {
+            "config_id": true,
+            "name": true,
+            "customer_group_id": true,
+            "description": true,
+            "from_date": true,
+            "to_date": true,
+            "is_active": true,
+            "sort_order": true,
+            "stop_processing": true,
+            "website_id": true,
+            "catalog_ids": true,
+            "payment_type_ids": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BA_USRTYPE_CONFIG_CSTR_GROUP_ID_CSTR_GROUP_CSTR_GROUP_ID": true,
+            "BA_USERTYPE_CONFIG_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID": true
+        }
+    },
+    "ba_usertype_config_catalog": {
+        "column": {
+            "config_catalog_id": true,
+            "config_id": true,
+            "catalog_id": true,
+            "is_active": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BA_USRTYPE_CONFIG_CAT_CAT_ID_BA_BASYS_STORE_CAT_CAT_ID": true,
+            "BA_USRTYPE_CONFIG_CAT_CONFIG_ID_BA_USRTYPE_CONFIG_CONFIG_ID": true
+        }
+    }
+}

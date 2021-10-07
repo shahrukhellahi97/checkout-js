@@ -1,0 +1,35 @@
+
+<?php
+    $sliderDatas = $block->getMemberCollection();
+?>
+<div id="owlslider" class="owl-carousel">
+    <?php foreach ($sliderDatas as $sliderData) : ?>
+        <div>
+        <?php $imageMobUrl = $block->getMediaUrl().$sliderData->getMobimage(); ?>
+        <?php $imageUrl = $block->getMediaUrl().$sliderData->getImage(); ?>
+            <img class="image_desktop"  src="<?= /* @noEscape */ $imageUrl; ?>" alt="" /> 
+            <img class="image_mobile" src="<?= /* @noEscape */ $imageMobUrl; ?>" alt="" />  
+            <div class="slides_outer">
+            <div class="slides-content">
+                <div class="slides-column">
+                    <div>
+                        <h2><?=  /* @noEscape */  $sliderData->getTitle();?></h2>
+                        <p><?=  /* @noEscape */  $sliderData->getCaption();?></p>
+                        <p class="price"><?=  /* @noEscape */  $sliderData->getSliderPrice();?></p>
+                        <a href="<?=  /* @noEscape */  $sliderData->getLink();?>"><?=  /* @noEscape */  $sliderData->getButton();?></a>
+                    </div>
+                </div>
+                <div class="slides-column">
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        </div>
+    <?php endforeach; ?>
+</div>
+<script>
+    require(['jquery', 'loadCarousel'], function($, loadCarousel) {
+        loadCarousel();
+    });
+</script>

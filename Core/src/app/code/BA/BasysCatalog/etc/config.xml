@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <basys_store>
+            <store>
+                <catalog_selection>0</catalog_selection>
+                <expiration>24</expiration>
+            </store>
+        </basys_store>
+    </default>
+</config>

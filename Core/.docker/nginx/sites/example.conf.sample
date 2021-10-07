@@ -1,0 +1,4 @@
+if ($http_host = 'intel.dev.brandadditionweb.com') {
+    set $MAGE_RUN_CODE "intel";
+    set $MAGE_RUN_TYPE website;
+}

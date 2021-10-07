@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Tax\Api\Data\QuoteDetailsItemInterface">
+        <attribute code="tax_collectable" type="float" />
+        <attribute code="tax_rate" type="float" />
+        <attribute code="jurisdiction_tax_rates" type="array" />
+    </extension_attributes>
+</config>

@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget class="BA\Slider\Block\Widget\SliderImages" id="ba_Slider_sliders">
+		<label>Owl Carousel</label>
+		<description>Owl Carousel</description>
+	</widget>
+</widgets>

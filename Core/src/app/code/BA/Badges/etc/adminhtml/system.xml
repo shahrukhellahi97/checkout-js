@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="product_badges" sortOrder="10" translate="label">
+			<label>Product Badges</label>
+		</tab>
+		<section id="setting" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>Settings</label>
+			<tab>product_badges</tab>
+			<resource>BA_Badges::config_ba_Badges</resource>
+			<group id="new_product" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>New Products</label>
+				<field id="label" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                    <label>Label</label>
+					<comment/>
+                </field>
+                <field id="start_color" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                    <label>Start Color</label>
+                    <frontend_model>BA\Badges\Block\Color</frontend_model>
+					<comment/>
+                </field>
+                <field id="end_color" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                    <label>End Color</label>
+                    <frontend_model>BA\Badges\Block\Color</frontend_model>
+					<comment/>
+				</field>
+			</group>
+			<group id="on_sale" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>On Sale</label>
+				<field id="label" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>Label</label>
+					<comment/>
+                </field>
+                <field id="start_color" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                    <label>Start Color</label>
+                    <frontend_model>BA\Badges\Block\Color</frontend_model>
+					<comment/>
+                </field>
+                <field id="end_color" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                    <label>End Color</label>
+                    <frontend_model>BA\Badges\Block\Color</frontend_model>
+					<comment/>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

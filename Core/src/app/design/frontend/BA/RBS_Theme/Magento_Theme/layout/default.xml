@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_width" xsi:type="number">90</argument>
+            </arguments>
+        </referenceBlock>
+
+        <move element="register-link" destination="top.links"/> <!-- top links is user account menu-->
+
+        <referenceBlock name="header.links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="specialrequest.link"> <!-- CMS Page Link Link -->
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Special Request</argument>
+                    <argument name="path" xsi:type="string" translate="false">enquiries/custom</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceBlock name="header.links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="howtoorder.link"> <!-- CMS Page Link Link -->
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">How to Order</argument>
+                    <argument name="path" xsi:type="string" translate="false">how-to-order</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceContainer name="header.links">
+            <block class="Magento\Framework\View\Element\Text" name="rbs.site.selector">
+                <arguments>
+                    <argument name="text" xsi:type="string"><![CDATA[<li><a href="https://natwest.brand-estore.com/"><span>Natwest Range</span></a></li>]]></argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="store.menu">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Products</argument> <!-- mobile navigation tab default is 'Menu' -->
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="store.links">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Others</argument> <!-- mobile navigation tab default is 'Account' -->
+            </arguments>
+        </referenceBlock>
+
+        <move element="currency" destination="header.panel" before="-"/>
+        <referenceBlock name="currency" remove="true" /> <!-- Hide currency -->
+        <referenceBlock name="store.settings.currency" remove="true" />
+
+        <move element="header.links" destination="header.panel" after="-"/>
+        <move element="minicart" destination="header.panel" after="-"/>
+        <move element="top.search" destination="header.panel" after="-"/>
+
+
+        <move element="store_language" destination="header.panel" after="-"/>
+
+
+
+
+
+        <!-- FOOTER -->
+        <container name="footer-custom-container" as="custom-content" htmlTag="footer" htmlClass="footer_customise">
+            <container name="footer-custom-flex" as="custom-content" htmlTag="div">
+
+                <container name="footer-custom-flexcolumn-categories" htmlTag="div" htmlClass="footer_column_categories">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-categories-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Products</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Theme\Block\Html\Footer" name="footer_custom_categories" template="footer-custom-categories.phtml">
+                        <arguments>
+                            <argument name="view_model" xsi:type="object">BA\Theme\ViewModel\CategoryViewModel</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="footer-custom-flexcolumn-contact" htmlTag="div" htmlClass="footer_column_contact">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-contact-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Contact</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Text" name="footer_custom_contact">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<ul><li>Brand Addition</li><li>+44 (0) 161 786 0475</li><li><a href="mailto:rbs@brandaddition.com">rbs@brandaddition.com</a></li></ul>]]></argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="footer-custom-flexcolumn-info" htmlTag="div" htmlClass="footer_column_information">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-info-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Help and support</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_cms">
+                    </block>
+                </container>
+
+            </container>
+
+            <container name="footer-copyright" htmlTag="div" htmlClass="footer_copyright_div">
+                <block class="Magento\Framework\View\Element\Text" name="footer-copyright-block">
+                    <arguments>
+                        <argument name="text" xsi:type="string"><![CDATA[<p>&nbsp;</p>]]></argument>
+                    </arguments>
+                </block>
+            </container>
+
+        </container>
+
+        <referenceBlock name="sales-guest-form-link" remove="true"/> <!-- remove the link 'Orders and returns' from footer -->
+        <referenceBlock name="contact-us-link" remove="true"/> <!-- remove the link 'Contact us' from footer -->
+        <referenceBlock name="catalog-search-advanced-link" remove="true"/> <!-- remove the link 'Advanced search' from footer -->
+
+        <referenceBlock name="footer_links_cms">
+            <block class="Magento\Framework\View\Element\Html\Link" name="howtoorderfooter.link"> <!-- CMS Page Link -->
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">How to Order</argument>
+                    <argument name="path" xsi:type="string" translate="false">how-to-order</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="termsandconditionsfooter.link"> <!-- CMS Page Link -->
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Terms and Conditions</argument>
+                    <argument name="path" xsi:type="string" translate="false">terms-and-conditions</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <move element="privacy-policy-link" destination="footer_links_cms"/>
+        <move element="contact-us-link" destination="footer_links_cms"/>
+        <move element="search-term-popular-link" destination="footer_links_cms"/>
+        <move element="catalog-search-advanced-link" destination="footer_links_cms"/>
+        <move element="sales-guest-form-link" destination="footer_links_cms"/>
+
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true" />
+        <referenceBlock name="copyright" remove="true" />
+
+    </body>
+</page>

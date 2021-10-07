@@ -1,0 +1,47 @@
+<?php
+/** @var \BA\BasysOrders\Block\Adminhtml\System\Config\Form\Field\GetPaymentTypes $block */
+?>
+<button type="button" class="button" id="refresh-payment-types">
+    <span>Refresh</span>
+</button>
+
+<script type="text/javascript">  
+    (function() {    
+        
+        require(["jquery"], function($) {
+            $('#refresh-payment-types').on('click', function(){
+                $.ajax({
+                    url: '<?= $block->getAjaxUrl() ?>',
+                    type: "POST",
+                    data: { 
+                        form_key: window.FORM_KEY
+                    },
+                    showLoader: true,
+                    cache: false,
+                    success: function(response){
+                        var knownIds = [];
+                        var known = [];
+
+                        document.querySelectorAll('#basys_store_payment_types_active > option').forEach(function(element) {
+                            knownIds.push(element.getAttribute('value'));
+                        });
+                        
+                        response.forEach(function (node) {
+                            // console.log(node);
+                            if (knownIds.indexOf(node.payment_type_id) == -1) {
+                                // push values
+                                var title = node.reference.trim() +' ( ID ' + node.payment_type_id + ' - NEW )';
+                                var element = '\
+                                    <option value="' + node.payment_type_id + '">' + title + '</option>\
+                                ';
+
+                                $('#basys_store_payment_types_active').append(element);
+                            }
+                        });
+                    }
+                });
+            });
+        });
+
+    })();
+</script>

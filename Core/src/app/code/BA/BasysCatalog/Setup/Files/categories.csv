@@ -1,0 +1,48 @@
+DivisionId,DivisionName,CategoryId,ParentCategoryId,Category,Language,Culture
+39,JCB,9,0,Clothing,English,en-GB
+39,JCB,10,9,Footwear,English,en-GB
+39,JCB,11,9,Headwear,English,en-GB
+39,JCB,12,9,"Tees, Polos and Shirts",English,en-GB
+39,JCB,13,9,Outerwear,English,en-GB
+39,JCB,14,9,View All,English,en-GB
+39,JCB,15,9,Workwear,English,en-GB
+39,JCB,16,0,Models,English,en-GB
+39,JCB,18,16,1:32 Scale,English,en-GB
+39,JCB,20,16,1:50 Scale,English,en-GB
+39,JCB,23,0,Kids,English,en-GB
+39,JCB,24,23,Apparel,English,en-GB
+39,JCB,26,23,Toys,English,en-GB
+39,JCB,27,23,View All,English,en-GB
+39,JCB,28,0,New-In,English,en-GB
+39,JCB,29,0,Sale,English,en-GB
+39,JCB,30,0,Signature,English,en-GB
+39,JCB,31,16,View All,English,en-GB
+39,JCB,33,0,Test,English,en-GB
+39,JCB,34,33,Test2,English,en-GB
+39,JCB,40,0,Travel,English,en-GB
+39,JCB,41,0,Gifts,English,en-GB
+39,JCB,42,0,Watches,English,en-GB
+39,JCB,47,0,Office,English,en-GB
+39,JCB,48,40,Luggage,English,en-GB
+39,JCB,49,40,Travel Accessories,English,en-GB
+39,JCB,50,40,View All,English,en-GB
+39,JCB,51,41,Office,English,en-GB
+39,JCB,52,41,Drinkware,English,en-GB
+39,JCB,54,41,Mobile Accessories,English,en-GB
+39,JCB,55,41,View All,English,en-GB
+39,JCB,56,41,Giveaways/Promotional,English,en-GB
+39,JCB,57,23,Batteries,English,en-GB
+39,JCB,58,47,Stationery,English,en-GB
+39,JCB,59,47,Drinkware,English,en-GB
+39,JCB,60,47,Computer Accessories,English,en-GB
+39,JCB,61,47,View All,English,en-GB
+39,JCB,62,16,1:16 Scale,English,en-GB
+39,JCB,63,23,Books,English,en-GB
+39,JCB,64,16,1:76 Scale,English,en-GB
+39,JCB,65,16,Limited Edition and Collectors Choice,English,en-GB
+39,JCB,67,0,Motorsport,English,en-GB
+39,JCB,68,0,Search,English,en-GB
+39,JCB,69,9,Accessories,English,en-GB
+39,JCB,70,0,DefaultCategory,English,en-GB
+39,JCB,71,0,WFT,English,en-GB
+39,JCB,72,0,75th,English,en-GB

@@ -1,0 +1,16 @@
+<?php
+/** @var \BA\Theme\ViewModel\ContactViewModel $viewModel */
+$viewModel = $block->getViewModel();
+?>
+
+<ul>
+    <li><?php echo $viewModel->getAddress()?></li>
+</ul>
+
+<ul>
+    <li><?php echo $viewModel->getTimes()?></li>
+</ul>
+
+<ul>
+    <li><a href="<?php echo $viewModel->getEmail()?>"><?php echo $viewModel->getEmail()?></a></li>
+</ul>

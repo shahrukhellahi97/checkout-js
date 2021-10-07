@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="BA_UserType::index" parent="Magento_Customer::customer" title="User Type Management" module="BA_UserType" resource="Magento_Customer::customer" sortOrder="100" />
+
+        <add id="BA_UserType::config" parent="BA_UserType::index" title="Configurations" module="BA_UserType" resource="BA_UserType::config" action="ba_usertype/config"/>
+        <!-- <add id="BA_UserType::rules" parent="BA_UserType::index" title="Rule Management" module="BA_UserType" resource="BA_UserType::rules" action="ba_usertype/rule" /> -->
+        <add id="BA_UserType::lists" parent="BA_UserType::index" title="Value Lists" module="BA_UserType" resource="BA_UserType::rules" action="ba_usertype/values" />
+    </menu>
+</config>

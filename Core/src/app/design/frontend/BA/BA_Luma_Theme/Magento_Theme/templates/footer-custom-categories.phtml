@@ -1,0 +1,15 @@
+<?php
+/** @var \BA\Theme\ViewModel\CategoryViewModel $viewModel */
+$viewModel = $block->getViewModel();
+$categories = $viewModel->getFooterCategories();
+?>
+
+<?php if (count($categories) > 0): ?>
+	<ul>
+		<?php foreach($categories as $category): ?>
+			<li>
+				<a href="<?php echo $category['url'] ?>"><?php echo $category['name']?></a>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+<?php endif; ?>

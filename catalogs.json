@@ -1,0 +1,2372 @@
+[
+    {
+        "CatalogId": "14",
+        "Name": "BT Portfolio Items (Web Cat)",
+        "Currency": "GBP",
+        "DivisionId": "34"
+    },
+    {
+        "CatalogId": "18",
+        "Name": "BT Supplementary Branded Item",
+        "Currency": "GBP",
+        "DivisionId": "34"
+    },
+    {
+        "CatalogId": "89",
+        "Name": "Rolls-Royce Gift Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "15"
+    },
+    {
+        "CatalogId": "96",
+        "Name": "RBS Scheme",
+        "Currency": "GBP",
+        "DivisionId": "31"
+    },
+    {
+        "CatalogId": "140",
+        "Name": "Web Test Dummy Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "43"
+    },
+    {
+        "CatalogId": "146",
+        "Name": "NULL",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "265",
+        "Name": "EDS GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "58"
+    },
+    {
+        "CatalogId": "275",
+        "Name": "DHL Webstore",
+        "Currency": "GBP",
+        "DivisionId": "87"
+    },
+    {
+        "CatalogId": "300",
+        "Name": "Nissan Scheme",
+        "Currency": "GBP",
+        "DivisionId": "90"
+    },
+    {
+        "CatalogId": "305",
+        "Name": "Massey AGCO Pricing 2001",
+        "Currency": "GBP",
+        "DivisionId": "54"
+    },
+    {
+        "CatalogId": "309",
+        "Name": "BT New Range 2001-2002",
+        "Currency": "GBP",
+        "DivisionId": "34"
+    },
+    {
+        "CatalogId": "310",
+        "Name": "Ignite Range",
+        "Currency": "GBP",
+        "DivisionId": "34"
+    },
+    {
+        "CatalogId": "321",
+        "Name": "Nissan Euro Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "90"
+    },
+    {
+        "CatalogId": "323",
+        "Name": "Rolls-Royce New 2001 Range",
+        "Currency": "GBP",
+        "DivisionId": "15"
+    },
+    {
+        "CatalogId": "343",
+        "Name": "Countries first order prices",
+        "Currency": "GBP",
+        "DivisionId": "90"
+    },
+    {
+        "CatalogId": "364",
+        "Name": "Mercedes-Benz DEALER Special",
+        "Currency": "GBP",
+        "DivisionId": "57"
+    },
+    {
+        "CatalogId": "374",
+        "Name": "Cory Environmental",
+        "Currency": "GBP",
+        "DivisionId": "87"
+    },
+    {
+        "CatalogId": "386",
+        "Name": "Exostar RR Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "15"
+    },
+    {
+        "CatalogId": "392",
+        "Name": "Rolls-Royce Leisure Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "15"
+    },
+    {
+        "CatalogId": "418",
+        "Name": "JCB 2002 Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "431",
+        "Name": "Nissan GB - DEALER prices",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "432",
+        "Name": "Nissan GB - HQ Bulk Prices",
+        "Currency": "GBP",
+        "DivisionId": "130"
+    },
+    {
+        "CatalogId": "451",
+        "Name": "Nissan GB - STAFF/HQ",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "471",
+        "Name": "Lexus Centre Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "133"
+    },
+    {
+        "CatalogId": "474",
+        "Name": "Natwest Blueberry Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "94"
+    },
+    {
+        "CatalogId": "483",
+        "Name": "Accenture £££ Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "135"
+    },
+    {
+        "CatalogId": "491",
+        "Name": "Accenture $$$ Corporate Cat",
+        "Currency": "USD",
+        "DivisionId": "135"
+    },
+    {
+        "CatalogId": "494",
+        "Name": "Black & Decker Catalogue EUR",
+        "Currency": "EUR",
+        "DivisionId": "137"
+    },
+    {
+        "CatalogId": "497",
+        "Name": "Black & Decker Catalogue GBP",
+        "Currency": "GBP",
+        "DivisionId": "137"
+    },
+    {
+        "CatalogId": "502",
+        "Name": "Web Calendar Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "87"
+    },
+    {
+        "CatalogId": "504",
+        "Name": "BT2003",
+        "Currency": "GBP",
+        "DivisionId": "34"
+    },
+    {
+        "CatalogId": "508",
+        "Name": "BT Old Stock",
+        "Currency": "GBP",
+        "DivisionId": "34"
+    },
+    {
+        "CatalogId": "510",
+        "Name": "Nissan Dealer",
+        "Currency": "GBP",
+        "DivisionId": "130"
+    },
+    {
+        "CatalogId": "553",
+        "Name": "Orange",
+        "Currency": "GBP",
+        "DivisionId": "145"
+    },
+    {
+        "CatalogId": "557",
+        "Name": "IBM EUR 2011",
+        "Currency": "EUR",
+        "DivisionId": "33"
+    },
+    {
+        "CatalogId": "561",
+        "Name": "Nissan HQ",
+        "Currency": "GBP",
+        "DivisionId": "130"
+    },
+    {
+        "CatalogId": "600",
+        "Name": "Virgin Atlantic",
+        "Currency": "GBP",
+        "DivisionId": "162"
+    },
+    {
+        "CatalogId": "624",
+        "Name": "HSBC",
+        "Currency": "GBP",
+        "DivisionId": "163"
+    },
+    {
+        "CatalogId": "625",
+        "Name": "Ulster Bank",
+        "Currency": "GBP",
+        "DivisionId": "31"
+    },
+    {
+        "CatalogId": "627",
+        "Name": "NMGB 2005",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "641",
+        "Name": "Exostar 2005/6 Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "15"
+    },
+    {
+        "CatalogId": "646",
+        "Name": "JCB 2005 Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "670",
+        "Name": "JCB Retail Web",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "672",
+        "Name": "RR Leisure 2005/6 Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "15"
+    },
+    {
+        "CatalogId": "685",
+        "Name": "JCB 2006 Retail Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "686",
+        "Name": "Cadbury",
+        "Currency": "GBP",
+        "DivisionId": "179"
+    },
+    {
+        "CatalogId": "765",
+        "Name": "Intel Catalogue",
+        "Currency": "USD",
+        "DivisionId": "185"
+    },
+    {
+        "CatalogId": "774",
+        "Name": "Rolls-Royce Motor Cars",
+        "Currency": "GBP",
+        "DivisionId": "188"
+    },
+    {
+        "CatalogId": "788",
+        "Name": "JCB Retail 10%",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "874",
+        "Name": "PWC",
+        "Currency": "GBP",
+        "DivisionId": "206"
+    },
+    {
+        "CatalogId": "875",
+        "Name": "Tarmac 2016",
+        "Currency": "GBP",
+        "DivisionId": "197"
+    },
+    {
+        "CatalogId": "884",
+        "Name": "Nissan GB - GTR Prices",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "886",
+        "Name": "Steria Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "213"
+    },
+    {
+        "CatalogId": "887",
+        "Name": "Visa Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "214"
+    },
+    {
+        "CatalogId": "889",
+        "Name": "KPMG Europe",
+        "Currency": "EUR",
+        "DivisionId": "8"
+    },
+    {
+        "CatalogId": "894",
+        "Name": "Caterpillar EURO - DO NOT USE",
+        "Currency": "EUR",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "904",
+        "Name": "Michelin 2009",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "907",
+        "Name": "GTROC",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "922",
+        "Name": "Michelin French Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "925",
+        "Name": "JCB RETAIL 2010",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "926",
+        "Name": "DO NOT USE #1",
+        "Currency": "EUR",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "927",
+        "Name": "DO NOT USE #2",
+        "Currency": "USD",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "928",
+        "Name": "JCB Dealer GBP 2010",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "929",
+        "Name": "$ + € Conversion Catalogue.",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "930",
+        "Name": "JCB Dealer EUR 2010",
+        "Currency": "EUR",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "931",
+        "Name": "JCB Dealer USD 2010",
+        "Currency": "USD",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "933",
+        "Name": "TATA 2010",
+        "Currency": "GBP",
+        "DivisionId": "234"
+    },
+    {
+        "CatalogId": "934",
+        "Name": "TATA 2010 - EUR",
+        "Currency": "EUR",
+        "DivisionId": "234"
+    },
+    {
+        "CatalogId": "943",
+        "Name": "XXX DO NOT USE",
+        "Currency": "GBP",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "944",
+        "Name": "Michelin Dealer Finland 2011",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "945",
+        "Name": "Michelin Dealer Sweden 2011",
+        "Currency": "SEK",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "946",
+        "Name": "Michelin Dealer Denmark 2011",
+        "Currency": "DKK",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "947",
+        "Name": "Michelin Dealer Norway 2011",
+        "Currency": "NOK",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "951",
+        "Name": "Motorola Solutions 2010",
+        "Currency": "GBP",
+        "DivisionId": "240"
+    },
+    {
+        "CatalogId": "952",
+        "Name": "Vauxhall 2011 (SRP)",
+        "Currency": "GBP",
+        "DivisionId": "241"
+    },
+    {
+        "CatalogId": "953",
+        "Name": "Eng, Michelin Comp Radia",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "954",
+        "Name": "FR, Michelin Comp Radia",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "955",
+        "Name": "Michelin Lifestyle Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "958",
+        "Name": "FR, Michelin Comp",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "960",
+        "Name": "Caterpillar Lift Trucks",
+        "Currency": "EUR",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "962",
+        "Name": "JCB Experience Shops",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "963",
+        "Name": "Nissan Retail 2011",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "965",
+        "Name": "BT",
+        "Currency": "GBP",
+        "DivisionId": "34"
+    },
+    {
+        "CatalogId": "968",
+        "Name": "CHEP EUR 2011",
+        "Currency": "EUR",
+        "DivisionId": "244"
+    },
+    {
+        "CatalogId": "972",
+        "Name": "CHEP GBP 2011",
+        "Currency": "GBP",
+        "DivisionId": "244"
+    },
+    {
+        "CatalogId": "973",
+        "Name": "Aviva 2011",
+        "Currency": "GBP",
+        "DivisionId": "246"
+    },
+    {
+        "CatalogId": "975",
+        "Name": "Vauxhall WDN",
+        "Currency": "GBP",
+        "DivisionId": "241"
+    },
+    {
+        "CatalogId": "976",
+        "Name": "Finning Retail",
+        "Currency": "GBP",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "978",
+        "Name": "Google Retail 2012 - GBP",
+        "Currency": "GBP",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "980",
+        "Name": "Finning Wholesale",
+        "Currency": "GBP",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "981",
+        "Name": "Finning 20 - DO NOT USE",
+        "Currency": "GBP",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "982",
+        "Name": "Finning 25 - DO NOT USE",
+        "Currency": "GBP",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "985",
+        "Name": "Finning 15 - DO NOT USE",
+        "Currency": "GBP",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "986",
+        "Name": "Dewalt 2012 - GBP",
+        "Currency": "GBP",
+        "DivisionId": "76"
+    },
+    {
+        "CatalogId": "990",
+        "Name": "Google Marketing 2012 - EURO",
+        "Currency": "EUR",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "991",
+        "Name": "Google Marketing 2012 - USD",
+        "Currency": "USD",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "992",
+        "Name": "Google Marketing 2012 - GBP",
+        "Currency": "GBP",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "993",
+        "Name": "Google Internal 2012",
+        "Currency": "GBP",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "994",
+        "Name": "Friends Life 2012",
+        "Currency": "GBP",
+        "DivisionId": "252"
+    },
+    {
+        "CatalogId": "999",
+        "Name": "Benelux 2016 - Dealer",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1000",
+        "Name": "Merck Product Libary",
+        "Currency": "EUR",
+        "DivisionId": "223"
+    },
+    {
+        "CatalogId": "1001",
+        "Name": "LTA 2012 - Retail (Public)",
+        "Currency": "GBP",
+        "DivisionId": "247"
+    },
+    {
+        "CatalogId": "1003",
+        "Name": "LTA Cardio Tennis 2012",
+        "Currency": "GBP",
+        "DivisionId": "247"
+    },
+    {
+        "CatalogId": "1007",
+        "Name": "Copy of Michelin 2009",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1009",
+        "Name": "Caterpillar 2012 GBP",
+        "Currency": "GBP",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "1012",
+        "Name": "Dewalt 2012 - EUR",
+        "Currency": "EUR",
+        "DivisionId": "76"
+    },
+    {
+        "CatalogId": "1013",
+        "Name": "Lexus Retail",
+        "Currency": "GBP",
+        "DivisionId": "133"
+    },
+    {
+        "CatalogId": "1015",
+        "Name": "EE",
+        "Currency": "GBP",
+        "DivisionId": "145"
+    },
+    {
+        "CatalogId": "1016",
+        "Name": "Boutique Michelin",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1022",
+        "Name": "ExxonMobil Test System",
+        "Currency": "GBP",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1023",
+        "Name": "ExxonMobil Euro Test",
+        "Currency": "EUR",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1026",
+        "Name": "ExxonMobil GBP Test",
+        "Currency": "GBP",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1027",
+        "Name": "Michelin Turkey",
+        "Currency": "TURKEYTRY",
+        "DivisionId": "268"
+    },
+    {
+        "CatalogId": "1028",
+        "Name": "Legal & General",
+        "Currency": "GBP",
+        "DivisionId": "269"
+    },
+    {
+        "CatalogId": "1029",
+        "Name": "Nissan Europe Retail - GBP",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1030",
+        "Name": "Nissan Europe Retail - EUR",
+        "Currency": "EUR",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1031",
+        "Name": "Nissan Europe Retail - SEK",
+        "Currency": "SEK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1032",
+        "Name": "Nissan Europe Retail - NOK",
+        "Currency": "NOK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1033",
+        "Name": "Nissan Europe Retail - DKK",
+        "Currency": "DKK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1034",
+        "Name": "Nissan Europe Dealer - GBP",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1035",
+        "Name": "Nissan Europe Dealer - EUR",
+        "Currency": "EUR",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1036",
+        "Name": "Nissan Europe Dealer - SEK",
+        "Currency": "SEK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1037",
+        "Name": "Nissan Europe Dealer - NOK",
+        "Currency": "NOK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1038",
+        "Name": "Nissan Europe Dealer - DKK",
+        "Currency": "DKK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1039",
+        "Name": "Nissan Europe RBU - GBP",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1040",
+        "Name": "Nissan Europe RBU - EUR",
+        "Currency": "EUR",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1041",
+        "Name": "Nissan Europe RBU - SEK",
+        "Currency": "SEK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1042",
+        "Name": "Nissan Europe RBU - DKK",
+        "Currency": "DKK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1043",
+        "Name": "Nissan Europe RBU - NOK",
+        "Currency": "NOK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1044",
+        "Name": "Nissan Europe (NAE) - EUR",
+        "Currency": "EUR",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1045",
+        "Name": "GFW Redemptions",
+        "Currency": "USD",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "1049",
+        "Name": "ExxonMobil Distrib EURO 2013",
+        "Currency": "EUR",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1050",
+        "Name": "Arqiva",
+        "Currency": "GBP",
+        "DivisionId": "273"
+    },
+    {
+        "CatalogId": "1051",
+        "Name": "UK Boutique Michelin",
+        "Currency": "GBP",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1054",
+        "Name": "OLD Exxon Mobile Distrib TRY",
+        "Currency": "TURKEYTRY",
+        "DivisionId": "275"
+    },
+    {
+        "CatalogId": "1056",
+        "Name": "ExxonMobil Distrib GBP 2013",
+        "Currency": "GBP",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1058",
+        "Name": "ExxonMobil Distrib USD 2013",
+        "Currency": "USD",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1059",
+        "Name": "ExxonMobil Distrib NOK 2013",
+        "Currency": "NOK",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1061",
+        "Name": "Arthur J Gallagher Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "279"
+    },
+    {
+        "CatalogId": "1068",
+        "Name": "ExxonMobil Distrib CHF 2013",
+        "Currency": "CHF",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1071",
+        "Name": "BAO French Catalogue 2014",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1073",
+        "Name": "ExxonMobil Employees EURO",
+        "Currency": "EUR",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1076",
+        "Name": "JCB Russia Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "1079",
+        "Name": "PPM +8% Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1080",
+        "Name": "Caterpillar EURO",
+        "Currency": "EUR",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "1081",
+        "Name": "Mac Tools Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "287"
+    },
+    {
+        "CatalogId": "1082",
+        "Name": "Nestle UK Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "288"
+    },
+    {
+        "CatalogId": "1083",
+        "Name": "Michelin BNLdealer2014",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1084",
+        "Name": "Michelin PPM Extra",
+        "Currency": "GBP",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1085",
+        "Name": "Mich Dealer EUR",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1086",
+        "Name": "ExxonMobil Employees TRY",
+        "Currency": "TURKEYTRY",
+        "DivisionId": "275"
+    },
+    {
+        "CatalogId": "1088",
+        "Name": "BSkyB Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "290"
+    },
+    {
+        "CatalogId": "1089",
+        "Name": "Nissan Europe (NAE) - GBP",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1090",
+        "Name": "ExxonMobil Employees USD",
+        "Currency": "USD",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1091",
+        "Name": "ExxonMobil Distrib TRY",
+        "Currency": "TURKEYTRY",
+        "DivisionId": "275"
+    },
+    {
+        "CatalogId": "1111",
+        "Name": "Nutricia Ireland Catalogue",
+        "Currency": "IRELANDEUR",
+        "DivisionId": "308"
+    },
+    {
+        "CatalogId": "1114",
+        "Name": "Finning DEPOT",
+        "Currency": "GBP",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "1118",
+        "Name": "KPMG GBP 2015",
+        "Currency": "GBP",
+        "DivisionId": "8"
+    },
+    {
+        "CatalogId": "1123",
+        "Name": "Aviva Euro",
+        "Currency": "EUR",
+        "DivisionId": "246"
+    },
+    {
+        "CatalogId": "1127",
+        "Name": "Schneider EURO",
+        "Currency": "EUR",
+        "DivisionId": "316"
+    },
+    {
+        "CatalogId": "1130",
+        "Name": "My Account EUR",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1134",
+        "Name": "Boutique Retail Store",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1135",
+        "Name": "ExxonMobil Dealer POL 2015",
+        "Currency": "EUR",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1136",
+        "Name": "ExxonMobil Employees POL 2015",
+        "Currency": "EUR",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1137",
+        "Name": "Rated People Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "319"
+    },
+    {
+        "CatalogId": "1139",
+        "Name": "Brand Addition Marketing GBP",
+        "Currency": "GBP",
+        "DivisionId": "324"
+    },
+    {
+        "CatalogId": "1140",
+        "Name": "Copy of Vauxhall WDN",
+        "Currency": "GBP",
+        "DivisionId": "241"
+    },
+    {
+        "CatalogId": "1141",
+        "Name": "Google Store Buying Price- EUR",
+        "Currency": "EUR",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "1142",
+        "Name": "The Body Shop Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "325"
+    },
+    {
+        "CatalogId": "1144",
+        "Name": "Unibet Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "327"
+    },
+    {
+        "CatalogId": "1147",
+        "Name": "Qlik EUR Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "329"
+    },
+    {
+        "CatalogId": "1148",
+        "Name": "Qlik GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "329"
+    },
+    {
+        "CatalogId": "1161",
+        "Name": "Michelin Travel Plates",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1162",
+        "Name": "Promotional Redemptions - GBP",
+        "Currency": "GBP",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "1166",
+        "Name": "Google Digital Academy - GBP",
+        "Currency": "GBP",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "1167",
+        "Name": "Brand Addition Marketing EUR",
+        "Currency": "EUR",
+        "DivisionId": "324"
+    },
+    {
+        "CatalogId": "1168",
+        "Name": "Brand Addition Marketing USD",
+        "Currency": "USD",
+        "DivisionId": "324"
+    },
+    {
+        "CatalogId": "1169",
+        "Name": "Dewalt 2016 - USD",
+        "Currency": "USD",
+        "DivisionId": "76"
+    },
+    {
+        "CatalogId": "1171",
+        "Name": "Arnold Clark Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "337"
+    },
+    {
+        "CatalogId": "1172",
+        "Name": "Web Pitch Catalogue GBP",
+        "Currency": "GBP",
+        "DivisionId": "43"
+    },
+    {
+        "CatalogId": "1173",
+        "Name": "Web Pitch Catalogue EUR",
+        "Currency": "EUR",
+        "DivisionId": "43"
+    },
+    {
+        "CatalogId": "1174",
+        "Name": "Web Pitch Catalogue USD",
+        "Currency": "USD",
+        "DivisionId": "43"
+    },
+    {
+        "CatalogId": "1175",
+        "Name": "ABB Germany DE Catalogue EUR",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "338"
+    },
+    {
+        "CatalogId": "1180",
+        "Name": "Hella Germany EUR Catalogue",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "351"
+    },
+    {
+        "CatalogId": "1181",
+        "Name": "IBM Germany Catalogue EUR",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "349"
+    },
+    {
+        "CatalogId": "1186",
+        "Name": "Recaro Business EUR Catalogue",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "347"
+    },
+    {
+        "CatalogId": "1189",
+        "Name": "Timken Germany EUR Catalogue",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "354"
+    },
+    {
+        "CatalogId": "1191",
+        "Name": "Vattenfall DE EUR Catalogue",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "350"
+    },
+    {
+        "CatalogId": "1192",
+        "Name": "Zurich Germany EUR Catalogue",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "343"
+    },
+    {
+        "CatalogId": "1193",
+        "Name": "Michelin BULK EUR",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1201",
+        "Name": "Michelin Dealer France 2016",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1203",
+        "Name": "Brand Addition Retail (GBP)",
+        "Currency": "GBP",
+        "DivisionId": "324"
+    },
+    {
+        "CatalogId": "1216",
+        "Name": "ABB Germany Catalog SEK",
+        "Currency": "GERMANYSEK",
+        "DivisionId": "338"
+    },
+    {
+        "CatalogId": "1217",
+        "Name": "ABB Germany Catalog NOK",
+        "Currency": "GERMANYNOK",
+        "DivisionId": "338"
+    },
+    {
+        "CatalogId": "1219",
+        "Name": "Adient Germany EUR Cat",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "357"
+    },
+    {
+        "CatalogId": "1227",
+        "Name": "Exxon Mobil EUR Catalogue",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "364"
+    },
+    {
+        "CatalogId": "1240",
+        "Name": "TCRE SO 2016",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1241",
+        "Name": "Georg Fischer EUR Catalogue DE",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "376"
+    },
+    {
+        "CatalogId": "1245",
+        "Name": "Web Pitch Catalogue DKK",
+        "Currency": "DKK",
+        "DivisionId": "43"
+    },
+    {
+        "CatalogId": "1246",
+        "Name": "Workday GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "379"
+    },
+    {
+        "CatalogId": "1247",
+        "Name": "Maersk USD",
+        "Currency": "USD",
+        "DivisionId": "380"
+    },
+    {
+        "CatalogId": "1248",
+        "Name": "MoneySense",
+        "Currency": "GBP",
+        "DivisionId": "31"
+    },
+    {
+        "CatalogId": "1249",
+        "Name": "SKF Germany/Sweden/Italy (EUR)",
+        "Currency": "EUR",
+        "DivisionId": "381"
+    },
+    {
+        "CatalogId": "1252",
+        "Name": "Employee Store GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "382"
+    },
+    {
+        "CatalogId": "1259",
+        "Name": "Employee Store EUR Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "382"
+    },
+    {
+        "CatalogId": "1260",
+        "Name": "Employee Store USD Catalogue",
+        "Currency": "USD",
+        "DivisionId": "382"
+    },
+    {
+        "CatalogId": "1261",
+        "Name": "Employee Store JPY Catalogue",
+        "Currency": "JPY",
+        "DivisionId": "382"
+    },
+    {
+        "CatalogId": "1262",
+        "Name": "Brand Store GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "382"
+    },
+    {
+        "CatalogId": "1263",
+        "Name": "Brand Store EUR Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "382"
+    },
+    {
+        "CatalogId": "1264",
+        "Name": "Brand Store USD Catalogue",
+        "Currency": "USD",
+        "DivisionId": "382"
+    },
+    {
+        "CatalogId": "1265",
+        "Name": "Brand Store JPY Catalogue",
+        "Currency": "JPY",
+        "DivisionId": "382"
+    },
+    {
+        "CatalogId": "1266",
+        "Name": "Web Pitch Bulk Catalogue GBP",
+        "Currency": "GBP",
+        "DivisionId": "43"
+    },
+    {
+        "CatalogId": "1267",
+        "Name": "Web Pitch Bulk Catalog USD",
+        "Currency": "USD",
+        "DivisionId": "43"
+    },
+    {
+        "CatalogId": "1268",
+        "Name": "SKF Germany/Sweden/Italy (SEK)",
+        "Currency": "SEK",
+        "DivisionId": "381"
+    },
+    {
+        "CatalogId": "1269",
+        "Name": "Danske Bank DKK Catalogue",
+        "Currency": "DKK",
+        "DivisionId": "383"
+    },
+    {
+        "CatalogId": "1272",
+        "Name": "Mich Dealer GBP",
+        "Currency": "GBP",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1273",
+        "Name": "Mich Dealer CHF",
+        "Currency": "CHF",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1277",
+        "Name": "SKF Germany/Sweden/Italy (GBP)",
+        "Currency": "GBP",
+        "DivisionId": "381"
+    },
+    {
+        "CatalogId": "1278",
+        "Name": "Workday EURO Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "379"
+    },
+    {
+        "CatalogId": "1279",
+        "Name": "Workday USD Catalogue",
+        "Currency": "USD",
+        "DivisionId": "379"
+    },
+    {
+        "CatalogId": "1284",
+        "Name": "Manchester United GBP Cat",
+        "Currency": "GBP",
+        "DivisionId": "384"
+    },
+    {
+        "CatalogId": "1285",
+        "Name": "Danske Bank EUR Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "383"
+    },
+    {
+        "CatalogId": "1286",
+        "Name": "Danske Bank SEK Catalogue",
+        "Currency": "SEK",
+        "DivisionId": "383"
+    },
+    {
+        "CatalogId": "1287",
+        "Name": "Danske Bank NOK Catalogue",
+        "Currency": "NOK",
+        "DivisionId": "383"
+    },
+    {
+        "CatalogId": "1288",
+        "Name": "ATS Euromaster",
+        "Currency": "GBP",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1289",
+        "Name": "BSkyB Euro Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "290"
+    },
+    {
+        "CatalogId": "1291",
+        "Name": "SKF Germany/Sweden/Italy (USD)",
+        "Currency": "USD",
+        "DivisionId": "381"
+    },
+    {
+        "CatalogId": "1296",
+        "Name": "Zurich 2017 EUR Catalogue",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "343"
+    },
+    {
+        "CatalogId": "1297",
+        "Name": "Zurich 2017 CHF Catalogue",
+        "Currency": "GERMANYCHF",
+        "DivisionId": "343"
+    },
+    {
+        "CatalogId": "1299",
+        "Name": "BT Range EUR",
+        "Currency": "EUR",
+        "DivisionId": "34"
+    },
+    {
+        "CatalogId": "1300",
+        "Name": "Danske Bank GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "383"
+    },
+    {
+        "CatalogId": "1302",
+        "Name": "Irwin GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "137"
+    },
+    {
+        "CatalogId": "1303",
+        "Name": "Lenox GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "137"
+    },
+    {
+        "CatalogId": "1305",
+        "Name": "BT Range USD",
+        "Currency": "USD",
+        "DivisionId": "34"
+    },
+    {
+        "CatalogId": "1310",
+        "Name": "JCB Uniform",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "1337",
+        "Name": "Accenture € Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "135"
+    },
+    {
+        "CatalogId": "1338",
+        "Name": "C&C Intl Ireland EUR",
+        "Currency": "IRELANDEUR",
+        "DivisionId": "306"
+    },
+    {
+        "CatalogId": "1343",
+        "Name": "Mac Tools GBP",
+        "Currency": "GBP",
+        "DivisionId": "137"
+    },
+    {
+        "CatalogId": "1346",
+        "Name": "JCB Ariba / Internal Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "1358",
+        "Name": "Schneider Catalogue SEK",
+        "Currency": "SEK",
+        "DivisionId": "316"
+    },
+    {
+        "CatalogId": "1359",
+        "Name": "Schneider Catalogue NOK",
+        "Currency": "NOK",
+        "DivisionId": "316"
+    },
+    {
+        "CatalogId": "1360",
+        "Name": "Schneider Catalogue DKK",
+        "Currency": "DKK",
+        "DivisionId": "316"
+    },
+    {
+        "CatalogId": "1361",
+        "Name": "Cookies & Calendars 2018 USD",
+        "Currency": "USD",
+        "DivisionId": "414"
+    },
+    {
+        "CatalogId": "1362",
+        "Name": "ABB Euro DE",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "338"
+    },
+    {
+        "CatalogId": "1363",
+        "Name": "ABB Euro CH",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "338"
+    },
+    {
+        "CatalogId": "1364",
+        "Name": "Google Deep Mind - GBP",
+        "Currency": "GBP",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "1366",
+        "Name": "BA Marketing Bulk GBP",
+        "Currency": "GBP",
+        "DivisionId": "324"
+    },
+    {
+        "CatalogId": "1367",
+        "Name": "BA Marketing Bulk EUR",
+        "Currency": "EUR",
+        "DivisionId": "324"
+    },
+    {
+        "CatalogId": "1368",
+        "Name": "BA Marketing Bulk USD",
+        "Currency": "USD",
+        "DivisionId": "324"
+    },
+    {
+        "CatalogId": "1369",
+        "Name": "JCB BULK GBP",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "1370",
+        "Name": "JCB BULK USD",
+        "Currency": "USD",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "1371",
+        "Name": "JCB BULK EUR",
+        "Currency": "EUR",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "1373",
+        "Name": "Caterpillar Desford Shop",
+        "Currency": "GBP",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "1378",
+        "Name": "Caterpillar USD",
+        "Currency": "USD",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "1379",
+        "Name": "Bulk Exxon Distrib EURO 2018",
+        "Currency": "EUR",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1380",
+        "Name": "Bulk Exxon Distrib GBP 2018",
+        "Currency": "GBP",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1381",
+        "Name": "Bulk Exxon Distrib USD 2018",
+        "Currency": "USD",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1382",
+        "Name": "Bulk Exxon Distrib CHF 2018",
+        "Currency": "CHF",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1383",
+        "Name": "Bulk Exxon Distrib NOK 2018",
+        "Currency": "NOK",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1384",
+        "Name": "Bulk Exxon Employee EURO 2018",
+        "Currency": "EUR",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1385",
+        "Name": "Bulk Exxon Employee USD 2018",
+        "Currency": "USD",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1390",
+        "Name": "Stars Group Retail USD",
+        "Currency": "USD",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1391",
+        "Name": "Stars Group Retail GBP",
+        "Currency": "GBP",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1392",
+        "Name": "Stars Group Retail EUR",
+        "Currency": "EUR",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1393",
+        "Name": "Stars Group Employee USD",
+        "Currency": "USD",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1394",
+        "Name": "Stars Group Employee GBP",
+        "Currency": "GBP",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1395",
+        "Name": "Stars Group Employee EUR",
+        "Currency": "EUR",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1396",
+        "Name": "Stars Group Marketing GBP",
+        "Currency": "GBP",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1397",
+        "Name": "Stars Group Marketing USD",
+        "Currency": "USD",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1398",
+        "Name": "Stars Group Marketing EUR",
+        "Currency": "EUR",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1399",
+        "Name": "Bulk Buy - GBP",
+        "Currency": "GBP",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "1400",
+        "Name": "Bulk Buy - EURO",
+        "Currency": "EUR",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "1401",
+        "Name": "Bulk Buy - USD",
+        "Currency": "USD",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "1404",
+        "Name": "ITP Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "15"
+    },
+    {
+        "CatalogId": "1406",
+        "Name": "FCD Microsite",
+        "Currency": "EUR",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1407",
+        "Name": "Web pitch Bulk Catalogue EUR",
+        "Currency": "EUR",
+        "DivisionId": "43"
+    },
+    {
+        "CatalogId": "1408",
+        "Name": "Schneider Germany BULK EUR",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "361"
+    },
+    {
+        "CatalogId": "1409",
+        "Name": "Dummy Nutricia Catalogue",
+        "Currency": "IRELANDEUR",
+        "DivisionId": "308"
+    },
+    {
+        "CatalogId": "1410",
+        "Name": "Schneider BULK EUR",
+        "Currency": "EUR",
+        "DivisionId": "316"
+    },
+    {
+        "CatalogId": "1411",
+        "Name": "Nissan Europe NAE Bulk - Euro",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1412",
+        "Name": "Nissan Europe NAE Bulk - GBP",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1413",
+        "Name": "Nissan Europe RBU Bulk - Euro",
+        "Currency": "EUR",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1414",
+        "Name": "Nissan Europe RBU Bulk - GBP",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1415",
+        "Name": "Nissan Europe RBU Bulk - NOK",
+        "Currency": "NOK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1416",
+        "Name": "Nissan Europe RBU Bulk - DKK",
+        "Currency": "DKK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1417",
+        "Name": "Nissan Europe RBU Bulk - SEK",
+        "Currency": "SEK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1418",
+        "Name": "Nissan Europe Deal Bulk - Euro",
+        "Currency": "EUR",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1419",
+        "Name": "Nissan Europe Deal Bulk - GBP",
+        "Currency": "GBP",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1420",
+        "Name": "Nissan Europe Deal Bulk - NOK",
+        "Currency": "NOK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1421",
+        "Name": "Nissan Europe Deal Bulk - DKK",
+        "Currency": "DKK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1422",
+        "Name": "Nissan Europe Deal Bulk - SEK",
+        "Currency": "SEK",
+        "DivisionId": "119"
+    },
+    {
+        "CatalogId": "1423",
+        "Name": "SKF ROW (EUR)",
+        "Currency": "EUR",
+        "DivisionId": "381"
+    },
+    {
+        "CatalogId": "1424",
+        "Name": "SKF ROW (SEK)",
+        "Currency": "SEK",
+        "DivisionId": "381"
+    },
+    {
+        "CatalogId": "1425",
+        "Name": "SKF ROW (GBP)",
+        "Currency": "GBP",
+        "DivisionId": "381"
+    },
+    {
+        "CatalogId": "1426",
+        "Name": "SKF ROW (USD)",
+        "Currency": "USD",
+        "DivisionId": "381"
+    },
+    {
+        "CatalogId": "1428",
+        "Name": "Stars Group Star Coin USD",
+        "Currency": "USD",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1429",
+        "Name": "Stars Group Star Coin GBP",
+        "Currency": "GBP",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1430",
+        "Name": "Stars Group Star Coin EUR",
+        "Currency": "EUR",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1432",
+        "Name": "DBB 2018",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "343"
+    },
+    {
+        "CatalogId": "1433",
+        "Name": "Michelin BULK TMitems",
+        "Currency": "EUR",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1434",
+        "Name": "Zurich 2017 GBP Catalogue",
+        "Currency": "GERMANYGBP",
+        "DivisionId": "343"
+    },
+    {
+        "CatalogId": "1435",
+        "Name": "Ericsson 2018 EUR Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "96"
+    },
+    {
+        "CatalogId": "1436",
+        "Name": "Ericsson 2018 GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "96"
+    },
+    {
+        "CatalogId": "1440",
+        "Name": "BULK Manchester United USD",
+        "Currency": "USD",
+        "DivisionId": "384"
+    },
+    {
+        "CatalogId": "1441",
+        "Name": "Tata Consultancy Services GBP",
+        "Currency": "GBP",
+        "DivisionId": "422"
+    },
+    {
+        "CatalogId": "1442",
+        "Name": "Delivery Hero Catalogue",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "423"
+    },
+    {
+        "CatalogId": "1443",
+        "Name": "TMD Friction Catalogue",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "424"
+    },
+    {
+        "CatalogId": "1444",
+        "Name": "BULK ORANGE AFCON 2019 USD",
+        "Currency": "USD",
+        "DivisionId": "333"
+    },
+    {
+        "CatalogId": "1445",
+        "Name": "Mann Filter FANS Catalogue EUR",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "425"
+    },
+    {
+        "CatalogId": "1446",
+        "Name": "JP Morgan 2019 GBP",
+        "Currency": "GBP",
+        "DivisionId": "141"
+    },
+    {
+        "CatalogId": "1447",
+        "Name": "JP Morgan 2019 EUR",
+        "Currency": "EUR",
+        "DivisionId": "141"
+    },
+    {
+        "CatalogId": "1448",
+        "Name": "GetYourGuide Catalogue EUR",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "426"
+    },
+    {
+        "CatalogId": "1449",
+        "Name": "Cat Workwear",
+        "Currency": "GBP",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "1450",
+        "Name": "Black & Decker Bulk EUR",
+        "Currency": "EUR",
+        "DivisionId": "137"
+    },
+    {
+        "CatalogId": "1451",
+        "Name": "Black & Decker Bulk GBP",
+        "Currency": "GBP",
+        "DivisionId": "137"
+    },
+    {
+        "CatalogId": "1455",
+        "Name": "Mann Filter Employee EUR",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "425"
+    },
+    {
+        "CatalogId": "1457",
+        "Name": "Maersk Drilling Catalogue",
+        "Currency": "USD",
+        "DivisionId": "427"
+    },
+    {
+        "CatalogId": "1460",
+        "Name": "Leicester Visitor  DO NOT USE",
+        "Currency": "GBP",
+        "DivisionId": "215"
+    },
+    {
+        "CatalogId": "1462",
+        "Name": "Aggreko Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "428"
+    },
+    {
+        "CatalogId": "1463",
+        "Name": "Delivery Hero Zero Price",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "423"
+    },
+    {
+        "CatalogId": "1464",
+        "Name": "Finastra GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "429"
+    },
+    {
+        "CatalogId": "1466",
+        "Name": "Mann Filter B2B Catalogue EUR",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "425"
+    },
+    {
+        "CatalogId": "1467",
+        "Name": "ABB Bulk 2019",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "338"
+    },
+    {
+        "CatalogId": "1473",
+        "Name": "Aggreko € Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "428"
+    },
+    {
+        "CatalogId": "1480",
+        "Name": "Danske Bank DKK Private Buy",
+        "Currency": "DKK",
+        "DivisionId": "383"
+    },
+    {
+        "CatalogId": "1481",
+        "Name": "Tarmac Bulk",
+        "Currency": "GBP",
+        "DivisionId": "197"
+    },
+    {
+        "CatalogId": "1482",
+        "Name": "DevOps Products",
+        "Currency": "GBP",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "1483",
+        "Name": "Stars Group AU Marketing USD",
+        "Currency": "USD",
+        "DivisionId": "419"
+    },
+    {
+        "CatalogId": "1485",
+        "Name": "Finastra USD Catalogue",
+        "Currency": "USD",
+        "DivisionId": "429"
+    },
+    {
+        "CatalogId": "1486",
+        "Name": "Finastra EUR Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "429"
+    },
+    {
+        "CatalogId": "1487",
+        "Name": "Aggreko $ USD Catalgoue",
+        "Currency": "USD",
+        "DivisionId": "428"
+    },
+    {
+        "CatalogId": "1489",
+        "Name": "Chromebook",
+        "Currency": "GBP",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "1492",
+        "Name": "ExxonMobil Franchise Dealer",
+        "Currency": "EUR",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1493",
+        "Name": "Nespresso Bulk GBP",
+        "Currency": "GBP",
+        "DivisionId": "288"
+    },
+    {
+        "CatalogId": "1494",
+        "Name": "Employee - USD",
+        "Currency": "USD",
+        "DivisionId": "185"
+    },
+    {
+        "CatalogId": "1495",
+        "Name": "Employee - EUR",
+        "Currency": "EUR",
+        "DivisionId": "185"
+    },
+    {
+        "CatalogId": "1496",
+        "Name": "Employee - GBP",
+        "Currency": "GBP",
+        "DivisionId": "185"
+    },
+    {
+        "CatalogId": "1497",
+        "Name": "Consumer - GBP",
+        "Currency": "GBP",
+        "DivisionId": "185"
+    },
+    {
+        "CatalogId": "1498",
+        "Name": "Consumer - EUR",
+        "Currency": "EUR",
+        "DivisionId": "185"
+    },
+    {
+        "CatalogId": "1499",
+        "Name": "Consumer - USD",
+        "Currency": "USD",
+        "DivisionId": "185"
+    },
+    {
+        "CatalogId": "1500",
+        "Name": "Esso Clothing 2020",
+        "Currency": "GBP",
+        "DivisionId": "265"
+    },
+    {
+        "CatalogId": "1501",
+        "Name": "JCBFACEB",
+        "Currency": "GBP",
+        "DivisionId": "39"
+    },
+    {
+        "CatalogId": "1502",
+        "Name": "Google Points",
+        "Currency": "CZK",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "1503",
+        "Name": "Redemptions - USD",
+        "Currency": "USD",
+        "DivisionId": "185"
+    },
+    {
+        "CatalogId": "1504",
+        "Name": "Hitachi-ABB EUR",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "432"
+    },
+    {
+        "CatalogId": "1505",
+        "Name": "Scania B2B EUR Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1506",
+        "Name": "Gumball Redemption",
+        "Currency": "GBP",
+        "DivisionId": "248"
+    },
+    {
+        "CatalogId": "1511",
+        "Name": "Michelin TM CHF",
+        "Currency": "CHF",
+        "DivisionId": "218"
+    },
+    {
+        "CatalogId": "1518",
+        "Name": "Scania B2B GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1519",
+        "Name": "Scania B2B USD Catalogue",
+        "Currency": "USD",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1520",
+        "Name": "Scania B2B DKK Catalogue",
+        "Currency": "DKK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1521",
+        "Name": "Scania B2B NOK Catalogue",
+        "Currency": "NOK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1522",
+        "Name": "Scania B2B SEK Catalogue",
+        "Currency": "SEK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1523",
+        "Name": "Scania Dealer EUR Catalog",
+        "Currency": "EUR",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1524",
+        "Name": "Scania Dealer GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1525",
+        "Name": "Scania Dealer USD Catalogue",
+        "Currency": "USD",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1526",
+        "Name": "Scania Dealer DKK Catalogue",
+        "Currency": "DKK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1527",
+        "Name": "Scania Dealer NOK Catalogue",
+        "Currency": "NOK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1528",
+        "Name": "Scania Dealer SEK Catalogue",
+        "Currency": "SEK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1529",
+        "Name": "Scania Retail EUR Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1530",
+        "Name": "Scania Retail GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1531",
+        "Name": "Scania Retail USD Catalogue",
+        "Currency": "USD",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1532",
+        "Name": "Scania Retail DKK Catalogue",
+        "Currency": "DKK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1533",
+        "Name": "Scania Retail NOK Catalogue",
+        "Currency": "NOK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1534",
+        "Name": "Scania Retail SEK Catalogue",
+        "Currency": "SEK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1538",
+        "Name": "Mambu Germany EUR",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "434"
+    },
+    {
+        "CatalogId": "1539",
+        "Name": "Web Test PLN Catalogue",
+        "Currency": "PLN",
+        "DivisionId": "43"
+    },
+    {
+        "CatalogId": "1540",
+        "Name": "Scania B2B PLN Catalogue",
+        "Currency": "PLN",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1541",
+        "Name": "Scania Dealer PLN Catalogue",
+        "Currency": "PLN",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1542",
+        "Name": "Scania Retail PLN Catalogue",
+        "Currency": "PLN",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1543",
+        "Name": "Scania Bulk B2B EUR Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1544",
+        "Name": "Scania Bulk B2B GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1545",
+        "Name": "Scania Bulk B2B USD Catalogue",
+        "Currency": "USD",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1546",
+        "Name": "Scania Bulk B2B DKK Catalogue",
+        "Currency": "DKK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1547",
+        "Name": "Scania Bulk B2B NOK Catalogue",
+        "Currency": "NOK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1548",
+        "Name": "Scania Bulk B2B SEKCatalogue",
+        "Currency": "SEK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1549",
+        "Name": "Scania Bulk Deal EUR Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1550",
+        "Name": "Scania Bulk Deal GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1551",
+        "Name": "Scania Bulk Deal USD Catalogue",
+        "Currency": "USD",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1552",
+        "Name": "Scania Bulk Deal DKK Catalogue",
+        "Currency": "DKK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1553",
+        "Name": "Scania Bulk Deal NOK Catalogue",
+        "Currency": "NOK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "1554",
+        "Name": "Scania Bulk Deal SEK Catalogue",
+        "Currency": "SEK",
+        "DivisionId": "433"
+    },
+    {
+        "CatalogId": "3213",
+        "Name": "ABB Germany Catalog DKK",
+        "Currency": "GERMANYDKK",
+        "DivisionId": "338"
+    },
+    {
+        "CatalogId": "3218",
+        "Name": "Vattenfall DE SEK Catalogue",
+        "Currency": "GERMANYSEK",
+        "DivisionId": "350"
+    },
+    {
+        "CatalogId": "3226",
+        "Name": "Eaton DE EUR",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "2361"
+    },
+    {
+        "CatalogId": "179206",
+        "Name": "RETAIL Workday GBP Catalogue",
+        "Currency": "GBP",
+        "DivisionId": "379"
+    },
+    {
+        "CatalogId": "179207",
+        "Name": "RETAIL Workday EURO Catalogue",
+        "Currency": "EUR",
+        "DivisionId": "379"
+    },
+    {
+        "CatalogId": "179208",
+        "Name": "RETAIL Workday USD Catalogue",
+        "Currency": "USD",
+        "DivisionId": "379"
+    },
+    {
+        "CatalogId": "2203207",
+        "Name": "Eaton Bulk DE EUR",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "2361"
+    },
+    {
+        "CatalogId": "2203210",
+        "Name": "Bulk 2018",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "347"
+    },
+    {
+        "CatalogId": "2203211",
+        "Name": "Eaton Kit EUR",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "2361"
+    },
+    {
+        "CatalogId": "2203212",
+        "Name": "TMD Friction Bulk Catalogue",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "424"
+    },
+    {
+        "CatalogId": "2203213",
+        "Name": "GetYourGuide Employee Stuff",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "426"
+    },
+    {
+        "CatalogId": "2203214",
+        "Name": "Copy of ABB Germany DE Catalog",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "338"
+    },
+    {
+        "CatalogId": "2203215",
+        "Name": "Kalender Bulk 2020",
+        "Currency": "GERMANYEUR",
+        "DivisionId": "376"
+    }
+]

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="enquiries_summary_template" label="Customer Cart Summary" file="customer_cart_summary.html" type="html" module="BA_Enquiries" area="frontend"/>
+    <template id="enquiries_summary_template_admin" label="Customer Cart Summary ( Admin )" file="customer_cart_summary_admin.html" type="html" module="BA_Enquiries" area="frontend"/>
+
+    <template id="enquiries_custom_template" label="Special Request" file="special_request.html" type="html" module="BA_Enquiries" area="frontend"/>
+    <template id="enquiries_custom_template_admin" label="Special Request ( Admin )" file="special_request_admin.html" type="html" module="BA_Enquiries" area="frontend"/>
+
+</config>

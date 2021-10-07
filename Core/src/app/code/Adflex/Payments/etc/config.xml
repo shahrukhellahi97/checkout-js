@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <adflex>
+                <active>1</active>
+                <model>AdflexPaymentsGateway</model>
+                <secret_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+                <access_key backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+                <apgid backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+                <order_status>processing</order_status>
+                <authorise_status>pending</authorise_status>
+                <payment_action>authorize</payment_action>
+                <title>Adflex Payments (Credit/Debit Card)</title>
+                <can_initialize>1</can_initialize>
+                <can_initialize_vault>0</can_initialize_vault>
+                <can_authorize>1</can_authorize>
+                <can_authorize_vault>1</can_authorize_vault>
+                <can_capture>1</can_capture>
+                <can_capture_vault>1</can_capture_vault>
+                <can_void>0</can_void>
+                <can_refund_partial_per_invoice>0</can_refund_partial_per_invoice>
+                <can_refund>0</can_refund>
+                <can_use_checkout>1</can_use_checkout>
+                <is_gateway>1</is_gateway>
+                <sort_order>1</sort_order>
+                <debugReplaceKeys>MERCHANT_KEY</debugReplaceKeys>
+                <paymentInfoKeys>FRAUD_MSG_LIST</paymentInfoKeys>
+                <privateInfoKeys>FRAUD_MSG_LIST</privateInfoKeys>
+                <group>adflex_group</group>
+                <invoice_treatment>Printed</invoice_treatment>
+                <tax_treatment>NIL</tax_treatment>
+                <commodity_code>commodity_code</commodity_code>
+                <tax_category>tax_category</tax_category>
+                <tax_type>tax_type</tax_type>
+                <tax_code>tax_code</tax_code>
+                <sector_type>MM</sector_type>
+                <merchant_category_code>MCC</merchant_category_code>
+            </adflex>
+            <adflex_vault>
+                <model>AdflexVaultFacade</model>
+                <title>Stored Cards (Adflex)</title>
+                <group>adflex_group</group>
+            </adflex_vault>
+        </payment>
+    </default>
+</config>

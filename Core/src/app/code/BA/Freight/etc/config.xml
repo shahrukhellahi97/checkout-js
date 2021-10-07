@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <bafreightstandard>
+                <active>1</active>
+                <name>Standard</name>
+                <title>1-3 Business Days</title>
+                <carrier>101</carrier>
+                <model>BA\Freight\Model\Carrier\Standard</model>
+            </bafreightstandard>
+
+            <bafreightexpress>
+                <active>1</active>
+                <name>Express</name>
+                <title>Next Business Days</title>
+                <carrier>77</carrier>
+                <model>BA\Freight\Model\Carrier\Express</model>
+            </bafreightexpress>
+        </carriers>
+    </default>
+</config>

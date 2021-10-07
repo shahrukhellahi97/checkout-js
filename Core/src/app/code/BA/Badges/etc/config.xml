@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<setting>
+			<new_product>
+				<label>New</label>
+				<start_color>#C922C3</start_color>
+				<end_color>#A043A7</end_color>
+			</new_product>
+			<on_sale>
+				<label>Sale</label>
+				<start_color>#2989d8</start_color>
+				<end_color>#1e5799</end_color>
+			</on_sale>
+		</setting>
+	</default>
+</config>

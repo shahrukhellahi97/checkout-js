@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Store Refactor -->
+    <preference for="BA\BasysCatalog\Api\Data\DivisionInterface" type="BA\BasysCatalog\Model\Division" />
+    <preference for="BA\BasysCatalog\Api\Data\SourceCodeInterface" type="BA\BasysCatalog\Model\SourceCode" />
+    <preference for="BA\BasysCatalog\Api\Data\CustomerInterface" type="BA\BasysCatalog\Model\Customer" />
+    <preference for="BA\BasysCatalog\Api\Data\CatalogInterface" type="BA\BasysCatalog\Model\Catalog" />
+    <preference for="BA\BasysCatalog\Api\Data\KeyGroupInterface" type="BA\BasysCatalog\Model\KeyGroup" />
+    <preference for="BA\BasysCatalog\Api\Data\LevelInterface" type="BA\BasysCatalog\Api\Data\Level" />
+    <preference for="BA\BasysCatalog\Api\BasysStoreManagementInterface" type="BA\BasysCatalog\Model\BasysStoreManagement" />
+    <preference for="BA\BasysCatalog\Api\QuoteManagementInterface" type="BA\BasysCatalog\Model\QuoteManagement" />
+    <preference for="BA\BasysCatalog\Api\CatalogResolverInterface" type="BA\BasysCatalog\Model\Catalog\Resolver" />
+    <preference for="BA\BasysCatalog\Import\Product\ProductMetadataProviderInterface" type="BA\BasysCatalog\Import\Product\Meta\Simple" />
+    <preference for="BA\BasysCatalog\Import\ProductQueueProcessorInterface" type="BA\BasysCatalog\Import\ProductQueueProcessor" />
+
+    <type name="BA\BasysCatalog\Model\Catalog\Filter\FilterPool">
+        <arguments>
+            <argument name="filters" xsi:type="array">
+                <item name="resolve_currency" xsi:type="object">BA\BasysCatalog\Model\Catalog\Filter\Filters\Currency</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="BA\BasysCatalog\Model\Catalog\Resolver">
+        <arguments>
+            <argument name="filter" xsi:type="object">BA\BasysCatalog\Model\Catalog\Filter\FilterPool</argument>
+        </arguments>
+    </type>
+
+    <type name="BA\BasysCatalog\Model\Config\Structure\Field\Data">
+        <arguments>
+            <argument name="fieldProviders" xsi:type="array">
+                <item name="source_code" xsi:type="object">BA\BasysCatalog\Model\Config\Structure\Field\Provider\SourceCode</item>
+                <item name="customer" xsi:type="object">BA\BasysCatalog\Model\Config\Structure\Field\Provider\Customer</item>
+                <item name="key_group" xsi:type="object">BA\BasysCatalog\Model\Config\Structure\Field\Provider\KeyGroup</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Config\Model\Config\Structure\Data">
+        <plugin name="ba_store_config" type="BA\BasysCatalog\Model\Config\Structure\Field\Data" />
+    </type>
+
+    <!-- Catalog -->
+    <preference for="BA\BasysCatalog\Api\ProductResolverInterface" type="BA\BasysCatalog\Model\ProductResolver" />
+    <preference for="BA\BasysCatalog\Api\Data\BasysProductInterface" type="BA\BasysCatalog\Model\BasysProduct" />
+    <preference for="BA\BasysCatalog\Api\Data\BasysProductPriceInterface" type="BA\BasysCatalog\Model\BasysProductPrice" />
+
+    <!-- Import Stuff -->
+    <preference for="BA\BasysCatalog\Import\VersionValidationInterface" type="BA\BasysCatalog\Import\VersionValidator" />
+    <preference for="BA\BasysCatalog\Import\CatalogImportInterface" type="BA\BasysCatalog\Import\CatalogImport" />
+    <preference for="BA\BasysCatalog\Import\Queue\QueueListResultInterface" type="BA\BasysCatalog\Import\Queue\QueueListResult" />
+    <preference for="BA\BasysCatalog\Import\Queue\QueueInterface" type="BA\BasysCatalog\Import\Queue\Queues\Simple" />
+
+    <!-- <preference for="BA\BasysCatalog\Import\Queue\QueueProcessorInterface" type="BA\BasysCatalog\Import\Queue\Process\FastProcessor" /> -->
+    <preference for="BA\BasysCatalog\Import\Queue\QueueProcessorInterface" type="BA\BasysCatalog\Import\Queue\Process\SimpleProcessor" />
+
+    <preference for="BA\BasysCatalog\Import\Product\BatchSaveInterface" type="BA\BasysCatalog\Import\Product\Save\Batch" />
+
+    <preference for="BA\BasysCatalog\Import\Product\SaveHandlerInterface" type="BA\BasysCatalog\Import\Product\SaveHandler" />
+    <preference for="BA\BasysCatalog\Import\Product\Modifier\ModifierInterface" type="BA\BasysCatalog\Import\Product\Modifier\ModifierChain" />
+
+    <type name="BA\BasysCatalog\Import\Product\Modifier\ModifierChain">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="set_website_ids" xsi:type="object">BA\BasysCatalog\Import\Product\Modifier\Action\SetWebsiteIds</item>
+                <!-- 
+                remove until smarter stuff
+
+                <item name="set_attrs" xsi:type="object">BA\BasysCatalog\Import\Product\Modifier\Action\SetAttributes</item>
+                <item name="set_colour" xsi:type="object">BA\BasysCatalog\Import\Product\Modifier\Action\SetColour</item>
+                -->
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Magento\Catalog\Pricing\Price\Pool">
+        <arguments>
+            <argument name="prices" xsi:type="array">
+                <item name="regular_price" xsi:type="string">BA\BasysCatalog\Pricing\Price\FinalPrice</item>
+                <item name="final_price" xsi:type="string">BA\BasysCatalog\Pricing\Price\FinalPrice</item>
+                <!--
+                <item name="custom_option_price" xsi:type="string">BA\BasysCatalog\Pricing\Price\CustomPrice</item>
+                
+                <item name="regular_price" xsi:type="string">BA\BasysCatalog\Pricing\Price\FinalPrice</item>
+                <item name="final_price" xsi:type="string">BA\BasysCatalog\Pricing\Price\FinalPrice</item> 
+                
+                <item name="tier_price" xsi:type="string">Magento\Catalog\Pricing\Price\TierPrice</item>
+                <item name="special_price" xsi:type="string">Magento\Catalog\Pricing\Price\SpecialPrice</item>
+                <item name="base_price" xsi:type="string">Magento\Catalog\Pricing\Price\BasePrice</item>
+                <item name="custom_option_price" xsi:type="string">Magento\Catalog\Pricing\Price\CustomOptionPrice</item>
+                <item name="configured_price" xsi:type="string">Magento\Catalog\Pricing\Price\ConfiguredPrice</item>
+                <item name="configured_regular_price" xsi:type="string">Magento\Catalog\Pricing\Price\ConfiguredRegularPrice</item>
+                -->
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Command Pool -->
+    <virtualType name="StockTransferFactory" type="BA\Basys\Webservices\Http\BasysTransferFactory">
+        <arguments>
+            <argument name="endpoint" xsi:type="string">stock.asmx</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="ProductTransferFactory" type="BA\Basys\Webservices\Http\BasysTransferFactory">
+        <arguments>
+            <argument name="endpoint" xsi:type="string">product.asmx</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="ProductDetailsCommand" type="BA\Basys\Webservices\Command\Command">
+        <arguments>
+            <argument name="commandName" xsi:type="string">product_get_details</argument>
+            <argument name="request" xsi:type="object">BA\BasysCatalog\Webservices\Request\GetProductDetails</argument>
+            <argument name="transferFactory" xsi:type="object">ProductTransferFactory</argument>
+            <argument name="handler" xsi:type="object">BA\BasysCatalog\Webservices\Response\GetProductDetailsHandler</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="ProductLevelCommand" type="BA\Basys\Webservices\Command\Command">
+        <arguments>
+            <argument name="commandName" xsi:type="string">product_get_level</argument>
+            <argument name="request" xsi:type="object">BA\BasysCatalog\Webservices\Request\GetLevel</argument>
+            <argument name="transferFactory" xsi:type="object">StockTransferFactory</argument>
+            <argument name="handler" xsi:type="object">BA\BasysCatalog\Webservices\Response\GetLevelHandler</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AsyncProductLevelCommand" type="BA\Basys\Webservices\Command\AsyncCommand">
+        <arguments>
+            <argument name="command" xsi:type="object">ProductLevelCommand</argument>
+            <argument name="handler" xsi:type="object">BA\BasysCatalog\Webservices\Response\Async\GetLevelHandler</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AsyncProductDetailsCommand" type="BA\Basys\Webservices\Command\AsyncCommand">
+        <arguments>
+            <argument name="command" xsi:type="object">ProductDetailsCommand</argument>
+            <argument name="handler" xsi:type="object">BA\BasysCatalog\Import\Async\QueueProducts</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="BA\Basys\Webservices\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="product_get_details" xsi:type="string">ProductDetailsCommand</item>
+                <item name="product_get_details_async" xsi:type="string">AsyncProductDetailsCommand</item>
+                <item name="product_get_level" xsi:type="string">ProductLevelCommand</item>
+                <item name="product_get_level_async" xsi:type="string">AsyncProductLevelCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Command Line Methods -->
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <!-- <item name="basys_catalog_levels" xsi:type="object">BA\BasysCatalog\Console\Command\Levels</item>  -->
+                <item name="basys_catalog_clean" xsi:type="object">BA\BasysCatalog\Console\Command\Clean</item>
+                <item name="basys_catalog_import" xsi:type="object">BA\BasysCatalog\Console\Command\Queue</item>
+                <item name="basys_catalog_process" xsi:type="object">BA\BasysCatalog\Console\Command\Process</item>
+                <item name="basys_catalog_queue_process" xsi:type="object">BA\BasysCatalog\Console\Command\QueueProcess</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Proxies for dumb magento -->
+    <preference for="BA\BasysCatalog\Api\ConsoleManagementInterface" type="BA\BasysCatalog\Model\ConsoleManagement" />
+
+    <type name="BA\BasysCatalog\Console\Command\Clean">
+        <arguments>
+            <argument name="consoleManagement" xsi:type="object">BA\BasysCatalog\Api\ConsoleManagementInterface\Proxy</argument>
+        </arguments>
+    </type>
+
+    <type name="BA\BasysCatalog\Console\Command\Process">
+        <arguments>
+            <argument name="consoleManagement" xsi:type="object">BA\BasysCatalog\Api\ConsoleManagementInterface\Proxy</argument>
+        </arguments>
+    </type>
+
+    <type name="BA\BasysCatalog\Console\Command\Queue">
+        <arguments>
+            <argument name="consoleManagement" xsi:type="object">BA\BasysCatalog\Api\ConsoleManagementInterface\Proxy</argument>
+        </arguments>
+    </type>
+</config>

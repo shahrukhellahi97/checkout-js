@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- DTOs -->
+    <preference for="BA\Punchout\Api\Data\DTOs\Types\AddressInterface" type="BA\Punchout\Model\DTOs\Types\Address" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Types\CredentialInterface" type="BA\Punchout\Model\DTOs\Types\Credential" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Types\AttributeInterface" type="BA\Punchout\Model\DTOs\Types\Attribute" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Types\ContactInterface" type="BA\Punchout\Model\DTOs\Types\Contact" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Types\HeaderInterface" type="BA\Punchout\Model\DTOs\Types\Header" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Types\StatusInterface" type="BA\Punchout\Model\DTOs\Types\Status" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Types\UrlInterface" type="BA\Punchout\Model\DTOs\Types\Url" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Types\ClassificationInterface" type="BA\Punchout\Model\DTOs\Types\Classification" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Types\ShippingInterface" type="BA\Punchout\Model\DTOs\Types\Shipping" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Types\MoneyInterface" type="BA\Punchout\Model\DTOs\Types\Money" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Types\ItemInterface" type="BA\Punchout\Model\DTOs\Types\Item" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Types\AttributeCollectionInterface" type="BA\Punchout\Model\DTOs\Types\AttributeCollection" />
+    <preference for="BA\Punchout\Api\Data\DTOs\RequestInterface" type="BA\Punchout\Model\DTOs\Request" />
+    <preference for="BA\Punchout\Api\Data\DTOs\ResponseInterface" type="BA\Punchout\Model\DTOs\Response" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Request\SetupRequestInterface" type="BA\Punchout\Model\DTOs\Request\SetupRequest" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Request\Body\SetupRequestBodyInterface" type="BA\Punchout\Model\DTOs\Request\Body\SetupRequestBody" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Request\OrderMessageInterface" type="BA\Punchout\Model\DTOs\Request\OrderMessage" />
+    <preference for="BA\Punchout\Api\Data\DTOs\Request\Body\OrderMessageBodyInterface" type="BA\Punchout\Model\DTOs\Request\Body\OrderMessageBody" />
+
+    <!-- ORM -->
+    <preference for="BA\Punchout\Api\Data\RequestInterface" type="BA\Punchout\Model\Request" />
+    <preference for="BA\Punchout\Api\Data\CredentialInterface" type="BA\Punchout\Model\Credential" />
+    <preference for="BA\Punchout\Api\RequestRepositoryInterface" type="BA\Punchout\Model\RequestRepository" />
+
+    <!-- Processing -->
+    <preference for="BA\Punchout\Api\Processor\SetupRequestProcessorInterface" type="BA\Punchout\Processor\SetupRequestProcessor" />
+    <preference for="BA\Punchout\Api\Processor\OrderMessageProcesserInterface" type="BA\Punchout\Processor\OrderMessageProcesser" />
+
+    <type name="Magento\Checkout\CustomerData\Cart">
+        <plugin name="is_punchout_customer_cart_section" type="BA\Punchout\Plugin\Checkout\CustomerData\Cart" />
+    </type>
+
+    <type name="Magento\Checkout\Block\Cart\Sidebar">
+        <plugin name="add_punchout_checkout_url" type="BA\Punchout\Plugin\Checkout\Block\Cart\Sidebar" />
+    </type>
+
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="set_virtual_quote" type="BA\Punchout\Plugin\SetVirtualCart" />
+    </type>
+
+    <!-- Payment Gateway -->
+    <virtualType name="PunchoutFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">BA\Punchout\Ui\ConfigProvider::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">PunchoutValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">PunchoutValidatorPool</argument>
+            <argument name="commandPool" xsi:type="object">PunchoutGatewayCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PunchoutValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PunchoutValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">PunchoutGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PunchoutGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">PunchoutGatewayConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PunchoutGatewayConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">BA\Punchout\Ui\ConfigProvider::CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Order Gateway -->
+    <virtualType name="PunchoutGatewayCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="authorize" xsi:type="string">PunchoutAuthoriseCommand</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    
+    <virtualType name="PunchoutAuthoriseCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">PunchoutAuthoriseRequest</argument>
+            <argument name="handler" xsi:type="object">PunchoutAuthoriseResponseHandler</argument>
+            <argument name="transferFactory" xsi:type="object">BA\Punchout\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">BA\Punchout\Gateway\Http\Client\Json</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PunchoutAuthoriseResponseHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="authorisation" xsi:type="string">BA\Punchout\Gateway\Response\PunchoutOrderMessageResponseHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PunchoutAuthoriseRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="order" xsi:type="string">BA\Punchout\Gateway\Request\PunchoutOrderMessageBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

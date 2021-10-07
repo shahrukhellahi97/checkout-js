@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="ba_usertype_rule" resource="default" engine="innodb" comment="Salesrule">
+        <column xsi:type="int" name="rule_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Name"/>
+        <column xsi:type="text" name="description" nullable="true" comment="Description"/>
+        <column xsi:type="date" name="from_date" comment="From"/>
+        <column xsi:type="date" name="to_date" comment="To"/>
+        <column xsi:type="smallint" name="is_active" unsigned="false" nullable="false" identity="false" default="0" comment="Is Active"/>
+        <column xsi:type="mediumtext" name="conditions_serialized" nullable="true" comment="Conditions Serialized"/>
+        <column xsi:type="mediumtext" name="actions_serialized" nullable="true" comment="Actions Serialized"/>
+        <column xsi:type="int" name="sort_order" unsigned="true" nullable="false" identity="false" default="0" comment="Sort Order"/>
+
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="rule_id"/>
+        </constraint>
+
+        <index referenceId="BA_CUSTOMER_RULE_ACTIVE_SORT_TO_FROM" indexType="btree">
+            <column name="is_active"/>
+            <column name="sort_order"/>
+            <column name="to_date"/>
+            <column name="from_date"/>
+        </index>
+    </table>    
+
+    <table name="ba_usertype_config_catalog">
+        <column xsi:type="int" name="config_catalog_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="config_id" unsigned="true" nullable="false"/>
+        <column xsi:type="int" name="catalog_id" unsigned="true" nullable="false" comment="Catalog ID" identity="false" />
+        <column xsi:type="smallint" name="is_active" unsigned="false" nullable="false" identity="false" default="0" comment="Is Active"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="config_catalog_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BA_USERTYPE_CONFIG_CATALOG_CATALOG_ID_CATALOG_CATALOG_ID" 
+                    table="ba_usertype_config_catalog"
+                    column="catalog_id" 
+                    referenceTable="ba_basys_store_catalog"
+                    referenceColumn="catalog_id"
+                    onDelete="CASCADE"/>
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BA_USERTYPE_CONFIG_CATALOG_CONFIG_ID_CONFIG_CONFIG_ID" 
+                    table="ba_usertype_config_catalog"
+                    column="config_id" 
+                    referenceTable="ba_usertype_config"
+                    referenceColumn="config_id"
+                    onDelete="CASCADE"/>
+    </table>
+
+    <table name="ba_usertype_config">
+        <column xsi:type="int" name="config_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Name"/>
+        <column xsi:type="int" name="customer_group_id" unsigned="true" nullable="false" identity="false" />
+        <column xsi:type="text" name="description" nullable="true" comment="Description"/>
+        <column xsi:type="date" name="from_date" comment="From"/>
+        <column xsi:type="date" name="to_date" comment="To"/>
+        <column xsi:type="smallint" name="is_active" unsigned="false" nullable="false" identity="false" default="0" comment="Is Active"/>
+        <column xsi:type="int" name="sort_order" unsigned="true" nullable="false" identity="false" default="0" comment="Sort Order" />
+        <column xsi:type="tinyint" name="stop_processing" unsigned="true" nullable="false" identity="false" default="0" comment="Stop Processing" />
+        <column xsi:type="smallint" name="website_id" unsigned="true" nullable="false" identity="false" default="1" comment="Website ID"/>
+        
+        <!-- Laziness here, refactor so it's like, better later -->
+        <column xsi:type="varchar" name="catalog_ids" nullable="true" length="255" comment="Catalog IDs"/>
+        <column xsi:type="varchar" name="payment_type_ids" nullable="true" length="255" comment="Payment Type IDs"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="config_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BUC_WEBSITE_ID_STORE_WEBSITE_WEBSITE_ID" 
+                    table="ba_usertype_config"
+                    column="website_id" 
+                    referenceTable="store_website"
+                    referenceColumn="website_id"
+                    onDelete="CASCADE"/>
+        
+        <constraint xsi:type="foreign" 
+                    referenceId="BUC_CUSTOMER_GROUP_ID_CUSTOMER_GROUP_CUSTOMER_GROUP_ID" 
+                    table="ba_usertype_config"
+                    column="customer_group_id" 
+                    referenceTable="customer_group"
+                    referenceColumn="customer_group_id"
+                    onDelete="CASCADE"/>
+    </table>
+
+    <table name="ba_usertype_value_list" resource="default" engine="innodb">
+        <column xsi:type="smallint" name="list_id" padding="6" unsigned="true" nullable="false" identity="true"/>
+        <column name="label" nullable="false" xsi:type="varchar" length="64" />
+        <column name="comment" nullable="true" xsi:type="text"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="list_id"/>
+        </constraint>
+    </table>
+
+    <table name="ba_usertype_value_list_item" resource="default" engine="innodb">
+        <column xsi:type="smallint" name="item_id" padding="6" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="smallint" name="list_id" padding="6" unsigned="true" nullable="false" identity="false"/>
+        <column name="value" nullable="false" xsi:type="varchar" length="128" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="item_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BACR_VALUE_LIST_ITEM_VALUE_LIST_ID_BACR_VALUE_LIST_ID" 
+                    table="ba_usertype_value_list_item"
+                    column="list_id" 
+                    referenceTable="ba_usertype_value_list"
+                    referenceColumn="list_id"
+                    onDelete="CASCADE"/>
+    </table>
+</schema>

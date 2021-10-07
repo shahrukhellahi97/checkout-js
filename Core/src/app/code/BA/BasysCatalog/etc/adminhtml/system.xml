@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="basys_store" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Store</label>
+            <tab>brandaddition</tab>
+            <resource>BA_Basys::webservices_config</resource>
+            <group id="store" translate="label" type="text" sortOrder="10" showInDefault="0" showInWebsite="1" showInStore="1">
+                <label>Division and Store Configuration</label>
+                <field id="division_id" translate="label" type="select" sortOrder="10" showInDefault="0" showInWebsite="1" showInStore="1">
+                    <label>Division</label>
+                    <source_model>BA\BasysCatalog\Model\Config\Source\Division</source_model>
+                </field>
+                
+                <field id="expiration" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Catalogue Expiration</label>
+                    <comment>How frequently should we pull new catalogue data</comment>
+                    <source_model>Magento\AdminNotification\Model\Config\Source\Frequency</source_model>
+                </field>
+
+                <field id="catalog_selection" translate="label" type="select" sortOrder="30" showInDefault="0" showInWebsite="1" showInStore="1">
+                    <label>Final Catalogue Selection</label>
+                    <comment>In the event of multiple catalogues being returned from resolver, dertmine final catalog by this method</comment>
+                    <source_model>BA\BasysCatalog\Model\Config\Source\CatalogSelection</source_model>
+                </field>
+
+                <field id="catalog_regex" translate="label" type="text" sortOrder="35" showInDefault="0" showInWebsite="1" showInStore="1">
+                    <label>Regex</label>
+                    <comment>Enter a full regex string including modififiers (ex: /employees/i)</comment>
+                    <depends>
+                        <field id="catalog_selection">2</field>
+                    </depends>
+                </field>
+
+                <field id="active" translate="label" type="multiselect" sortOrder="40" showInDefault="0" showInStore="1" showInWebsite="1">
+                    <label>Active</label>
+                    <source_model>BA\BasysCatalog\Model\Config\Source\Catalog</source_model>
+                </field>
+            </group>
+        </section>
+        
+        <section id="basys_catalog" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Catalogs</label>
+            <tab>brandaddition</tab>
+            <resource>BA_Basys::webservices_config</resource>
+            <group id="store" translate="label" type="text" sortOrder="10" showInDefault="0" showInWebsite="1" showInStore="1">
+                <label>Dynamic Groups</label>
+            </group>
+        </section>
+    </system>
+</config>

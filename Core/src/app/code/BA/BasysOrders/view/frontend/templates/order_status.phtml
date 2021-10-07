@@ -1,0 +1,3 @@
+<?php /** @var $block \Magento\Sales\Block\Order\Info */ ?>
+<h1 class="page-title a-margin">Order # <?= $block->escapeHtml($block->getOrder()->getBasysOrderId()) ?></h1>
+<span class="order-status"><?= $block->escapeHtml($block->getOrder()->getStatusLabel()) ?></span>

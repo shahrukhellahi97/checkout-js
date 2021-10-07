@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<!--
+    <type name="Magento\Checkout\CustomerData\Cart">
+        <plugin name="is_punchout_customer_xx" type="BA\Punchout\Plugin\Checkout\CustomerData\Cart" />
+    </type>
+
+    <type name="Magento\Checkout\Block\Cart\Sidebar">
+        <plugin name="add_punchout_checkout_url" type="BA\Punchout\Plugin\Checkout\Block\Cart\Sidebar" />
+    </type> 
+-->
+<!-- 
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="ba_punchout_config" xsi:type="object">BA\Punchout\Ui\ConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+-->
+
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="ba_punchout_checkout_processor" type="BA\Punchout\Plugin\CheckoutProcessor" />
+    </type>
+</config>

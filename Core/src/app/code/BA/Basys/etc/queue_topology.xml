@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/topology.xsd">
+    <exchange name="basys.command" type="topic" connection="amqp">
+        <binding id="BasysCommandQueue" topic="basys_command_queue" destination="basys_command_queue" destinationType="queue" />
+    </exchange>
+</config>

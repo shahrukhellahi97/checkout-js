@@ -1,0 +1,16 @@
+{
+	"name": "BA Testing",
+	"dockerComposeFile": [
+		"../docker-compose.yml",
+	],
+	"shutdownAction": "none",
+	"service": "fpm",
+	"workspaceFolder": "/var/www/html",
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"git.path": "/usr/bin/git"
+	},
+	"remoteUser": "magento",
+	"runServices": ["web", "db", "phpmyadmin", "redis", "rabbitmq", "elasticsearch", "mailhog"],
+	"extensions": ["redhat.vscode-xml", "bmewburn.vscode-intelephense-client", "felixfbecker.php-debug", "junstyle.php-cs-fixer", "ikappas.phpcs"]
+}

@@ -1,0 +1,11 @@
+<?php
+?>
+
+<div class="search-trigger-desktop"><span>search<span></div>
+
+<script type="text/javascript">
+    require(['jquery'], function($) {
+        console.log("search trigger script initialised");
+        $(".search-trigger-desktop").on("click", function(){$(".ba_header_desktop_search").toggle();});
+       });
+</script>

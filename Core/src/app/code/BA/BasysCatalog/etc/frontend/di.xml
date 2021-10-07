@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Directory\Block\Currency">
+        <plugin name="ba_currency_switcher_block_plugin" type="BA\BasysCatalog\Plugin\Magento\Directory\Block\Currency"/>
+    </type>
+
+    <type name="\Magento\Catalog\Model\Layer\Category\CollectionFilter">
+        <plugin name="filter_invalid_products" type="BA\BasysCatalog\Plugin\Magento\Catalog\Model\Layer\Category\CollectionFilterPlugin"/>
+    </type>
+
+    <type name="Magento\Framework\App\Http\Context">
+        <plugin name="add_basys_cache_key" type="BA\BasysCatalog\App\Http\Context"/>
+    </type>
+    
+    <type name="Magento\Catalog\Pricing\Render\FinalPriceBox">
+        <plugin name="add_basys_cache_key_price" type="BA\BasysCatalog\Plugin\Magento\Catalog\Pricing\Render\FinalPriceBox"/>
+    </type>
+
+    <preference for="Magento\Framework\App\PageCache\Identifier" type="BA\BasysCatalog\App\PageCache\Identifier" />
+
+</config>

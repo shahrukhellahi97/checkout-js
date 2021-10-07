@@ -1,0 +1,42 @@
+& when (@media-common = true) {
+    .enquiry-container {
+        display: flex;
+        flex-direction: column;
+
+        > .enquiry-block.text {
+            order:0;
+        }
+
+        > .enquiry-block.form {
+            order:1;
+        }
+
+        p {
+            font-size:16px;
+            margin-bottom: 2rem;
+        }
+    }      
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .enquiry-container {
+        flex-direction: row;
+
+        > .enquiry-block.text {
+            order:1;
+            flex: 35%;
+            padding-left:16px;
+            padding-top:24px;
+        }
+
+        > .enquiry-block.form {
+            order:0;
+            flex:65%;
+        }
+
+        p {
+            font-size:16px;
+            margin-bottom: 2.5rem;
+        }
+    }
+}

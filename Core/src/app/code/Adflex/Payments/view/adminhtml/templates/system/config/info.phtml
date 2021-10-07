@@ -1,0 +1,37 @@
+<div class="adflex">
+    <div class="adflex__info">
+        <div class="info__container">
+            <strong>Extension Version:</strong> <?= $block->getModuleVersion(); ?> <br/>
+            <p>
+                For any technical support please see our <a href="https://my.adflex.co.uk/Help/Help?activeTitle=3" target="_blank">Help Centre</a>,
+                or alternatively, contact us via our <a href="https://www.adflex.co.uk/contact-us.aspx" target="_blank">contact us page</a>.
+                <br/><br/>
+                <?php $paths = ['name', 'phone', 'country_id', 'region_id', 'postcode', 'city', 'street_line1',
+                                'merchant_vat_number'];
+                foreach ($paths as $path) {
+                    if (is_null($block->getScopeConfig('general/store_information/' . $path))) {
+                        $warning[] = ucwords(str_replace('_', ' ', $path));
+                    }
+                }
+
+                $level3 = $block->getScopeConfig('payment/adflex/level3_enabled');
+                if (isset($warning) && $level3) {
+                    echo '<div class="adflex-warning">';
+                    echo '<strong>IMPORTANT:</strong><br/>';
+                    echo 'The following store information is currently unpopulated, level 3 cards will <strong style="color: red; text-decoration: underline;">FAIL</strong> to work if these are not correctly populated unless they are otherwise optional.<br/>';
+                    echo '<ul>';
+                    foreach ($warning as $warn) {
+                        if ($warn == 'Merchant Vat Number') {
+                            echo '<li style="color: #ff7300;">Merchant VAT Number (optional)</li>';
+                        } else {
+                            echo '<li style="color: red;">' . $warn . '</li>';
+                        }
+                    }
+                    echo '</ul>';
+                    echo 'Please <a href="' . $this->getUrl('adminhtml/system_config/edit/section/general') . '" title="store information configuration">click here</a> to go to the store information configuration.';
+                    echo '</div>';
+                } ?>
+            </p>
+        </div>
+    </div>
+</div>

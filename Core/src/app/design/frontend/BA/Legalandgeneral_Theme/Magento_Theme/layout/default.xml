@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <referenceBlock name="currency" remove="true"/><!-- hide currency for Legal and General -->
+        <referenceBlock name="store.settings.currency" remove="true" /><!-- hide currency for Legal and General mobile -->
+
+        <move element="register-link" destination="top.links"/><!-- Create an account link -->
+
+        <referenceBlock name="top.links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="specialrequest.link"> <!-- CMS Page Link Link -->
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Special Request</argument>
+                    <argument name="path" xsi:type="string" translate="false">special-request</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <move element="header.links" destination="header.panel" after="-"/><!-- move customer menu before search -->
+        <move element="minicart" destination="header.panel" after="-"/><!-- Basket -->
+        <move element="logo" destination="header.panel" before="-"/>
+
+        <referenceBlock name="store.menu">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Products</argument> <!-- mobile navigation tab rename default is 'Menu' -->
+            </arguments>
+        </referenceBlock>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- FOOTER -->
+        <container name="footer-custom-container" as="custom-content" htmlTag="footer" htmlClass="footer_customise">
+            <container name="footer-custom-flex" as="custom-content" htmlTag="div">
+
+                <container name="footer-custom-flexcolumn-categories" htmlTag="div" htmlClass="footer_column_categories">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-categories-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Take me to</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Theme\Block\Html\Footer" name="footer_custom_categories" template="footer-custom-categories.phtml">
+                        <arguments>
+                            <argument name="view_model" xsi:type="object">BA\Theme\ViewModel\CategoryViewModel</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="footer-custom-flexcolumn-info" htmlTag="div" htmlClass="footer_column_information">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-info-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Information</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_cms">
+                    </block>
+                </container>
+
+                <container name="footer-custom-flexcolumn-connect" htmlTag="div" htmlClass="footer_column_connect">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-connect-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Connect with us</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Text" name="footer_custom_connect">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<ul><li><a target="_blank" href="https://www.facebook.com/legalandgeneral/"><i class="fab fa-facebook-square"></i>Visit our Facebook page</a></li>
+                                <li><a target="_blank" href="https://twitter.com/landg_uk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter-square"></i>Follow us on Twitter</a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/company/legal-&amp;-general"><i class="fab fa-linkedin"></i>Follow us on LinkedIn</a></li></ul>]]></argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="footer-custom-flexcolumn-contact" htmlTag="div" htmlClass="footer_column_contact">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-contact-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Contact us</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Text" name="footer_custom_contact">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<ul><li><i class="fas fa-phone-square"></i>+44 (0) 207 793 2931</li><li><a href="mailto:landghelpdesk@brandaddition.com">landghelpdesk@brandaddition.com</a></li><li>Brand Addition</li><li>Trafford Wharf Road</li><li>Manchester</li><li>M17 1DD</li></ul>]]></argument>
+                        </arguments>
+                    </block>
+                </container>
+
+            </container>
+
+            <container name="footer-copyright" htmlTag="div" htmlClass="footer_copyright_div">
+                <block class="Magento\Framework\View\Element\Text" name="footer-copyright-block">
+                    <arguments>
+                        <argument name="text" xsi:type="string"><![CDATA[<p>&nbsp;</p>]]></argument>
+                    </arguments>
+                </block>
+            </container>
+
+        </container>
+
+        <referenceBlock name="sales-guest-form-link" remove="true"/> <!-- remove the link 'Orders and returns' from footer -->
+        <referenceBlock name="contact-us-link" remove="true"/> <!-- remove the link 'Contact us' from footer -->
+        <referenceBlock name="catalog-search-advanced-link" remove="true"/> <!-- remove the link 'Advanced search' from footer -->
+
+        <referenceBlock name="footer_links_cms">
+            <block class="Magento\Framework\View\Element\Html\Link" name="termsandconditionsfooter.link"> <!-- CMS Page Link -->
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Terms and Conditions</argument>
+                    <argument name="path" xsi:type="string" translate="false">terms-and-conditions</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceBlock name="footer_links_cms">
+            <block class="Magento\Framework\View\Element\Html\Link" name="faqsfooter.link"> <!-- CMS Page Link -->
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">FAQs</argument>
+                    <argument name="path" xsi:type="string" translate="false">faqs</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <move element="privacy-policy-link" destination="footer_links_cms"/>
+        <move element="contact-us-link" destination="footer_links_cms"/>
+        <move element="search-term-popular-link" destination="footer_links_cms"/>
+        <move element="catalog-search-advanced-link" destination="footer_links_cms"/>
+        <move element="sales-guest-form-link" destination="footer_links_cms"/>
+
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true" />
+        <referenceBlock name="copyright" remove="true" />
+
+    </body>
+</page>

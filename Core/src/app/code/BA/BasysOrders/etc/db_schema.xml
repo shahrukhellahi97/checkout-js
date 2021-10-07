@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_order" resource="sales" engine="innodb" comment="Sales Order">
+        <column xsi:type="int" name="basys_order_id" nullable="true" comment="basys_order_id"/>
+    </table>
+
+    <table name="sales_order_grid" resource="sales" engine="innodb" comment="Sales Order Grid">
+        <column xsi:type="int" name="basys_order_id" nullable="true" comment="basys_order_id"/>
+    </table>
+
+    <table name="ba_basys_orders_payment_type">
+        <column name="division_id" xsi:type="int" unsigned="true"  nullable="false" identity="false" />
+        <column name="payment_type_id" xsi:type="smallint" nullable="false" identity="false" />
+        <column name="reference" xsi:type="varchar" nullable="true" length="128"  comment="Payment Reference"  />
+        <column name="default" xsi:type="tinyint" nullable="true" identity="false" />
+        <column name="method" xsi:type="char" length="1" />
+
+        <constraint xsi:type="unique" referenceId="UQ_BA_PAYMENT_TYPE_SEQUENCE_ID_DIVISION_ID">
+            <column name="division_id" />
+            <column name="payment_type_id" />
+        </constraint>
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BA_BASYS_PAYMENT_TYPE_DIVISION_ID_DIVISION_DIVISION_ID" 
+                    table="ba_basys_payment_type"
+                    column="division_id" 
+                    referenceTable="ba_basys_store_division"
+                    referenceColumn="division_id"
+                    onDelete="CASCADE"/>
+    </table>
+
+    <table name="ba_basys_orders_payment_type_udf">
+        <column name="division_id" xsi:type="int" unsigned="true"  nullable="false" identity="false" />
+        <column name="payment_type_id" xsi:type="smallint" nullable="false" identity="false" />
+        <column name="sequence_id" xsi:type="smallint" nullable="false" identity="false" />
+
+        <constraint xsi:type="unique" referenceId="UQ_BA_PAYMENT_TYPE_SEQUENCE_ID_DIVISION_ID">
+            <column name="division_id" />
+            <column name="payment_type_id" />
+            <column name="sequence_id" />
+        </constraint>
+    </table>
+
+    <table name="ba_basys_orders_udf">
+        <column name="division_id" xsi:type="int" unsigned="true"  nullable="false" identity="false" />
+        <column name="sequence_id" xsi:type="smallint" nullable="false" identity="false" />
+        <column name="caption" xsi:type="varchar" length="128" />
+        <column name="rule" xsi:type="char" length="1" nullable="false" />
+        <column name="uppercase" xsi:type="tinyint" identity="false" />
+
+        <constraint xsi:type="unique" referenceId="UQ_BA_PAYMENT_TYPE_SEQUENCE_ID_DIVISION_ID">
+            <column name="division_id" />
+            <column name="sequence_id" />
+        </constraint>
+    </table>
+
+    <table name="ba_basys_orders_udf_option">
+        <column name="division_id" xsi:type="int" unsigned="true"  nullable="false" identity="false" />
+        <column name="sequence_id" xsi:type="smallint" nullable="false" identity="false" />
+        <column name="option_id" xsi:type="smallint" nullable="false" identity="false" />
+        <column name="value" xsi:type="varchar" length="128" />
+        <column name="default" xsi:type="tinyint" nullable="true" identity="false" />
+
+        <constraint xsi:type="unique" referenceId="UQ_BA_BASYS_PAYMENT_TYPE_UDF_OPTION_SEQUENCE_ID_DIVISION_ID">
+            <column name="division_id" />
+            <column name="sequence_id" />
+            <column name="option_id" />
+        </constraint>
+    </table>
+</schema>

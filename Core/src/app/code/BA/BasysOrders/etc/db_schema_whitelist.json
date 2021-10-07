@@ -1,0 +1,110 @@
+{
+    "sales_order": {
+        "column": {
+            "basys_order_id": true
+        }
+    },
+    "sales_order_grid": {
+        "column": {
+            "basys_order_id": true
+        }
+    },
+    "ba_basys_payment_type": {
+        "column": {
+            "division_id": true,
+            "sequence_id": true,
+            "reference": true,
+            "method": true,
+            "type": true,
+            "payment_type_id": true,
+            "default": true
+        },
+        "constraint": {
+            "BA_BASYS_PAYMENT_TYPE_SEQUENCE_ID_DIVISION_ID": true,
+            "FK_D8DF8D272E600F62C52F6B035F7F30BC": true,
+            "BA_BASYS_PAYMENT_TYPE_DIVISION_ID_PAYMENT_TYPE_ID": true
+        }
+    },
+    "ba_basys_payment_type_udf": {
+        "column": {
+            "division_id": true,
+            "sequence_id": true,
+            "caption": true,
+            "rule": true,
+            "uppercase": true,
+            "payment_type_id": true
+        },
+        "constraint": {
+            "UNQ_0E68D3822D0BF1817B39D22A7952F997": true
+        }
+    },
+    "ba_basys_payment_type_udf_item": {
+        "column": {
+            "division_id": true,
+            "sequence_id": true,
+            "value": true,
+            "default": true,
+            "payment_type_id": true
+        }
+    },
+    "ba_basys_payment_type_udf_option": {
+        "column": {
+            "division_id": true,
+            "payment_type_id": true,
+            "sequence_id": true,
+            "value": true,
+            "default": true
+        },
+        "constraint": {
+            "UNQ_69BA153B492F90B0AD326541A6C6F6B5": true
+        }
+    },
+    "ba_basys_orders_payment_type": {
+        "column": {
+            "division_id": true,
+            "payment_type_id": true,
+            "reference": true,
+            "default": true,
+            "method": true
+        },
+        "constraint": {
+            "BA_BASYS_ORDERS_PAYMENT_TYPE_DIVISION_ID_PAYMENT_TYPE_ID": true,
+            "FK_A47FA4588AEA8AB49A0FE07A88F6E43C": true
+        }
+    },
+    "ba_basys_orders_payment_type_udf": {
+        "column": {
+            "division_id": true,
+            "payment_type_id": true,
+            "sequence_id": true
+        },
+        "constraint": {
+            "UNQ_47D78BF767536DAB2752E56D1E8359A7": true
+        }
+    },
+    "ba_basys_orders_udf": {
+        "column": {
+            "division_id": true,
+            "sequence_id": true,
+            "caption": true,
+            "rule": true,
+            "uppercase": true
+        },
+        "constraint": {
+            "BA_BASYS_ORDERS_UDF_DIVISION_ID_SEQUENCE_ID": true
+        }
+    },
+    "ba_basys_orders_udf_option": {
+        "column": {
+            "division_id": true,
+            "sequence_id": true,
+            "option_id": true,
+            "value": true,
+            "default": true
+        },
+        "constraint": {
+            "BA_BASYS_ORDERS_UDF_OPTION_DIVISION_ID_SEQUENCE_ID": true,
+            "BA_BASYS_ORDERS_UDF_OPTION_DIVISION_ID_SEQUENCE_ID_OPTION_ID": true
+        }
+    }
+}

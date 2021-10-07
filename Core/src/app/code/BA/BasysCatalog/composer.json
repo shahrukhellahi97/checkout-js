@@ -1,0 +1,32 @@
+  
+{
+    "name": "brandaddition/basys-catalog-module",
+    "description": "BA Basys Catalog Module",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+      "proprietary"
+    ],
+    "require": {
+      "php": "~7.3.0||~7.4.0",
+      "brandaddition/basys-modulue": "*",
+      "magento/framework": "*",
+      "magento/module-customer": "*",
+      "magento/module-eav": "*",
+      "magento/module-sales": "*",
+      "magento/module-quote": "*",
+      "magento/module-payment": "*",
+      "magento/module-backend": "*",
+      "magento/module-store": "*",
+      "magento/module-checkout": "*",
+      "magento/module-catalog": "*",
+      "magento/module-paypal": "*",
+      "magento/module-directory": "*"
+    },
+    "autoload": {
+      "files": ["registration.php"],
+      "psr-4": {
+        "BA\\BasysCatalog\\": ""
+      }
+    }
+  }

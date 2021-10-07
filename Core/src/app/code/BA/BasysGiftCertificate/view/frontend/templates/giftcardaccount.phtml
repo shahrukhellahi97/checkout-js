@@ -1,0 +1,25 @@
+<?php
+    $viewModel = $block->getViewModel();
+    $ajaxUrl = $viewModel->getAjaxUrl();
+    $ajaxUrlApplyButton = $viewModel->getAjaxUrlApplyButton();
+?>
+<?php //if ($viewModel->getItemsCount()) : ?>
+    <span class="gift-title">Gift Card</span>
+    <input type="text" id="certificate-reference-id" name="certificate-reference" maxlength="30"/>
+    <div class="gift-button-wrap">
+        <a href="#" id="check-balance" class="gift-card-button">Check Balance</a>
+        <a href="#" id="apply-gift-card" class="gift-card-button">Apply</a>
+    </div>
+    <span id="display-message"></span>
+<?php //endif; ?>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "checkbalanceaccount": {
+            "ajaxUrlValue": "<?= __($ajaxUrl)?>",
+            "ajaxUrlApplyButton": "<?= __($ajaxUrlApplyButton)?>"
+        }
+    }
+}
+</script>

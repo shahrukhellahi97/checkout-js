@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+      <add id="BA_Slider::slider_slider_index" title="Slider" module="BA_Slider"  sortOrder="1" action="slider/slider/index" resource="BA_Slider::slider_slider_index" parent="BA_BasysCatalog::section"/>
+    </menu>
+</config>

@@ -1,0 +1,8 @@
+C:\Development\Magento\API\src\BA.DataAccess\bin\Debug\netstandard2.0\BA.DataAccess.deps.json
+C:\Development\Magento\API\src\BA.DataAccess\bin\Debug\netstandard2.0\BA.DataAccess.dll
+C:\Development\Magento\API\src\BA.DataAccess\bin\Debug\netstandard2.0\BA.DataAccess.pdb
+C:\Development\Magento\API\src\BA.DataAccess\obj\Debug\netstandard2.0\BA.DataAccess.csprojAssemblyReference.cache
+C:\Development\Magento\API\src\BA.DataAccess\obj\Debug\netstandard2.0\BA.DataAccess.AssemblyInfoInputs.cache
+C:\Development\Magento\API\src\BA.DataAccess\obj\Debug\netstandard2.0\BA.DataAccess.AssemblyInfo.cs
+C:\Development\Magento\API\src\BA.DataAccess\obj\Debug\netstandard2.0\BA.DataAccess.dll
+C:\Development\Magento\API\src\BA.DataAccess\obj\Debug\netstandard2.0\BA.DataAccess.pdb

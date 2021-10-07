@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Mview/etc/mview.xsd">
+    <view id="ba_basys_catalog_product_index" class="BA\BasysCatalog\Model\Indexer\Availability" group="indexer">
+        <subscriptions>
+            <table name="catalog_product_entity" entity_column="entity_id" />
+            <table name="catalog_product_entity_int" entity_column="entity_id" />
+        </subscriptions>
+    </view>
+
+    <view id="ba_basys_catalog_product_map" class="BA\BasysCatalog\Model\Indexer\Mapping" group="indexer">
+        <subscriptions>
+            <table name="catalog_product_entity" entity_column="entity_id" />
+            <table name="catalog_product_entity_int" entity_column="entity_id" />
+        </subscriptions>
+    </view>
+
+    <!-- <view id="catalog_product_website" class="BA\BasysCatalog\Model\Indexer\Website" group="indexer">
+        <subscriptions>
+            <table name="catalog_product_entity_int" entity_column="entity_id" />
+        </subscriptions>
+    </view> -->
+</config>

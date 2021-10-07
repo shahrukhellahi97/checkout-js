@@ -1,0 +1,13 @@
+<?php
+    $viewModel = $block->getViewModel();
+    $ajaxUrl = $viewModel->getAjaxUrl();
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "loadcatalogs": {
+            "ajaxUrlValue": "<?= __($ajaxUrl)?>"
+        }
+    }
+}
+</script>

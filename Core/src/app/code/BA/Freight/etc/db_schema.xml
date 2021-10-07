@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="ba_freight_table">
+        <column name="table_id" xsi:type="int" unsigned="true" nullable="false" comment="Table Id" identity="true" />
+        <column name="name" xsi:type="varchar" length="64" nullable="false" comment="Table Name (ex: Standard UK)" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="table_id"/>
+        </constraint>
+    </table>
+
+    <table name="ba_freight_table_zone">
+        <column name="table_id" xsi:type="int" unsigned="true" nullable="false" comment="Table ID" identity="false" />
+        <column name="country_id" xsi:type="varchar" length="2" nullable="false" comment="Country ID"/>
+        <column name="code_id" xsi:type="int" unsigned="true" nullable="false" comment="Code" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="table_id"/>
+            <column name="country_id"/>
+            <column name="code_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BA_FREIGHT_TABLE_ZONE_COUNTRY_ID_DIRECTORY_COUNTRY_COUNTRY_ID" 
+                    table="ba_freight_table_zone"
+                    column="country_id" 
+                    referenceTable="directory_country"
+                    referenceColumn="country_id"
+                    onDelete="CASCADE"/>
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BA_FREIGHT_TABLE_ZONE_TABLE_ID_BA_FREIGHT_TABLE_TABLE_ID" 
+                    table="ba_freight_table_zone"
+                    column="table_id" 
+                    referenceTable="ba_freight_table"
+                    referenceColumn="table_id"
+                    onDelete="CASCADE"/>
+    </table>
+    
+    <table name="ba_freight_table_zone_rate">
+        <column name="table_id" xsi:type="int" unsigned="true" nullable="false" comment="Table ID" identity="false" />
+        <column name="code_id" xsi:type="int" unsigned="true" nullable="false" comment="Code" />
+        <column name="weight" xsi:type="decimal" scale="6" precision="20" nullable="false" unsigned="false" />
+        <column name="value" xsi:type="decimal" scale="6" precision="20" unsigned="false" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="table_id"/>
+            <column name="code_id"/>
+            <column name="weight" />
+        </constraint>
+
+        <index referenceId="BA_FREIGHT_TABLE_ZONE_RATE_TABLE_CODE_WEIGHT" indexType="btree">
+            <column name="table_id"/>
+            <column name="code_id"/>
+            <column name="weight"/>
+        </index>
+    </table>
+</schema>

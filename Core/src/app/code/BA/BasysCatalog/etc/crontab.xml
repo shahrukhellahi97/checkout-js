@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+
+    <group id="basys">
+        <job name="update_levels" instance="BA\BasysCatalog\Cron\Levels" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+
+        <job name="queue_products" instance="BA\BasysCatalog\Cron\Queue\Queue" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+
+        <job name="process_queue" instance="BA\BasysCatalog\Cron\Queue\Process" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+    </group>
+
+</config>

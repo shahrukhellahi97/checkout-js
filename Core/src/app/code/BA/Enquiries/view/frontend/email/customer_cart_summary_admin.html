@@ -1,0 +1,31 @@
+<!--@subject New Order Enquiry  @-->
+{{inlinecss file=BA_Enquiries::css/enquiry.css}}
+{{template config_path="design/email/header_template"}}
+
+<table style="width:100%;">
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">Hi!</p>
+            <p>
+                {{trans "You received a new enquiry from a customer"}}
+            </p>
+        </td>
+    </tr>
+    <tr class="email-details">
+        <td>
+            {{layout handle="customer_enquiry_summary_details" area="frontend"}}
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            <h1>{{trans 'Summary'}}</h1>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{layout handle="customer_enquiry_summary_items" area="frontend"}}
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

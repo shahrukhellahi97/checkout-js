@@ -1,0 +1,73 @@
+@meet-team-text-color:                 #ffffff;
+@meet-team-background-color:           #d2ae96;
+
+.meet-team-heading {
+    text-align: center;
+    margin: 40px auto 25px auto;
+}
+
+.meet-team-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 30px 0; 
+    .meet-team-person {
+        width: 50%;
+        padding:10px;
+        .meet-team-person-inner {
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: @meet-team-background-color;
+            .meet-team-img {
+                width : 50%;
+                img {
+                    width:100%;
+                    display: block;
+                    border: none;
+                }
+            }
+            .meet-team-text {
+                width : 50%;
+                height: 100%;
+                .meet-team-name {
+                    color: @meet-team-text-color;
+                    margin: 0;
+                }
+                .meet-team-jobtitle {
+                    color: @meet-team-text-color;
+                    margin: 10px 0 0 0;
+                }
+                .meet-team-phone {
+                    color: @meet-team-text-color;
+                    margin: 25px 0 0 0;
+                }
+                .meet-team-email {
+                    margin: 25px 0 0 0;
+                    a, a:visited {
+                    color: @meet-team-text-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .meet-team-wrapper {
+        flex-direction: column;
+        .meet-team-person {
+            width: 100%;
+            padding:10px 0;
+            .meet-team-person-inner {
+                width: 100%;
+                .meet-team-img {
+                    width: 35%;
+                }
+                .meet-team-text {
+                    width: 65%;
+                }
+            }
+        }
+    }
+}

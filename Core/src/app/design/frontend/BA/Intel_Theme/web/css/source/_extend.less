@@ -1,0 +1,671 @@
+@import 'less/_color.less';
+@import 'less/_variables.less';
+@import 'less/_header.less';
+@import 'less/_footer.less';
+
+
+// CATEGORY PAGE STARTS - good css reference is theme-frontend-blank>Magento_Catalog>web>css>source>module>_listings.less
+& when (@media-common = true) { // mobile
+    .products-grid .product-item-info, .products-grid .product-item-info:hover, .products-grid .product-item-info.active, .widget-product-carousel .product-item-info, .widget-product-grid .product-item-info   {
+        -webkit-box-shadow: @ba-shadows;
+        -moz-box-shadow: @ba-shadows;
+        box-shadow: @ba-shadows;
+        border: none;
+        margin: 0;
+        padding: 15px;
+        position: relative;
+        z-index: 9;
+    }
+
+    .product-image-photo {
+        background-color: @ba-product_image_background_colour;
+    }
+
+    .price-box {
+        margin: 0;
+    }
+    .product { // level = product
+        &-item { // level = product-item (single product outer)
+
+            .products-grid & {
+                display: inline-block;
+                margin-left: 0;
+                padding: 0;
+                width: 100%;
+            }
+
+            &:nth-child(2n + 1) {
+                margin-left: 0;
+            }
+
+            &-info { // level = product-item-info (single product inner)
+                margin-bottom:20px;
+                .page-products & {
+                    width: 100%;
+                    text-align: @ba-product-list-item-align-mobile;
+                }
+            }
+            .minimal-price {
+                .price-container {
+                    display: inline-block; // magento default is block
+                }
+            }
+            .price-box {
+                margin: 0;
+                .price-label {
+                    display: inline-block;
+                    margin-right: 15px;
+                }
+            }
+            &-actions {
+                .actions-primary {
+                    position:absolute;
+                    right:15px;
+                    bottom:15px;
+                }
+                .actions-primary+.actions-secondary {
+                    display:none;
+                }
+                .action.primary, .action.primary:hover, .action.primary:active, .action.primary:focus  { // add to cart button
+                    width:32px;
+                    height:32px;
+                    padding: 0;
+                    border: none;
+                    background-color: transparent;
+                    background-image: url("../images/icon_cart.svg");
+                    background-repeat:no-repeat;
+                    background-size: cover;
+                }
+                .action.primary span {
+                    display: none;
+                }
+            }
+            &-details {
+                text-align: @ba-product-list-details-align-mobile;
+            }
+        }
+
+    }
+
+    .category_list_addtocart_icon { // add to cart icon inside button
+        width: 40px;
+        height: 40px;
+    }
+    .product-item-name, .product.name a { // product title
+        font-weight: 100;
+        font-size: 15px;
+    }
+    .product-item .price-box .price { // product price
+        font-weight:700;
+        font-size: 15px;
+    }
+    .product-items {
+        .product-reviews-summary { // hide reviews
+            display: none;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) { // desktop
+    .page-products {
+        .products-grid {
+            .product-items {
+                margin: 0;
+            }
+
+            .product-item {
+                margin-left: 2%;
+                padding: 15px;
+                width: calc(~'(100% - 4%) / 3'); // / 3 by for 3 column grid : 4% = 2 gutters at 2% each
+
+                &:nth-child(2n + 1) {
+                    margin-left: 2%;
+                }
+
+                &:nth-child(3n + 1) {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    .products-grid .product-item-info, .products-grid .product-item-info:hover, .products-grid .product-item-info.active {
+        margin: -15px;
+    }
+}
+
+
+
+
+
+
+// CATEGORY PAGE ENDS
+
+
+
+// OFFER OF THE MONTH STARTS (uses styles from the owl carousel)
+#offer_of_the_month {
+    position: relative;
+    .image_desktop {
+        display:block;
+        width: 100%;
+    }
+    .image_mobile {
+        display:none;
+    }
+}
+@media screen and (max-width: 768px) {
+    #offer_of_the_month {
+        .image_desktop {
+            display:none
+        }
+        .image_mobile {
+            display:block;
+            width: 100%;
+        }
+    }
+}
+// OFFER OF THE MONTH ENDS
+
+// HOME PAGE MAIN CAROUSEL STARTS
+#owlslider .owl-item:nth-of-type(1) {
+    background-color: #ac3c14;
+}
+#owlslider .owl-item:nth-of-type(2) {
+    background-color: #2e423c;
+}
+#owlslider .owl-item:nth-of-type(3) {
+    background-color: #312f3c;
+}
+@media screen and (max-width: 768px) {
+    #owlslider {
+        .image_desktop {
+            display:none
+        }
+        .image_mobile {
+            display:block
+        }
+        .owl-dots {
+            top: 80vw;
+        }
+    }
+}
+// HOME PAGE MAIN CAROUSEL STARTS
+
+
+
+
+
+
+// LATEST ADDITIONS STARTS
+.latest-additions-outer {
+    background-color: #ffdfc5;
+    h2 {
+        text-align: center;
+    }
+    .latest-additions-prev-btn, .latest-additions-next-btn {
+        cursor: pointer;
+    }
+    .latest-additions-prev-btn:after, .latest-additions-next-btn:after {
+        color: inherit;
+        font-family: 'luma-icons';
+        vertical-align: middle;
+        display: inline-block;
+        font-weight: normal;
+        overflow: hidden;
+        
+    }
+    .latest-additions-prev-btn:after {
+        content: '\e617';
+    }
+    .latest-additions-next-btn:after {
+        content: '\e608';
+    }
+}
+#latest-additions {
+    box-sizing: border-box;
+    position: relative;
+    .owl-item {
+        box-sizing: border-box;
+        padding: 10px;
+
+    }
+    .la-product {
+        box-sizing:border-box;
+        background-color: white;
+        width: 100%;
+        padding: 15px;
+        -webkit-box-shadow: @ba-shadows;
+        -moz-box-shadow: @ba-shadows;
+        box-shadow: @ba-shadows;
+    }
+    .la-add-cart-img {
+        width:40px;
+        height:40px;
+    }
+    .owl-dots {
+        position: relative;
+        margin: 20px 0 40px 0;
+        width: 100%;
+        text-align: center;
+        .active {
+            background-color: @magento-text-color;
+        }
+    }
+    .owl-dot {
+        width:20px;
+        height: 20px;
+        border: 1px solid @magento-text-color;
+        border-radius: 10px;
+        margin: 0 10px;
+    }
+    .owl-nav {
+        display: none;
+    }   
+}
+.la-content {
+    display: flex;
+    flex-direction: row;
+    max-width: 1280px;
+    margin: 15px auto 0 auto;
+    height:100%;
+    .la-column {
+        display:flex;
+        justify-content: left;
+        width: 50%;
+        text-align: left;
+        h2 {
+            font-size: 15px;
+            line-height: 150%;
+            color: @magento-text-color;
+            margin: 0;
+            text-align: left;
+        }
+        .price {
+            margin: 0;
+            font-size: 30px;
+            line-height: 100%;
+            color: @magento-text-color;
+            text-align: left;
+        }
+    }
+    .la-column:last-of-type {
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .la-content {
+        .la-column {
+            h2 {
+                font-size: 14px;
+            }
+            .price {
+                font-size: 26px;
+            }
+        }
+    }
+}
+// LATEST ADDITIONS ENDS
+
+// PRODUCT PAGE CROSS SELLS STARTS
+#upsellitem_carousel, #relateditem_carousel {
+    text-align: left;
+    margin:0;
+    .owl-nav {
+        margin-top: 10px;
+        text-align: center;
+        -webkit-tap-highlight-color: transparent; 
+    }
+    .owl-nav [class*='owl-'] {
+        color: @magento-text-color;
+        font-size: 36px;
+        margin: 5px;
+        padding: 4px 7px;
+        background: #D6D6D6;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    .owl-nav [class*='owl-']:hover {
+    background: #869791;
+    color: #FFF;
+    text-decoration: none; }
+
+    .owl-dots {
+        position: relative;
+        margin: 20px 0 40px 0;
+        width: 100%;
+        text-align: center;
+        .active {
+            background-color: @magento-text-color;
+        }
+    }
+    .owl-dot {
+        width:20px;
+        height: 20px;
+        border: 1px solid @magento-text-color;
+        border-radius: 10px;
+        margin: 0 10px;
+    }
+
+    .field.choice.related { // checkboxes
+        display:none;
+    }
+    .owl-item {
+        box-sizing: border-box;
+        padding: 10px;
+        .product-item-info {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 15px;
+            background-color: #ffffff;
+            -webkit-box-shadow: @ba-shadows;
+            -moz-box-shadow: @ba-shadows;
+            box-shadow: @ba-shadows;
+            .product-item-details {
+                margin: 15px 0 0 0;
+            }
+            .product.name a {
+                font-size: 15px;
+                font-weight: 300;
+                line-height: 150%;
+                color: @magento-text-color;
+                margin: 15px 0 0 0;
+                text-align: left;
+            }
+            .price {
+                margin: 0;
+                font-size: 30px;
+                line-height: 100%;
+                color: @magento-text-color;
+                text-align: left;
+            }
+        }
+
+    }
+}
+// PRODUCT PAGE CROSS SELLS ENDS
+
+// PRODUCT PAGE STANDARD TABS STARTS
+.product.data.items {
+    padding: 30px 0 0 0;
+    text-align: center;
+    border: 1px solid @generic-grey-15;
+    -webkit-box-shadow: @ba-shadows;
+    -moz-box-shadow: @ba-shadows;
+    box-shadow: @ba-shadows;
+    >.item.title {
+        float: none;
+        display: inline-block;
+        >.switch {
+            border:none;
+            background-color: transparent;
+            padding: 0 20px;
+        }
+    }
+    .item.title.active>.switch {
+        font-weight: 700;
+    }
+    .block-title.title {
+        display:none;
+    }
+    >.item.content {
+        border: none;
+    }
+}
+// PRODUCT PAGE STANDARD TABS ENDS
+
+// PRODUCT PAGE CUSTOM TABS STARTS
+.product_customised_cross_sells {
+    padding: 30px 0;
+    text-align: center;
+    background-color: @ba-product-cross-sells-background;
+    >.ui-tabs {
+        >.ui-tabs-nav { // titles ul
+            >.ui-state-default { // titles > ul > li = inactive title
+                display: inline-block;
+                line-height: 40px;
+                >.ui-tabs-anchor { // titles > ul > li > a
+                    font-weight: 400;
+                    color: @magento-text-color;
+                    text-decoration: none;
+                    padding: 0 20px;
+                }
+            }
+            >.ui-state-active { // titles > ul > li = active title
+                >.ui-tabs-anchor { // titles > ul > li > a
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+    #tab_element_content {
+        max-width: 1240px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        .block-title.title {
+            display:none;
+        }
+    }
+}
+// PRODUCT PAGE CUSTOM TABS ENDS
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// INTEL                                                                     //
+///////////////////////////////////////////////////////////////////////////////
+
+// HOME PAGE CATEGORY IMAGES STARTS
+& when (@media-common = true) { // mobile to styles-m.css
+    .intel-home-headings {
+        color: #0068b5 !important;
+        font-size: 36px !important;
+        font-weight: bold;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+
+    .intel_home_categories_image_row {
+        display: block !important; // override annoying inline style
+        overflow: auto;
+        figure {
+            width: 50%;
+            display: block;
+            float: left;
+            padding: 10px !important;
+            a img {
+                width: 100%;
+            }
+        figure:last-child {
+            width: 100%;
+            }
+        }
+    }
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) { // desktop to styles-l.css
+    .intel_home_categories_image_row {
+        figure {
+            width: 33.333%;
+        }
+        figure:last-child {
+            width: 33.333%;
+        }
+    }
+}
+// HOME PAGE CATEGORY IMAGES ENDS
+
+// HOME PAGE SPECIAL_ORDERS STARTS
+& when (@media-common = true) { // mobile to styles-m.css
+    .intel_home_special_orders {
+        padding: 15px !important;
+        .text-column {
+            padding-right: 0px !important;
+            padding-bottom: 15px !important;
+        }
+        .special-orders-text {
+            width: 100%;
+            display: inline-block;
+        }
+        h3 {
+            font-size: 36px;
+            color: #ffffff;
+            text-align: left;
+        }
+        p {
+            font-size: 16px;
+            color: #ffffff;
+            text-align: left;
+        }
+        .text-link {
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: none;
+        }
+        .block-cms-link {
+            text-align: left;
+            a { //request form button
+                background: @intel-button-background;
+                line-height: 35px;
+                padding: 4px 15px;
+                color: #fff;
+                font-size: 14px;
+                font-weight: 600;
+            }
+        }
+        .img-column {
+            img {
+                width: 100%;
+                height: auto;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) { // desktop to styles-l.css
+    .intel_home_special_orders {
+        padding: 48px !important;
+        .text-column {
+            padding-right: 16px !important;
+            padding-bottom: 0 !important;
+        }
+        .special-orders-text {
+            width: 368px;
+        }
+        .img-column {
+            img {
+                width: 368px;
+                margin-left: 16px;
+            }
+        }
+    }
+}
+// HOME PAGE SPECIAL_ORDERS ENDS
+
+// HOME PAGE NEWSLETTER STARTS
+& when (@media-common = true) { // mobile to styles-m.css
+    .intel-newsletter { // row
+        background-color: @intel-panel-blue;
+    }
+    .intel-newsletter-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        .intel-news-text {
+            color: #ffffff;
+            font-size: 18px;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+            line-height: 120%;
+            text-align: center;
+        }
+        .intel-news-input {
+            width: 100%;
+            padding-left: 0;
+            padding-top: 12px;
+            text-align: center;
+            input {
+                width: 100%;
+            }
+        }
+        .intel-news-button {
+            padding-left: 0;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            a {
+                background: @intel-button-background;
+                line-height: 32px;
+                padding: 0 15px;
+                color: #fff;
+                font-size: 14px;
+                font-weight: 600;
+                display: inline-block;
+            }
+            a:hover {
+                color: #000000;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) { // desktop to styles-l.css
+    .intel-newsletter-inner {
+        flex-direction: row;
+        .intel-news-text {
+            flex-grow: 10;
+            text-align: right;
+        }
+        .intel-news-input {
+            width: auto;
+            text-align: right;
+            padding-left: 16px;
+            padding-top: 0;
+            input {
+                width: 156px;
+            }
+        }
+        .intel-news-button {
+            text-align: right;
+            padding-left: 16px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}
+// HOME PAGE NEWSLETTER ENDS
+
+// HOME PAGEBUILDER PRODUCTS SLICK CAROUSEL STARTS
+& when (@media-common = true) { // mobile to styles-m.css
+    .slick-slider li.product-item {
+        text-align: @ba-product-list-item-align-mobile;
+    }
+}
+// HOME PAGEBUILDER PRODUCTS SLICK CAROUSEL ENDS
+
+// HOME PAGEBUILDER PRODUCTS GRID STARTS
+& when (@media-common = true) { // mobile to styles-m.css
+    .page-layout-1column .block.widget .products-grid .product-item {
+        text-align: @ba-product-list-item-align-mobile;
+        width: 100%;  // 1 column
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) { // desktop to styles-l.css
+    .page-layout-1column .block.widget .products-grid .product-item {
+        text-align: @ba-product-list-item-align-desktop;
+        width: calc((100% - 6%)/ 4);  // 4 columns  - 3 gutters at 2% each = 6%
+    }
+}
+// HOME PAGEBUILDER PRODUCTS GRID ENDS

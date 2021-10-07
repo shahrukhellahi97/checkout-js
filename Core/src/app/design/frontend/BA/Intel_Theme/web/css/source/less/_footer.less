@@ -1,0 +1,90 @@
+// CUSTOMISED FOOTER STARTS
+
+
+.footer_customise {
+    background-color: @ba-footer-background;
+    border-top: none;
+    padding: 20px 0;
+
+    > div { // flex container
+        display: flex;
+        flex-direction: row;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    > div > div { // flex container column
+        flex-grow: 1;
+        padding: 0 15px 15px 15px;
+    }
+    > div > div > h4 { // footer heading
+        font-size: 16px;
+        font-weight: bold;
+    }
+    > div > div > ul { // footer list
+        list-style-type:none;
+        padding: 0;
+        margin: 0 0 15px 0;
+    }
+    > div > div > ul > li { // footer list item
+        font-weight: 100;
+        font-size: 16px;
+    }
+    > div > div > ul > li > a { // footer links
+        color: @ba-footer-links;
+        font-weight: 100;
+        font-size: 16px;
+    }
+
+    .footer_prefooter {
+        box-sizing: border-box;
+        padding: 0 15px;
+        p {
+            width: 100%;
+            margin: 0;
+            border-bottom:1px solid rgb(85, 85, 85);
+        }
+    }
+    .footer_column_contact {
+        flex-grow: 2;
+    }
+    .footer_copyright_div {
+        display: block;
+        p {
+            text-align: center;
+            font-size: 10px;
+            font-weight: 100;
+            font-style: normal;
+            line-height: 14px;
+            margin-bottom: 8px;
+            padding: 0 15px;
+            a {
+                color: @magento-text-color;
+                text-decoration: underline;
+            }
+        }
+    }
+
+}
+@media screen and (max-width: 768px) {
+    .footer_customise {
+        > div { // flex container
+            flex-direction: column;
+        }
+        > div > div { // container column
+            width: 100%;
+            padding: 0 15px 0 15px;
+        }
+        > div > div > h4 { // footer heading
+            font-size: 18px;
+            margin: 10px 0 15px 0;
+
+        }
+        > div > div > ul > li { // footer list item
+            font-size: 16px;
+        }
+        .footer_copyright_div {
+            margin-top: 32px;
+        }
+    }
+}
+// CUSTOMISED FOOTER ENDS

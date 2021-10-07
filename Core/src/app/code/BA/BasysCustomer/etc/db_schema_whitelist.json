@@ -1,0 +1,29 @@
+{
+    "ba_guest_email": {
+        "column": {
+            "id": true,
+            "email_address": true,
+            "website_id": true,
+            "store_id": true,
+            "division_id": true,
+            "basys_contact_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "ba_basys_customer_contact": {
+        "column": {
+            "contact_id": true,
+            "email": true,
+            "currency": true,
+            "division_id": true,
+            "user_type_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BA_BASYS_CUSTOMER_CONTACT_EMAIL_CURRENCY_DIVISION_ID": true,
+            "FK_F23127CC4B36BF6FF7149E6D675F24E5": true
+        }
+    }
+}

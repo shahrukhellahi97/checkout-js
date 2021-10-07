@@ -1,0 +1,18 @@
+<?php
+/** @var \BA\BasysCustomer\ViewModel\AdditionalFields $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<fieldset class="fieldset create account">
+    <legend class="legend"><span><?= $block->escapeHtml(__('Additional Information')) ?></span></legend><br>
+    <?php foreach ($viewModel->getFields() as $field): ?>
+        <div class="field <?= $field->getCode() ?> <?= !$field->getIsRequired() ?: 'required' ?>">
+            <label class="label" for="<?= $field->getCode() ?>">
+                <span><?= $block->escapeHtml(__($field->getLabel())) ?></span>
+            </label>
+            
+            <div class="control">
+                <input type="text" name="<?= $field->getCode() ?>" id="<?= $field->getCode() ?>" value="" title="<?= $block->escapeHtmlAttr(__($field->getLabel())) ?>" class="input-text" <?= !$field->getIsRequired() ?: 'data-validate="{required:true}"' ?>>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</fieldset>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="ba_basys_customer_contact">
+        <column name="contact_id" xsi:type="int" unsigned="true" nullable="false" comment="ID"  identity="false"/>
+        <column name="email" xsi:type="varchar" nullable="true" length="128"  comment="Email Address"  />
+        <column name="currency" xsi:type="varchar" length="3" comment="Currency" />
+        <column name="division_id" xsi:type="int" unsigned="true" nullable="false" comment="Division ID" />
+        <column name="user_type_id"  xsi:type="smallint" unsigned="true" nullable="false" comment="User Type ID" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="contact_id" />
+        </constraint>
+
+        <constraint xsi:type="unique" referenceId="UQ_BA_CUSTOMER_CONTACT_EMAIL_CURRENCY_DIVISION_ID">
+            <column name="email" />
+            <column name="currency" />
+            <column name="division_id" />
+        </constraint>
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BA_CUSTOMER_CONTACT_DIVISION_ID_DIVISION_DIVISION_ID" 
+                    table="ba_customer_contact"
+                    column="division_id" 
+                    referenceTable="ba_basys_store_division"
+                    referenceColumn="division_id"
+                    onDelete="CASCADE"/>
+    </table>
+
+    <table name="ba_guest_email" resource="default" engine="innodb" comment="Guest Email">
+        <column name="id" xsi:type="int" unsigned="true" nullable="false" comment="ID"  identity="true"/>
+        <column name="email_address" xsi:type="varchar" nullable="true" length="50"  comment="Email Address"  />
+        <column name="website_id" xsi:type="int" unsigned="true" nullable="false" comment="Website Id" />
+        <column name="store_id" xsi:type="int" unsigned="true" nullable="false" comment="Store Id" />
+        <column name="division_id" xsi:type="int" unsigned="true" nullable="false" comment="Division Id" />
+        <column name="basys_contact_id" xsi:type="int" unsigned="true" nullable="false" comment="Basys Contact Id" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

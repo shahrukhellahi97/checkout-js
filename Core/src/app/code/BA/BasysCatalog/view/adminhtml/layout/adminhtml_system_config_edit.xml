@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="footer">
+            <container name="basys_load_js" htmlTag="div" htmlClass="basys_load_js">
+                <block name="basysloadjs.viewmodel" template="BA_BasysCatalog::loadjs.phtml">
+                    <arguments>
+                        <argument name="view_model" xsi:type="object">BA\BasysCatalog\ViewModel\LoadajaxUrl</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

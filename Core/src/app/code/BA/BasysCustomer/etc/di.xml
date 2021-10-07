@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="BA\BasysCustomer\Api\CustomerManagementInterface" type="BA\BasysCustomer\Model\CustomerManagement" />
+    <preference for="BA\BasysCustomer\Api\Data\CustomerContactInterface" type="BA\BasysCustomer\Model\CustomerContact" />
+    
+    <!-- Typed Request Builders -->
+    <type name="BA\BasysCustomer\Model\Request\Builder\ContactRequest">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="add_contact" xsi:type="object">BA\BasysCustomer\Model\Request\Builder\Customer\Contact</item>
+                <item name="add_sourcecode" xsi:type="object">BA\BasysCustomer\Model\Request\Builder\Customer\SourceCode</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="BA\BasysCustomer\Model\Request\Builder\CustomerRequest">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="add_contact" xsi:type="object">BA\BasysCustomer\Model\Request\Builder\CustomerRequest\Customer\Address</item>
+                <item name="add_basys" xsi:type="object">BA\BasysCustomer\Model\Request\Builder\CustomerRequest\Customer\Address</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Build Transfer Factory --> 
+    <virtualType name="CustomerTransferFactory" type="BA\Basys\Webservices\Http\BasysTransferFactory">
+        <arguments>
+            <argument name="endpoint" xsi:type="string">Customer.asmx</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Create Contact Command -->
+    <virtualType name="CreateContactCommand" type="BA\Basys\Webservices\Command\Command">
+        <arguments>
+            <argument name="commandName" xsi:type="string">create_contact</argument>
+            <argument name="request" xsi:type="object">BA\BasysCustomer\Webservices\Request\CreateContact</argument>
+            <argument name="transferFactory" xsi:type="object">CustomerTransferFactory</argument>
+            <argument name="handler" xsi:type="object">BA\BasysCustomer\Webservices\Response\CreateContactHandler</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="CustomerAsyncCommand" type="BA\Basys\Webservices\Command\AsyncCommand">
+        <arguments>
+            <argument name="topicName" xsi:type="string">basys.command.process.customer</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AsyncCreateContactCommand" type="CustomerAsyncCommand">
+        <arguments>
+            <argument name="command" xsi:type="object">CreateContactCommand</argument>
+            <argument name="handler" xsi:type="object">BA\BasysCustomer\Webservices\Response\Async\CreateContactHandler</argument>
+        </arguments>
+    </virtualType>
+
+
+    <!-- Add to command pool -->
+    <type name="BA\Basys\Webservices\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <!-- item name should match command name -->
+                <item name="create_contact" xsi:type="string">CreateContactCommand</item>
+                <item name="create_contact_async" xsi:type="string">AsyncCreateContactCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

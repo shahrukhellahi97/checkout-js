@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!-- 
+ *  sales_quote_load_after
+ *  sales_quote_save_before
+ *  sales_quote_save_after
+ *  sales_quote_delete_before
+ *  sales_quote_delete_after
+    -->
+    <event name="sales_quote_save_before">
+        <observer name="sumit_custom_order_currency" instance="BA\BasysCatalog\Observer\SetCurrency" />
+    </event>
+</config>

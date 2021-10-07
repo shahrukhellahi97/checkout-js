@@ -1,0 +1,67 @@
+.gift_card {
+    margin: 0;
+}
+#certificate-reference-id {
+   width: 25%; 
+   min-width: 200px;
+}
+.gift-button-wrap a.gift-card-button {
+    display: inline-block;
+    background: #006bb4;
+    color: #fff;
+    margin-top: .5em;
+    text-align: center;
+    width: 118px;
+    height: 30px;
+    line-height: 30px;
+}
+.gift-title,
+.gift-lbl-wrap {
+    display: block;
+}
+.gift-title {
+    color: #006bbb;
+    font-weight: 400;
+    font-size: 1.1em;
+}
+.gift-val {
+    font-weight: bold;
+}
+.gift-Balance {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    border-radius: 3px;
+}
+.gift-lbl-wrap.gift-Error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    border-radius: 3px;
+}
+.gift-lbl-wrap {
+    padding: .5em;
+    margin-top: .5em;
+}
+.basys-gift-card {
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+.gift-card-wrap {
+    display: none;
+}
+
+@media screen and (min-width: 992px) {
+    .gift_card {
+        width: 50%;
+    }
+}
+span.gift-title.basys-gift-card:after {
+    content: '\e622';
+    font-family: 'luma-icons';
+    font-size: .8em;
+    margin-left: .5em;
+}
+span.gift-title.basys-gift-card.active:after {
+    content: '\e621';
+}

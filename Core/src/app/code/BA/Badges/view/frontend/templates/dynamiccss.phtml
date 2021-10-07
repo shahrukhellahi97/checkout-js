@@ -1,0 +1,24 @@
+<style type="text/css">
+.ribbon span {
+    background: linear-gradient(<?php echo $block->getSaleStartColor();?> 0%, <?php echo $block->getSaleEndColor();?> 100%);
+}
+.ribbon span::before {
+    border-left: 3px solid <?php echo $block->getSaleEndColor();?>;
+    border-top: 3px solid <?php echo $block->getSaleEndColor();?>;
+}
+.ribbon span::after {
+    border-right: 3px solid <?php echo $block->getSaleEndColor();?>;
+    border-top: 3px solid <?php echo $block->getSaleEndColor();?>;
+  }
+.ribbon.ribbon-left span {
+    background: linear-gradient(<?php echo $block->getNewStartColor();?> 0%, <?php echo $block->getNewEndColor();?> 100%);
+}
+.ribbon-left span::before {
+    border-left: 3px solid <?php echo $block->getNewEndColor();?>;
+    border-top: 3px solid <?php echo $block->getNewEndColor();?>;
+}
+.ribbon-left span::after {
+    border-right: 3px solid <?php echo $block->getNewEndColor();?>;
+    border-top: 3px solid <?php echo $block->getNewEndColor();?>;
+}
+</style>

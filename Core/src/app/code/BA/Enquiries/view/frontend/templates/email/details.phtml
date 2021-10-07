@@ -1,0 +1,26 @@
+<?php
+/** @var \BA\Enquiries\ViewModel\EmailViewModel $viewModel */
+$viewModel = $block->getViewModel();
+?>
+
+<table width="100%" class="details-form">
+    <?php foreach ($viewModel->getDetails() as $label => $values): ?>
+        <tr class="group-label">
+            <td>
+                <p><?=$block->escapeHtml($label);?></p>
+            </td>
+        </tr>
+        <?php foreach ($values as $title => $value): ?>
+            <tr class="details-item label">
+                <td>
+                    <p><?=$block->escapeHtml($title);?></p>
+                </td>
+            </tr>
+            <tr class="details-item value">
+                <td>
+                    <p><?=$block->escapeHtml($value, ['br']);?></p>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    <?php endforeach; ?>
+</table>

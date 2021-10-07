@@ -1,0 +1,177 @@
+// CATALOGUE LISTINGS STARTS - good css reference is theme-frontend-blank>Magento_Catalog>web>css>source>module>_listings.less
+& when (@media-common = true) { // mobile
+    .products-grid .product-item-info, .products-grid .product-item-info:hover, .products-grid .product-item-info.active, .widget-product-carousel .product-item-info, .widget-product-grid .product-item-info   {
+        -webkit-box-shadow: @ba-shadows;
+        -moz-box-shadow: @ba-shadows;
+        box-shadow: @ba-shadows;
+        border: none;
+        margin: 0;
+        padding: 15px;
+        position: relative;
+        z-index: 9;
+    }
+
+    .product-image-photo {
+        background-color: @ba-product_image_background_colour;
+    }
+
+    .price-box {
+        margin: 0;
+    }
+    .product { // li level = product
+        &-item { // level = product-item (single product outer)
+
+            .products-grid & {
+                display: inline-block;
+                margin-left: 0;
+                padding: 0;
+                width: 100%;
+            }
+
+            &:nth-child(2n + 1) {
+                margin-left: 0;
+            }
+
+            &-info { // level = product-item-info (single product inner)
+                margin-bottom:20px;
+                .page-products & {
+                    width: 100%;
+                    text-align: @ba-product-list-item-align-mobile;
+                }
+            }
+            .minimal-price {
+                .price-container {
+                    display: inline-block; // magento default is block
+                }
+            }
+            .price-box {
+                margin: 0;
+                .price-label {
+                    display: inline-block;
+                    margin-right: 15px;
+                }
+            }
+            &-actions {
+                .actions-primary {
+                    position:absolute;
+                    right:15px;
+                    bottom:15px;
+                }
+                .actions-primary+.actions-secondary {
+                    display:none;
+                }
+                .action.primary, .action.primary:hover, .action.primary:active, .action.primary:focus  { // add to cart button
+                    width:32px;
+                    height:32px;
+                    padding: 0;
+                    border: none;
+                    background-color: transparent;
+                    background-image: url("../images/icon_cart_grey.svg");
+                    background-repeat:no-repeat;
+                    background-size: cover;
+                }
+                .action.primary span {
+                    display: none;
+                }
+            }
+            &-details {
+                text-align: @ba-product-list-details-align-mobile;
+            }
+        }
+
+    }
+
+    .category_list_addtocart_icon { // add to cart icon inside button
+        width: 40px;
+        height: 40px;
+    }
+    .product-item-name, .product.name a { // product title
+        font-weight: 400;
+        font-size: 15px;
+    }
+    .product-item .price-box .price { // product price
+        font-weight:600;
+        font-size: 30px;
+    }
+    .product-items {
+        .product-reviews-summary { // hide reviews
+            display: none;
+        }
+    .product_icon_top_left {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        width: 50px;
+        height: 50px;
+        z-index: 10;
+        }
+    }
+
+//---------------------------------------------------------------------------------------------------------------------
+    .products-list { // LIST VIEW ONLY
+        .product-item {
+            border-bottom: 1px solid #d0d0d0; // single product li
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .product-image-photo { // product image
+            max-width: 75%;
+        }
+        .product-item-name, .product.name a { // product title
+            font-size: 20px;
+        }
+        .ba-sku { // product sku phil added
+            font-size: 15px;
+            margin: 10px 0 10px 0;
+        }
+        .product-item .price-box .price { // product price
+            font-size: 30px;
+        }
+        .product-item-description { // product description
+            float: none;
+            width: 100%;
+            font-size: 14px;
+            line-height: 150%;
+        }
+    }
+}
+//---------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) { // desktop
+    .page-products {
+        .products-grid {
+            .product-items {
+                margin: 0;
+            }
+
+            .product-item {
+                margin-left: 2%;
+                padding: 15px;
+                width: calc(~'(100% - 4%) / 3'); // / 3 by for 3 column grid : 4% = 2 gutters at 2% each
+
+                &:nth-child(2n + 1) {
+                    margin-left: 2%;
+                }
+
+                &:nth-child(3n + 1) {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    .products-grid .product-item-info, .products-grid .product-item-info:hover, .products-grid .product-item-info.active {
+        margin: -15px;
+    }
+    .ba-sku { // product sku phil added
+        font-size: 15px;
+        margin: 10px 0 10px 0;
+    }
+    .product-item-description {
+        float: none;
+        width: 100%;
+        font-size: 15px;
+        line-height: 150%;
+    }
+}
+// CATALOGUE LISTINGS ENDS

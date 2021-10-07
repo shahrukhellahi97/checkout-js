@@ -1,0 +1,62 @@
+{
+    "ba_punchout_request": {
+        "column": {
+            "request_id": true,
+            "payload_id": true,
+            "store_id": true,
+            "customer_id": true,
+            "token": true,
+            "timestamp": true,
+            "email": true,
+            "name": true,
+            "currency": true,
+            "procurement_application": true,
+            "buyer_cookie": true,
+            "browser_from_post": true,
+            "return_url": true,
+            "deliver_to": true,
+            "street": true,
+            "city": true,
+            "state": true,
+            "postcode": true,
+            "country": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BA_PUNCHOUT_REQUEST_PAYLOAD_ID": true,
+            "BA_PUNCHOUT_REQUEST_TOKEN": true,
+            "BA_PUNCHOUT_REQUEST_STORE_ID_STORE_STORE_ID": true
+        }
+    },
+    "ba_punchout_request_credential": {
+        "column": {
+            "credential_id": true,
+            "request_id": true,
+            "type_id": true,
+            "identity": true,
+            "shared_secret": true,
+            "domain": true,
+            "user_agent": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BA_PUNCHOUT_REQUEST_CREDENTIAL_REQUEST_ID_TYPE_ID": true,
+            "FK_4C19335E5E2633330F031AABAA0A304D": true
+        }
+    },
+    "ba_punchout_order": {
+        "column": {
+            "order_id": true,
+            "request_id": true,
+            "timestamp": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BA_PUNCHOUT_ORDER_ORDER_ID_BA_PUNCHOUT_REQUEST_REQUEST_ID": true
+        }
+    }
+}

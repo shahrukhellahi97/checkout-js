@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">usertype_config_catalog_listing.usertype_config_catalog_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>usertype_config_catalog_listing_columns</spinner>
+        <deps>
+            <dep>usertype_config_catalog_listing.usertype_config_catalog_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="usertype_config_catalog_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string"> BA\UserType\Ui\DataProvider\Config\Catalog</argument>
+            <argument name="name" xsi:type="string">usertype_config_catalog_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">catalog_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">catalog_id</item>
+                    </item>
+<!-- 
+                    <item name="filter_url_params" xsi:type="array">
+                        <item name="id" xsi:type="string">*</item>
+                    </item> -->
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+
+    <columns name="usertype_config_catalog_listing_columns">
+        <settings>
+			<editorConfig>
+				<!-- <param name="selectProvider" xsi:type="string">usertype_config_listing.usertype_config_listing.usertype_config_listing_columns.ids</param> -->
+				<param name="enabled" xsi:type="boolean">true</param>
+				<param name="indexField" xsi:type="string">catalog_id</param>
+            </editorConfig>
+        </settings>
+
+        <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">55</item>
+                    <item name="indexField" xsi:type="string">catalog_id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+<!-- 
+        <column name="is_active" component="Magento_Ui/js/grid/columns/onoff">
+            <settings>
+                <dataType>select</dataType>
+            </settings>
+        </column> -->
+
+        <column name="catalog_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Catalog ID</label>
+            </settings>
+        </column>
+
+        <column name="name">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Name</label>
+            </settings>
+        </column>
+
+        <column name="currency">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Currency</label>
+            </settings>
+        </column>
+
+        <column name="is_active">
+            <settings>
+                <label translate="true">Active?</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

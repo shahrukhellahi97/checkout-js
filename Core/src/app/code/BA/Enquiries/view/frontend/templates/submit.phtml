@@ -1,0 +1,144 @@
+<?php
+/** @var \BA\Enquiries\ViewModel\EnquiriesViewModel $viewModel */
+$viewModel = $block->getViewModel();
+?>
+
+<?php if ($viewModel->getIsEnabled()): ?>
+
+<div class="ba-enquiries-payment-methods">
+<?php if ($viewModel->hasOtherPaymentMethods()): ?>
+    <button class="action" style="width: 100%;margin-top:12px;" id="submit-enquiry"><?=$viewModel->getButtonText()?></button>
+<?php else: ?>
+    <button class="action primary checkout" id="submit-enquiry" style="width:100%; padding: 16px 0px;font-size:18px;">
+        <?=$viewModel->getButtonText()?>
+    </button>
+<?php endif; ?>
+</div>
+
+
+<div id="modal">
+    <div class="modal-body-content">
+        <form class="form" id="enquiry-form">
+            <fieldset class="fieldset">
+                <div class="field required">
+                    <label class="label" for="contact_name">
+                        <span><?php /* @escapeNotVerified */ echo __('Contact Name') ?></span>
+                    </label>
+
+                    <div class="control">
+                        <input name="contact_name" id="contact_name" class="input-text" type="text" data-validate="{required:true}"/>
+                    </div>
+                </div>
+
+                <div class="field required">
+                    <label class="label" for="email_address">
+                        <span><?php /* @escapeNotVerified */ echo __('Your Email') ?></span>
+                    </label>
+
+                    <div class="control">
+                        <input name="email_address" id="email_address" class="input-text" type="email" data-validate="{required:true}"/>
+                    </div>
+                </div>
+
+                <?php foreach ($viewModel->getFields() as $field): ?>
+                <div class="field<?=($field->getIsRequired() ? ' required' : '')?>">
+                    <label class="label" for="<?=$field->getName()?>">
+                        <span><?=$block->escapeHtml(__($field->getLabel()))?></span>
+                    </label>
+
+                    <div class="control">
+                        <?=$viewModel->renderField($field);?>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </fieldset>
+        </form>
+
+        <div id="enquiry-message" style="display:none;">
+            <p><?=$viewModel->getSuccessMessage();?></p>
+        </div>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#enquiry-form": {
+            "validation": {}
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    require([
+        "jquery",
+        "Magento_Ui/js/modal/modal"
+    ],function($, modal) {
+
+        function placeRequest(){
+            $.ajax({
+                url: '<?=$viewModel->getAjaxUrl()?>',
+                type: 'POST',
+                data: $('#enquiry-form').serialize(),
+                dataType: 'json',
+                showLoader: true
+            }).done(function(data) {
+                if (data.success) {
+                    $('#enquiry-form').hide();
+                    $('#enquiry-message').show();
+
+                    $('.enquiry-submit > span').text($.mage.__('Close'));
+                    $('.enquiry-submit').prop('onclick', null).off('click');
+                    $('.enquiry-submit').on('click', function(){
+                        $('#modal').modal('closeModal');
+                    });
+                } else {
+                    if (data.errors) {
+                        $.each(data.errors, function(key, val){
+                            $('[name=' + key +']')
+                                .removeClass('valid')
+                                .addClass('mage-invalid mage-error')
+                                .attr('aria-invalid', true)
+                                .attr('aria-describedby', key + '-error');
+
+                            
+
+                            var tpl = '<div for="'+ key + '" generated="true" class="mage-error" id="' + key + '-error" style="display: block;">' + val.join('<br />') + '</div>';
+
+                            $('[name=' + key +']').after(tpl);
+                        });
+                    }
+                }
+            });
+        }
+
+        $('#enquiry-form').on('submit', function(e) {
+            e.preventDefault();
+            
+            if ($(this).valid()){
+                placeRequest();
+            }
+        });
+
+        var options = {
+            type: 'popup',
+            responsive: true,
+            title: '<?=$viewModel->getButtonText()?>',
+            buttons: [
+                {
+                    text: $.mage.__('Submit'),
+                    class: 'button primary enquiry-submit',
+                    click: function () {
+                        $('#enquiry-form').submit();
+                    }
+                }
+            ]
+        };
+
+        var popup = modal(options, $('#modal'));
+
+        $("#submit-enquiry").click(function() {
+            $('#modal').modal('openModal');
+        });
+    });
+</script>
+<?php endif; ?>

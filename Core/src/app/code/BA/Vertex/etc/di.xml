@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="BA\Vertex\Api\RateProviderInterface" type="BA\Vertex\Model\Tax\RateProvider" />
+    <preference for="BA\Vertex\Model\Request\Builder\CalculateTaxRequestInterface" type="BA\Vertex\Model\Request\Builder\CalculateTaxRequest" />
+    <preference for="Magento\Tax\Model\Sales\Total\Quote\Tax" type="BA\Vertex\Model\Tax\Sales\Total\Quote\Tax" />
+
+    <type name="BA\Vertex\Model\Request\Builder\CalculateTaxRequest">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="add_customer" xsi:type="object">BA\Vertex\Model\Request\Builder\Tax\AddCustomer</item>
+                <item name="add_freight" xsi:type="object">BA\Vertex\Model\Request\Builder\Tax\AddFreight</item>
+                <item name="add_product" xsi:type="object">BA\Vertex\Model\Request\Builder\Tax\AddProducts</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="TaxTransferFactory" type="BA\Basys\Webservices\Http\BasysTransferFactory">
+        <arguments>
+            <argument name="endpoint" xsi:type="string">tax.asmx</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="GetTaxCommand" type="BA\Basys\Webservices\Command\Command">
+        <arguments>
+            <argument name="commandName" xsi:type="string">calculate_tax_v</argument>
+            <argument name="request" xsi:type="object">BA\Vertex\Webservices\Request\CalculateTaxV</argument>
+            <argument name="transferFactory" xsi:type="object">TaxTransferFactory</argument>
+            <argument name="handler" xsi:type="object">BA\Vertex\Webservices\Response\CalculateTaxVHandler</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AsyncGetTaxCommand" type="BA\Basys\Webservices\Command\AsyncCommand">
+        <arguments>
+            <argument name="command" xsi:type="object">GetTaxCommand</argument>
+            <argument name="handler" xsi:type="object">BA\Vertex\Webservices\Response\Async\CalculateTaxVHandler</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="BA\Basys\Webservices\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="calculate_tax_v" xsi:type="string">GetTaxCommand</item>
+                <item name="calculate_tax_v_async" xsi:type="string">AsyncGetTaxCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

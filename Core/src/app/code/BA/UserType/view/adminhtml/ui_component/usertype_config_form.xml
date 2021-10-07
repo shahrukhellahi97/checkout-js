@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">usertype_config_form.usertype_config_form_data_source</item>
+            <item name="deps" xsi:type="string">usertype_config_form.usertype_config_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Configuration</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">usertype_config_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+
+    <dataSource name="usertype_config_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">BA\UserType\Ui\DataProvider\Config</argument>
+            <argument name="name" xsi:type="string">usertype_config_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">config_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+        </argument>
+
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="label" xsi:type="string" translate="true">General</item>
+                <item name="sortOrder" xsi:type="number">10</item>
+            </item>
+        </argument>
+
+        <field name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Name</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">general</item>
+                    <item name="dataScope" xsi:type="string">name</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="description">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Description</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">general</item>
+                    <item name="dataScope" xsi:type="string">description</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="website_id">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">BA\UserType\Model\Config\Source\Websites</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Website</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">general</item>
+                    <item name="dataScope" xsi:type="string">website_id</item>
+                    <item name="default" xsi:type="string">1</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+
+    <fieldset name="catalogs">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Catalogs</item>
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="opened" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">30</item>
+            </item>
+        </argument>
+
+        <insertListing name="testInsertListing">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataLinks" xsi:type="array">
+                        <item name="imports" xsi:type="boolean">false</item>
+                        <item name="exports" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="autoRender" xsi:type="boolean">true</item>
+                    <item name="ns" xsi:type="string">usertype_config_catalog_listing</item>
+                    <item name="render_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="filter_url_params" xsi:type="array">
+                        <item name="id" xsi:type="string">*</item>
+                    </item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">id</item>
+                    </item>
+                    <item name="externalProvider" xsi:type="string">usertype_config_catalog_listing.usertype_config_catalog_listing_data_source</item>
+                    <item name="imports" xsi:type="array">
+                        <item name="website_id" xsi:type="string">${ $.provider }:data.website_id</item>
+                        <item name="config_id" xsi:type="string">${ $.provider }:data.config_id</item>
+                    </item>
+                    <item name="exports" xsi:type="array">
+                        <item name="website_id" xsi:type="string">${ $.externalProvider }:params.website_id</item>
+                        <item name="config_id" xsi:type="string">${ $.externalProvider }:params.config_id</item>
+                    </item>
+                </item>
+            </argument>
+        </insertListing>
+
+        <!-- <insertListing>
+            <settings>
+                <dataLinks>
+                    <exports>false</exports>
+                    <imports>true</imports>
+                </dataLinks>
+                <imports>
+                    <link name="list_id">${ $.provider  }:params.list_id</link>
+                </imports>
+                <exports>
+                    <link name="list_id">${ $.externalProvider }:params.list_id</link>
+                </exports>
+
+                <autoRender>true</autoRender>
+                <externalProvider>usertype_config_catalog_listing.usertype_config_catalog_listing_data_source</externalProvider>
+                <selectionsProvider>usertype_config_catalog_listing.usertype_config_catalog_listing.columns.ids</selectionsProvider>
+                <dataScope>usertype_config_catalog_listing</dataScope>
+                <ns>usertype_config_catalog_listing</ns>
+            </settings>
+        </insertListing> -->
+    </fieldset>
+</form>

@@ -1,0 +1,22 @@
+<?php
+     //@codingStandardsIgnoreStart
+    $viewModel = $block->getData('viewModel');
+    $meetTeamDatas=  $viewModel->getTeam();
+    //@codingStandardsIgnoreEnd
+?>
+<?php foreach ($meetTeamDatas as $meetTeamData) : ?>
+<div class="meet-wrapper">
+    <div class="meet-team">
+        <div class="team-img">
+        <?=  /* @noEscape */  $meetTeamData->getImage();?>
+            <img class="img" src="https://via.placeholder.com/283x366?text=coming+soon" alt="<?=  /* @noEscape */  $meetTeamData->getName();?>">
+        </div>
+    <div class="team-body">
+        <h3 class="team-title"><?=  /* @noEscape */  $meetTeamData->getImage();?></h3>
+        <span class="team-phone"><?=  /* @noEscape */  $meetTeamData->getTelephone();?></span>
+        <span class="team-job-title"><?=  /* @noEscape */  $meetTeamData->getJobtitle();?></span>
+        <span class="team-email"><?=  /* @noEscape */  $meetTeamData->getEmail();?></span>
+    </div>
+    </div>
+</div>
+<?php endforeach; ?>

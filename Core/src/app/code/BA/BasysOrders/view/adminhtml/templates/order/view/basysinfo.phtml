@@ -1,0 +1,9 @@
+<?php
+    $viewModel = $block->getViewModel();
+?>
+<h3>Additional Information</h3>
+<table>
+    <tr>
+        <td>Basys Order Id : <?= $block->escapeHtml($viewModel->getOrderId()); ?></td>
+    </tr>
+</table>

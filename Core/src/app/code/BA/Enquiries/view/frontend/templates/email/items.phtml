@@ -1,0 +1,50 @@
+<?php
+/** @var \BA\Enquiries\ViewModel\EmailViewModel $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<table class="email-items">
+    <thead>
+        <tr>
+            <th class="item-info">
+                <?= $block->escapeHtml(__('Item')) ?>
+            </th>
+            <th class="item-qty">
+                <?= $block->escapeHtml(__('Qty')) ?>
+            </th>
+            <th class="item-price">
+                <?= $block->escapeHtml(__('Price')) ?>
+            </th>
+            <th class="item-price">
+                <?= $block->escapeHtml(__('Subtotal')) ?>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+<?php foreach ($viewModel->getEnquiryItems() as $item): ?>
+        <tr>
+            <td width="70%">
+                <table style="width:100%">
+                    <tr>
+                       <td style="max-width:80px;"><img width="80" src="<?=$item->getImage()?>" /></td>
+                       <td style="width:100%;">
+                           <p style="padding-left:32px;"><?=$item->getSku()?></p>
+                           <p style="padding-left:32px;"><?=$item->getName()?></p>
+                       </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="item-qty"><?=$item->getQuantity();?></td>
+            <td class="item-price"><?=$viewModel->format($item->getLineItemCost())?></td>
+            <td class="item-price"><?=$viewModel->format($item->getTotal());?></td>
+        </tr>
+<?php endforeach; ?>
+    </tbody>
+    <tfoot class="order-totals">
+        <tr>
+            <td>&nbsp;</td>
+            <td class="item-qty" style="text-align:center;font-weight:bold"><?=$viewModel->getTotalQuantity();?></td>
+            <td class="item-price">&nbsp;</td>
+            <td class="item-price" style="font-weight:bold"><?=$viewModel->format($viewModel->getTotal());?></td>
+        </tr>
+    </tfoot>
+</table>

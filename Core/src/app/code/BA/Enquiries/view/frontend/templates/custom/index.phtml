@@ -1,0 +1,121 @@
+<?php
+/** @var \BA\Enquiries\ViewModel\CustomRequestViewModel $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<div class="enquiry-block form" id="ba-custom-request-wrapper">
+    <form id="ba-custom-request">
+        <fieldset class="fieldset">
+            <div class="field required">
+                <label class="label" for="name">
+                    <span><?php /* @escapeNotVerified */ echo __('Contact Name') ?></span>
+                </label>
+
+                <div class="control">
+                    <input name="contact_name" id="name" class="input-text" type="text" data-validate="{required:true}"/>
+                </div>
+            </div>
+
+            <div class="field required">
+                <label class="label" for="email">
+                    <span><?php /* @escapeNotVerified */ echo __('Your Email') ?></span>
+                </label>
+
+                <div class="control">
+                    <input name="email_address" id="email" class="input-text" type="email" data-validate="{required:true}"/>
+                </div>
+            </div>
+
+            <?php foreach ($viewModel->getFields() as $field): ?>
+                <div class="field<?=($field->getIsRequired() ? ' required' : '')?>">
+                    <label class="label" for="<?=$field->getName()?>">
+                        <span><?=$block->escapeHtml(__($field->getLabel()))?></span>
+                    </label>
+
+                    <div class="control">
+                        <?=$viewModel->renderField($field);?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" title="Submit" id="submit-button">
+                        <span><?=__("Submit");?></span>
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#ba-custom-request": {
+            "validation": {}
+        }
+    }
+</script>
+
+<script>
+require([
+    'jquery',
+    'mage/translate',
+    'mage/calendar'
+], function ($, $t) {
+    function placeRequest(){
+        $.ajax({
+            url: '<?=$viewModel->getAjaxUrl()?>',
+            type: 'POST',
+            data: $('#ba-custom-request').serialize(),
+            dataType: 'json',
+            showLoader: true
+        }).done(function(data) {
+            if (data.success) {
+                var fields = [
+                    '#ba-custom-request',
+                    '#ba-custom-request input',
+                    '#ba-custom-request textarea',
+                    '#ba-custom-request button'
+                ];
+                
+                fields.forEach(function(f) {
+                    $(f).prop("disabled", true);
+                });
+
+                window.location = data.success;
+            } else {
+                if (data.errors) {
+                    $.each(data.errors, function(key, val){
+                        $('[name=' + key +']')
+                            .removeClass('valid')
+                            .addClass('mage-invalid mage-error')
+                            .attr('aria-invalid', true)
+                            .attr('aria-describedby', key + '-error');
+                        
+                        var tpl = '<div for="'+ key + '" generated="true" class="mage-error" id="' + key + '-error" style="display: block;">' + val.join('<br />') + '</div>';
+
+                        $('[name=' + key +']').after(tpl);
+                    });
+                }
+            }
+        });
+    }
+
+    $('#ba-custom-request').on('submit', function(e) {
+        e.preventDefault();
+        
+        if ($(this).valid()){
+            placeRequest();
+        }
+    });
+
+    $('.date-picker').calendar({
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        currentText: $t('Go Today'),
+        closeText: $t('Close'),
+        showWeek: true
+    });
+})
+</script>

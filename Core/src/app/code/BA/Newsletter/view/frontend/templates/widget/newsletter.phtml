@@ -1,0 +1,54 @@
+<div class="basys-newsletter-wrap">
+<?php if ($block->getData('heading')) : ?>
+  <h2 class='heading'>
+     <?= /* @noEscape */ $block->getData('heading'); ?>
+  </h2>
+<?php endif; ?>
+  <form action="#" method="post" enctype="multipart/form-data" class="basys-newsletter" id="basys-newslettter-id">
+    <div class="field name required">
+        <label class="label" for="field1">
+            <?= /* @noEscape */ $block->getData('text_1'); ?><em>*</em>
+        </label>
+        <div class="control">
+          <input name="email" type="text" id="email" class="input-text required" maxlength="50" data-validate="{required:true,'validate-length':true}"/>
+        </div>
+    </div>
+    <div class="control basys-radio-buttons">
+      <label class="label"><?= /* @noEscape */ $block->getData('radio_button_label_1'); ?><em>*</em></label>
+      <ul>
+        <li>
+          <input type="radio" class="radio required-entry" name="send_email_confirm" data-validate="{'validate-one-required-by-name':true}" value="no" checked="checked">
+            <?= /* @noEscape */ $block->getData('radio_button_text_1'); ?><br>
+        </li>
+        <li>
+          <input type="radio" class="radio required-entry" name="send_email_confirm" data-validate="{'validate-one-required-by-name':true}" value="yes">
+            <?= /* @noEscape */ $block->getData('radio_button_text_2'); ?>
+        </li>
+      </ul>
+    </div>
+    <div class="confirm-again">
+    <div class="control">
+          <input type="checkbox" id="email_send_checkbox" name="email_send_checkbox" data-validate="{required:true}" class="input-checkbox checkbox required" value="1">
+          <label for="email_send_checkbox">
+            <?= /* @noEscape */ $block->getData('checkbox_text'); ?><em>*</em>
+          </label>
+    </div>
+    <div class="submit-warp"> 
+      <input type="submit" value="Subscribe" class="submit-button"/>
+    </div>
+    </div>
+  </form>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#basys-newslettter-id": {
+            "validation": {}
+        }
+    }
+</script>
+<script>
+    require(['jquery', 'checkDoubleOptin'], function($, checkDoubleOptin) {
+      checkDoubleOptin();
+    });
+</script>

@@ -1,0 +1,39 @@
+{
+    "ba_freight_table": {
+        "column": {
+            "table_id": true,
+            "name": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "ba_freight_table_zone": {
+        "column": {
+            "table_id": true,
+            "country_id": true,
+            "code_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BA_FREIGHT_TABLE_ZONE_COUNTRY_ID_DIRECTORY_COUNTRY_COUNTRY_ID": true,
+            "BA_FREIGHT_TABLE_ZONE_TABLE_ID_BA_FREIGHT_TABLE_TABLE_ID": true
+        }
+    },
+    "ba_freight_table_zone_rate": {
+        "column": {
+            "table_id": true,
+            "code_id": true,
+            "weight": true,
+            "value": true
+        },
+        "index": {
+            "BA_FREIGHT_TABLE_ZONE_RATE_TABLE_ID_CODE_ID_WEIGHT": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_2650ECD49E5579DCAF26E965FA8D56B4": true,
+            "BA_FREIGHT_TABLE_ZONE_RATE_CODE_ID_BA_FREIGHT_TABLE_ZONE_CODE_ID": true
+        }
+    }
+}

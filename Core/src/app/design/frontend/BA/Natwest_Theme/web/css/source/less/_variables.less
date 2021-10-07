@@ -1,0 +1,115 @@
+//  -------------------------------------------------------------------------------------------------------------------
+//  Magento Mixins - look in Magento/lib/web/css/source/lib for the good stuff
+//  Typography: Magento/lib/web/css/source/lib/variables/_typography.less 
+//  Colors:  Magento/lib/web/css/source/lib/variables/_colors.less ie @color-gray95: #f2f2f2;
+//  Color nesting example: @theme__color__primary: @color-blue1;
+//  Buttons: Magento/lib/web/css/source/lib/variables/_colors.less ie @button-primary__background:
+//  Layout: Magento/lib/web/css/source/lib/_buttons.less ie @layout__max-width: 1280px;
+//  -------------------------------------------------------------------------------------------------------------------
+//  COLOURS
+//  -------------------------------------------------------------------------------------------------------------------
+// NATWEST COLOURS
+@natwest-dark-purple:                           #42145f;
+@natwest-mid-green:                             #1d7b8a;
+@natwest-light-green:                           #009fac;
+// RBS COLOURS
+@rbs-navy-blue:                                 #002d64;
+@rbs-pink:                                      #95077d;
+//  -------------------------------------------------------------------------------------------------------------------
+//  MIXINS
+//  -------------------------------------------------------------------------------------------------------------------
+@brand:                                         natwest; // define our current brand as rbs or natwest for example
+.brand(@brand);                                 // create basic mixin for the brand
+//  -------------------------------------------------------------------------------------------------------------------
+//  OVERRIDE EXISTING MAGENTO VARIABLES
+//  -------------------------------------------------------------------------------------------------------------------
+//  FONTS
+@font-family-name__base: 'Natwest'; //  Fonts Weights Natwest 200, 400, 600
+@font-family__base: @font-family-name__base, @font-family__sans-serif;
+//  FONT WEIGHTS
+@font-weight__light: 200;
+@font-weight__regular: 400;
+@font-weight__heavier: 400;
+@font-weight__semibold: 600;
+@font-weight__bold: 600;
+//  ICONS
+@icon-success: '\e60e';
+@icon-error: '\e61f';
+@icon-edit: '\e601';
+@icon-print: '\e624';
+@icon-star-empty: '\e625';
+@icon-download: '\e626';
+@icon-private: '\e629';
+@icon-present: '\e62a';
+@icon-gift-registry: '\e62b';
+@icon-calendar__font-size: 23px;
+//  SIDEBAR
+@sidebar__background-color:                     @color-white-smoke; // Used in cart sidebar, Checkout sidebar, Tier Prices, My account navigation, Rating block background
+//  SIDEBAR BLOCKS
+@block-items__counter__color:                   @color-gray43;
+//  PAGE
+@page__background-color:                        @color-white;
+//  TEXT COLOUR
+@text__color:                                   @primary__color;
+//  H2 (Magento/lib/web/css/source/lib/variables/_typography.less)
+@h2__font-size:                                 30px;
+@h2__font-weight:                               @font-weight__regular;
+.brand(natwest)                                 {@ba-h2: @natwest-dark-purple;}
+.brand(rbs)                                     {@ba-h2: @rbs-navy-blue;}
+@h2__font-color:                                @ba-h2;
+//  LINKS (Magento/lib/web/css/source/lib/variables/_typography.less)
+@link__color:                                   @natwest-mid-green;
+@link__hover__color:                            @natwest-mid-green;
+//  BUTTONS (Magento/lib/web/css/source/lib/variables/_buttons.less and Magento/lib/web/css/source/lib/_buttons.less)
+@button__border-radius:                         0;
+//  Primary button
+@button-primary__background:                    @natwest-mid-green;
+@button-primary__hover__background:             @natwest-mid-green;
+@button-primary__font-weight:                   @font-weight__heavier;
+//  Default = secondary button
+
+// Categories - Magento call navigation (Magento/lib/web/css/source/lib/variables/_navigation.less and Magento/lib/web/css/source/lib/_navigation.less)
+
+
+
+//  -------------------------------------------------------------------------------------------------------------------
+//  NEW BRAND ADDITION VARIABLES (ADDITION TO MAGENTO VARIABLES)
+//  -------------------------------------------------------------------------------------------------------------------
+//  Shadows 
+@ba-shadows:                                    none;
+// Header
+.brand(natwest)                                 {@ba-header-background-colour: @natwest-dark-purple;}
+.brand(rbs)                                     {@ba-header-background-colour: @rbs-navy-blue;}
+//  Header icons
+@ba-header-icon-width:                          24px;
+@ba-header-icon-height:                         24px;
+@ba-header-icon-margin-left:                    20px;
+@ba-header-icon-font-family:                    "Font Awesome 5 Free";
+@ba-header-icon-font-weight:                    900;
+@ba-header-icon-font-size:                      18px;
+@ba-header-icon-line-height:                    30px;
+@ba-header-icon-color:                          white;
+@ba-header-icon-display:                        inline-block;
+//  Header Categories
+@header-categories-outer:                       white;
+@header-categories-outer-border-bottom:         rgb(215,215,215);
+@header-categories-overall-alignment:           left;
+@header-categories-text-color:                  @natwest-mid-green;
+// Brand Additions Custom Footer
+@ba-footer-border-top:                          @color-gray76; // #c2c2c2
+.brand(natwest)                                 {
+@ba-footer-background:                          @natwest-dark-purple;
+@ba-footer-secondary-colour:                    #ffffff;
+                                                }
+.brand(rbs)                                     {
+@ba-footer-background:                          @rbs-navy-blue;
+@ba-footer-secondary-colour:                    @natwest-light-green;
+                                                }
+@ba-footer-links:                               white;
+// Product Page
+@ba-product-cross-sells-background:             @color-gray94; // #fof0f0
+@ba-product_image_background_colour:            white;         
+// Product List
+@ba-product-list-item-align-mobile:             center;
+@ba-product-list-details-align-mobile:          left; // block containing title and price
+@ba-product-list-item-align-desktop:            center;

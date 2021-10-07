@@ -1,0 +1,130 @@
+<?php
+/**
+ * Copyright @ 2020 Adflex Limited. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+$payment = $block->getPayment();
+$data = $block->getAdditionalData($payment);
+$order = $block->getOrder();
+?>
+
+<div class="admin__page-section-item-title" style="margin-top: 15px;">
+    <span class="title"><?php echo $block->escapeHtml(__('Adflex Payments Information')); ?></span>
+</div>
+<div class="admin__page-section-item-content">
+    <div class="order-payment-additional order-payment-method-title">
+        <table class="data-table admin__table-secondary">
+            <tbody>
+            <?php if ($payment->getLastTransId()): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('Transaction Id')); ?>:</th>
+                    <td><?php echo $block->escapeHtml($payment->getLastTransId()); ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($payment->getCcType()): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('Card Type')); ?>:</th>
+                    <td><?php echo $block->escapeHtml($payment->getCcType()); ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($payment->getCcLast4()): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('Last 4 Digits')); ?>:</th>
+                    <td><?php echo $block->escapeHtml($payment->getCcLast4()); ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($payment->getAmountPaid()): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('Amount Paid')); ?>:</th>
+                    <td><?php echo $block->escapeHtml(number_format($payment->getAmountPaid(), 2) . ' ' . $order->getOrderCurrencyCode()); ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($payment->getAdditionalInformation('mode')): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('Mode')); ?>:</th>
+                    <td><?php echo strtoupper($block->escapeHtml($payment->getAdditionalInformation("mode"))); ?></td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="admin__page-section-item-title" style="margin-top: 15px;">
+    <span class="title"><?php echo $block->escapeHtml(__('AVS Information')); ?></span>
+</div>
+<div class="admin__page-section-item-content">
+    <div class="order-payment-additional order-payment-method-title">
+        <table class="data-table admin__table-secondary">
+            <?php $isMatched = ($data['avs_status']['cscStatus'] == 'Matched') ? 'green' : 'red';
+            if (isset($data['avs_status']['cscStatus'])): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('CSC Status')); ?>:</th>
+                    <td style="font-weight: bold; color: <?= $isMatched ?>"><?= $block->escapeHtml($data['avs_status']['cscStatus']); ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php $isMatched = ($data['avs_status']['postCodeStatus'] == 'Matched') ? 'green' : 'red';
+            if (isset($data['avs_status']['postCodeStatus'])): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('Postcode Status')); ?>:</th>
+                    <td style="font-weight: bold; color: <?= $isMatched ?>"><?php echo $block->escapeHtml($data['avs_status']['postCodeStatus']); ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php $isMatched = ($data['avs_status']['addressStatus'] == 'Matched') ? 'green' : 'red';
+            if (isset($data['avs_status']['addressStatus'])): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('Address Status')); ?>:</th>
+                    <td style="font-weight: bold; color: <?= $isMatched ?>"><?php echo $block->escapeHtml($data['avs_status']['addressStatus']); ?></td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<?php $has3dSecure = false; ?>
+<div class="admin__page-section-item-title" style="margin-top: 15px;">
+    <span class="title"><?php echo $block->escapeHtml(__('3D Secure Information')); ?></span>
+</div>
+<div class="admin__page-section-item-content">
+    <div class="order-payment-additional order-payment-method-title">
+        <table class="data-table admin__table-secondary">
+            <tbody>
+            <?php if (isset($data['3dsecure']['transactionStatus'])): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('3D Secure Status')); ?>:</th>
+                    <td><?php echo $block->escapeHtml($data['3dsecure']['transactionStatus']); ?></td>
+                </tr>
+                <?php $has3dSecure = true;
+            endif; ?>
+            <?php if (isset($data['3dsecure']['dateTime'])): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('Date of Result')); ?>:</th>
+                    <td><?php echo $block->escapeHtml($data['3dsecure']['dateTime']); ?></td>
+                </tr>
+                <?php $has3dSecure = true;
+            endif; ?>
+            <?php if (isset($data['3dsecure']['authenticationValue'])): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('Authentication Value')); ?>:</th>
+                    <td><?php echo $block->escapeHtml($data['3dsecure']['authenticationValue']); ?></td>
+                </tr>
+                <?php $has3dSecure = true;
+            endif; ?>
+            <?php if (isset($data['3dsecure']['veResEnrollmentStatus'])): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('Enrollment Status')); ?>:</th>
+                    <td><?php echo $block->escapeHtml($data['3dsecure']['veResEnrollmentStatus']); ?></td>
+                </tr>
+                <?php $has3dSecure = true;
+            endif; ?>
+            <?php if (!$has3dSecure): ?>
+                <tr>
+                    <th><?php echo $block->escapeHtml(__('3D Secure Status')); ?>:</th>
+                    <td style="font-weight: bold; color: orange"><?php echo $block->escapeHtml('Unchecked'); ?></td>
+                </tr>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+</div>

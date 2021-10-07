@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+	<router id="standard">
+		<route frontName="checkbalance" id="checkbalance">
+			<module name="BA_BasysGiftCertificate"/>
+		</route>
+		<route frontName="applygiftcard" id="applygiftcard">
+			<module name="BA_BasysGiftCertificate"/>
+		</route>
+		<route frontName="apigiftcard" id="apigiftcard">
+			<module name="BA_BasysGiftCertificate"/>
+		</route>
+		<route frontName="giftcardremove" id="giftcardremove">
+			<module name="BA_BasysGiftCertificate"/>
+		</route>
+	</router>
+</config>

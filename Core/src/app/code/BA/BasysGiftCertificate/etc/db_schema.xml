@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+        <table name="quote" resource="default" engine="innodb">
+            <column xsi:type="decimal" name="gift_amt" nullable="true" scale="2" precision="10" comment="Custom gift amount applied from webservice"/>
+            <column name="certificateref" xsi:type="varchar" nullable="true" length="50"  comment="Gift Certificate Ref"  />
+            <column xsi:type="int" name="gift_enabled" nullable="true" comment="Custom gift amount enabled"/>
+            <column xsi:type="decimal" name="used_gift_amt" nullable="true" scale="2" precision="10" comment="Used gift amount"/>
+        </table>
+        <table name="sales_order" resource="sales" engine="innodb" comment="Sales Order">
+            <column xsi:type="decimal" name="gift_amt" nullable="true" scale="2" precision="10" comment="Custom gift amount applied from webservice"/>
+            <column name="certificateref" xsi:type="varchar" nullable="true" length="50"  comment="Gift Certificate Ref"  />
+            <column xsi:type="int" name="gift_enabled" nullable="true" comment="Custom gift amount enabled"/>
+            <column xsi:type="decimal" name="used_gift_amt" nullable="true" scale="2" precision="10" comment="Used gift amount"/>
+        </table>
+</schema>

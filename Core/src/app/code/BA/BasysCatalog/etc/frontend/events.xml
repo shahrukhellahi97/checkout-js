@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_cart_product_add_after">
+      <observer name="set_basys_price" instance="BA\BasysCatalog\Observer\SetBasysPrice" />
+    </event>
+
+    <event name="controller_action_predispatch_stores_store_switch">
+		  <observer instance="BA\BasysCatalog\Observer\Frontend\Controller\ActionPredispatch" name="ba_basysprice_observer_controller_action_predispatch"/>
+    </event>
+
+    <event name="controller_action_predispatch_directory_currency_switch">
+		  <observer instance="BA\BasysCatalog\Observer\Frontend\Controller\ActionPredispatch" name="ba_basysprice_observer_controller_action_predispatch"/>
+    </event>
+    
+    <event name="checkout_cart_update_items_before">
+		  <observer instance="BA\BasysCatalog\Observer\UpdateCartItem" name="ba_basyscatalog_observer_cart_product_update"/>
+  </event>
+</config>

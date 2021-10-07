@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright @ 2020 Adflex Limited. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="adflex" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <comment><![CDATA[
+                <div class="adflex-logo">
+                    <img src="https://www.adflex.co.uk/Assets/Images/adflex_logo.png">
+                </div>
+                <div class="adflex-text">
+                    Adflex has been at the heart of the fintech revolution from the beginning.<br>
+                    We are known for fostering innovation and helping companies harness the power of digital payments.<br>
+                    Our technology and expertise bring together buyers and suppliers to make transactions fast,
+                    cost-effective and straightforward to manage. <br> We take the pain out of the supply chain by
+                    delivering seamless and secure payment integration that adds value to both buyers and merchants.
+                </div>]]></comment>
+                <fieldset_css>complex adflex-section</fieldset_css>
+                <frontend_model>Magento\Paypal\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
+                <field id="info" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="0">
+                    <frontend_model>Adflex\Payments\Block\Adminhtml\System\Config\Info</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enables or disables the Adflex Digital Payments extension.</comment>
+                </field>
+                <field id="base_currency" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Base Currency</label>
+                    <source_model>Adflex\Payments\Model\Adminhtml\Source\Currency</source_model>
+                    <comment>Select the currency you wish to use for orders. Base (global), store view or currency selector.</comment>
+                </field>
+                <group id="api" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" translate="label">
+                    <label>API Configuration</label>
+                    <comment>Insert your API credentials you received from Adflex here. We strongly recommend you test this extension before engaging into production mode, the test environment of this extension provides additional information during testing to help you through your configuration journey.</comment>
+                    <field id="secret_key" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Secret Key</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <comment>Please contact Adflex for your Secret Key.</comment>
+                        <config_path>payment/adflex/secret_key</config_path>
+                    </field>
+                    <field id="access_key" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Access Key</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <comment>Please contact Adflex for your Access Key.</comment>
+                        <config_path>payment/adflex/access_key</config_path>
+                    </field>
+                    <field id="apgid" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>APGID</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <comment>Please contact Adflex for your APGID.</comment>
+                        <config_path>payment/adflex/apgid</config_path>
+                    </field>
+                    <field id="mode" translate="label" type="select" sortOrder="81" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Mode</label>
+                        <source_model>Adflex\Payments\Model\Adminhtml\Source\Mode</source_model>
+                        <comment>Select the payment environment you wish to connect to.</comment>
+                        <config_path>payment/adflex/mode</config_path>
+                    </field>
+                    <field id="debug" translate="label" type="select" sortOrder="86" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Debug Logging</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>Enable this if you are having trouble with your payments and require support.</comment>
+                        <config_path>payment/adflex/debug</config_path>
+                    </field>
+                </group>
+                <group id="display" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" translate="label">
+                    <label>Display Configuration</label>
+                    <comment>Alter how the Adflex payment widget displays within the checkout.</comment>
+                    <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Payment Title</label>
+                        <comment>Changes the title of the payment method within the checkout frontend.</comment>
+                        <config_path>payment/adflex/title</config_path>
+                    </field>
+                    <field id="type" translate="label" type="select" sortOrder="81" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Display Type</label>
+                        <source_model>Adflex\Payments\Model\Adminhtml\Source\Type</source_model>
+                        <comment>Add credit card form onto checkout page (inline), or click a button to display payment modal window (lightbox).</comment>
+                        <config_path>payment/adflex/type</config_path>
+                    </field>
+                    <field id="sort_order" translate="label" type="text" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Sort Order</label>
+                        <frontend_class>validate-number</frontend_class>
+                        <comment>Where in the order of payment methods within the checkout frontend, the adflex method shows.</comment>
+                        <config_path>payment/adflex/sort_order</config_path>
+                    </field>
+                </group>
+                <group id="vault_misc" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                    <label>Order Configuration and Vault</label>
+                    <comment>Change default payment actions, enable or disable credit card tokenisation with Magento Vault and alter default order statuses.</comment>
+                    <field id="payment_action" translate="label" type="select" sortOrder="82" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Payment Action</label>
+                        <source_model>Adflex\Payments\Model\Adminhtml\Source\PaymentAction</source_model>
+                        <comment>If authorise only, no invoice will be created and an administrator will need to manually capture and settle the order. If authorise, capture and settle, payment will be taken immediately during the checkout flow.</comment>
+                        <config_path>payment/adflex/payment_action</config_path>
+                    </field>
+                    <field id="adflex_vault_active" translate="label" type="select" sortOrder="83" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Vault Enabled</label>
+                        <tooltip>2.2.x/2.3.x only. This feature only works when a customer is logged in to their account prior to placing an order, and has selected the 'Save card' option within the credit card form. This then allows them to reuse their credit card on a repeat purchase.</tooltip>
+                        <config_path>payment/adflex_vault/active</config_path>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>Enables functionality which saves the credit card token to Magento's Vault (if requested and authorised by the customer), to be reused later.</comment>
+                    </field>
+                    <field id="order_status" translate="label" type="select" sortOrder="84" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>New Order Status</label>
+                        <source_model>Magento\Sales\Model\Config\Source\Order\Status\Newprocessing</source_model>
+                        <comment>Select the Magento order status, when a payment is authorised, captured and settled.</comment>
+                        <config_path>payment/adflex/order_status</config_path>
+                    </field>
+                    <field id="authorise_status" translate="label" type="select" sortOrder="85" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Authorise Order Status</label>
+                        <source_model>Magento\Sales\Model\Config\Source\Order\Status\Newprocessing</source_model>
+                        <comment>Select the Magento order status, when an order is authorised only.</comment>
+                        <config_path>payment/adflex/authorise_status</config_path>
+                    </field>
+                    <field id="allowspecific" translate="label" type="allowspecific" sortOrder="130" showInDefault="9" showInWebsite="1" showInStore="1">
+                        <label>Payment From Applicable Countries</label>
+                        <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                        <config_path>payment/adflex/allowspecific</config_path>
+                    </field>
+                    <field id="specificcountry" translate="label" type="multiselect" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Payment From Specific Countries</label>
+                        <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                        <config_path>payment/adflex/specificcountry</config_path>
+                    </field>
+                </group>
+                <group id="level3" type="text" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                    <label>Enhanced Data Configuration</label>
+                    <comment>Level 3 enhanced data, if you already have attributes with this data defined, please select them otherwise the extension will default to the Adflex installed attributes.</comment>
+                    <field id="active" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>Enables or disables enhanced data level 3 transaction support.</comment>
+                        <tooltip> <![CDATA[<strong>Please note:</strong> Your Adflex account must be enabled for level 3 transactions for this to work correctly.]]></tooltip>
+                        <config_path>payment/adflex/level3_enabled</config_path>
+                    </field>
+                    <field id="invoice_treatment" translate="label" type="select" sortOrder="1" showInDefault="9" showInWebsite="1" showInStore="1">
+                        <label>Invoice Treatment</label>
+                        <source_model>Adflex\Payments\Model\Adminhtml\Source\InvoiceTreatment</source_model>
+                        <comment>Set how your invoices are treated during order and shipment flow.</comment>
+                        <config_path>payment/adflex/invoice_treatment</config_path>
+                        <depends>
+                            <field id="*/*/level3_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="tax_treatment" translate="label" type="select" sortOrder="2" showInDefault="9" showInWebsite="1" showInStore="1">
+                        <label>Tax Treatment</label>
+                        <source_model>Adflex\Payments\Model\Adminhtml\Source\TaxTreatment</source_model>
+                        <comment>Tax treatment type (please refer to Adflex / your accountant) for this information.</comment>
+                        <config_path>payment/adflex/tax_treatment</config_path>
+                        <depends>
+                            <field id="*/*/level3_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="sector_type" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Sector Type</label>
+                        <comment>Suppliers sector type (ADQ). Default to 'MM' unless advised by Adflex.</comment>
+                        <config_path>payment/adflex/sector_type</config_path>
+                        <depends>
+                            <field id="*/*/level3_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="merchant_category_code" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Merchant Category Code</label>
+                        <comment>Insert your merchant category code here.</comment>
+                        <config_path>payment/adflex/merchant_category_code</config_path>
+                        <depends>
+                            <field id="*/*/level3_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="commodity_code" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Commodity Code Attribute</label>
+                        <source_model>Adflex\Payments\Model\Adminhtml\Source\Attributes</source_model>
+                        <comment>Commodity code attribute, please change if you already have this data defined.</comment>
+                        <config_path>payment/adflex/commodity_code</config_path>
+                        <depends>
+                            <field id="*/*/level3_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="tax_category" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Tax Category Attribute</label>
+                        <source_model>Adflex\Payments\Model\Adminhtml\Source\Attributes</source_model>
+                        <comment>Tax category attribute, please change if you already have this data defined.</comment>
+                        <config_path>payment/adflex/tax_category</config_path>
+                        <depends>
+                            <field id="*/*/level3_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="tax_type" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Tax Type Attribute</label>
+                        <source_model>Adflex\Payments\Model\Adminhtml\Source\Attributes</source_model>
+                        <comment>Tax type attribute, please change if you already have this data defined.</comment>
+                        <config_path>payment/adflex/tax_type</config_path>
+                        <depends>
+                            <field id="*/*/level3_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="tax_code" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Tax Code Attribute</label>
+                        <source_model>Adflex\Payments\Model\Adminhtml\Source\Attributes</source_model>
+                        <comment>Tax code attribute, please change if you already have this data defined.</comment>
+                        <config_path>payment/adflex/tax_code</config_path>
+                        <depends>
+                            <field id="*/*/level3_enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

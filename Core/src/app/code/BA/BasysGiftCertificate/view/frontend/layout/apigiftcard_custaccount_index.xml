@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <title>
+            Gift Card
+        </title>
+    </head>
+    <body>
+        <!-- <referenceContainer name="content"> -->
+            <!-- <block class="YourNamespace\YourModule\Block\YourBlock" name="yourmodule.firstlink.index" template="YourNamespace_YourModule::yourfirstlink/index.phtml" cacheable="false" /> -->
+        <!-- </referenceContainer> -->
+        <referenceContainer name="content">
+            <container name="gift_card" htmlTag="div" htmlClass="gift_card">
+                <block name="giftcard.viewmodel" template="BA_BasysGiftCertificate::giftcardaccount.phtml">
+                    <arguments>
+                        <argument name="view_model" xsi:type="object">BA\BasysGiftCertificate\ViewModel\CheckBalance</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

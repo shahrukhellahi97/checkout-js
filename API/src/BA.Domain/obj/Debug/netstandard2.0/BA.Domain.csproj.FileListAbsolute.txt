@@ -1,0 +1,8 @@
+C:\Development\Magento\API\src\BA.Domain\bin\Debug\netstandard2.0\BA.Domain.deps.json
+C:\Development\Magento\API\src\BA.Domain\bin\Debug\netstandard2.0\BA.Domain.dll
+C:\Development\Magento\API\src\BA.Domain\bin\Debug\netstandard2.0\BA.Domain.pdb
+C:\Development\Magento\API\src\BA.Domain\obj\Debug\netstandard2.0\BA.Domain.csprojAssemblyReference.cache
+C:\Development\Magento\API\src\BA.Domain\obj\Debug\netstandard2.0\BA.Domain.AssemblyInfoInputs.cache
+C:\Development\Magento\API\src\BA.Domain\obj\Debug\netstandard2.0\BA.Domain.AssemblyInfo.cs
+C:\Development\Magento\API\src\BA.Domain\obj\Debug\netstandard2.0\BA.Domain.dll
+C:\Development\Magento\API\src\BA.Domain\obj\Debug\netstandard2.0\BA.Domain.pdb

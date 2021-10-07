@@ -1,0 +1,12 @@
+/composer.env
+/.env
+/artifacts
+.cache/*
+!.cache/.gitkeep
+src/app/etc/env.php
+.docker/nginx/log
+.docker/nginx/sites/*.conf
+
+# build files
+/archive.tar.gz
+/id_rsa

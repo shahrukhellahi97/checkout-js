@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="BA\Enquiries\Api\EnquiryManagementInterface" type="BA\Enquiries\Model\EnquiryManagement" />
+
+    <preference for="BA\Enquiries\Api\Data\EnquiryInterface" type="BA\Enquiries\Model\Enquiry" />
+    <preference for="BA\Enquiries\Api\Data\EnquiryFieldInterface" type="BA\Enquiries\Model\EnquiryField" />
+    <preference for="BA\Enquiries\Api\Data\EnquiryItemInterface" type="BA\Enquiries\Model\EnquiryItem" />
+    <preference for="BA\Enquiries\Model\Field\RendererInterface" type="BA\Enquiries\Model\Field\Renderer" />
+    <preference for="BA\Enquiries\Model\Request\RequestParserInterface" type="BA\Enquiries\Model\Request\Parser" />
+    <preference for="BA\Enquiries\Model\ValidationInterface" type="BA\Enquiries\Model\Validator" />
+
+    <type name="BA\Enquiries\Model\Validator\DataObject" shared="false" />
+
+    <type name="Magento\Checkout\Helper\Data">
+        <plugin name="disable_onepage_checkout" type="BA\Enquiries\Plugin\CheckoutHelper" />
+    </type>
+
+    <type name="Magento\Multishipping\Helper\Data">
+        <plugin name="disable_multishipping" type="BA\Enquiries\Plugin\CheckoutHelper" />
+    </type>
+</config>

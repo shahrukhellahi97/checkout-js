@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="ba_basys_catalog_product_index" resource="default" engine="innodb" comment="Basys Division">
+        <column name="entity_id" xsi:type="int" unsigned="true" nullable="false" comment="Magento Product ID" identity="false" />
+        <column name="catalog_id" xsi:type="int" unsigned="true" nullable="false" comment="Division ID" identity="false" />
+        <column name="sku" xsi:type="varchar" length="32" nullable="false" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+            <column name="catalog_id"/>
+        </constraint>
+    </table>
+
+    <!-- Store -->
+    <table name="ba_basys_store_division" resource="default" engine="innodb" comment="Basys Division">
+        <column name="division_id" xsi:type="int" unsigned="true" nullable="false" comment="Division ID" identity="false" />
+        <column name="name" xsi:type="varchar" length="64" nullable="false" comment="Division Name"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="division_id"/>
+        </constraint>
+    </table>
+
+    <table name="ba_basys_store_catalog" resource="default" engine="innodb" comment="Basys Catalogs">
+        <column name="catalog_id" xsi:type="int" unsigned="true" nullable="false" comment="Catalog ID" identity="false" />
+        <column name="name" xsi:type="varchar" length="128" nullable="false" comment="Catalog Name" />
+        <column name="currency" xsi:type="varchar" length="16" nullable="false" comment="Currency" />
+        <column name="division_id" xsi:type="int" unsigned="true" nullable="false" comment="Division ID" />
+        <column name="updated_at" xsi:type="timestamp" on_update="false" nullable="true" />
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="catalog_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BA_CATALOG_DIVISION_ID_DIVISION_DIVISION_ID" 
+                    table="ba_basys_store_catalog"
+                    column="division_id" 
+                    referenceTable="ba_basys_store_division"
+                    referenceColumn="division_id"
+                    onDelete="CASCADE"/>
+    </table>
+
+    <table name="ba_basys_store_source_code" resource="default" engine="innodb" comment="Basys Source Codes">
+        <column name="source_code_id" xsi:type="int" unsigned="true" nullable="false" comment="Source Code ID" identity="false"/>
+        <column name="name" xsi:type="varchar" length="64" nullable="false" comment="Source Code Name" />
+        <column name="catalog_id" xsi:type="int" unsigned="true" nullable="false" comment="Associated Catalog ID" />
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="source_code_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BA_SOURCE_CODE_CATALOG_ID_CATALOG_CATALOG_ID" 
+                    table="ba_basys_store_source_code"
+                    column="catalog_id" 
+                    referenceTable="ba_basys_store_catalog"
+                    referenceColumn="catalog_id"
+                    onDelete="CASCADE"/>
+    </table>
+
+
+    <table name="ba_basys_store_customer" resource="default" engine="innodb">
+        <column name="customer_id" xsi:type="int" unsigned="true" nullable="false" comment="Source Code ID" identity="false"/>
+        <column name="customer_contact_id" xsi:type="int" unsigned="true" nullable="false" comment="Customer Contact ID" />
+        <column name="source_code_id" xsi:type="int" unsigned="true" nullable="false" comment="Source Code ID" />
+        <column name="division_id"  xsi:type="int" unsigned="true" nullable="false" comment="Division ID" />
+        <column name="sales_person_id"  xsi:type="int" unsigned="true" nullable="false" comment="Sales Person ID" />
+        <column name="name" xsi:type="varchar" length="64" nullable="false" comment="Customer Name Name" />
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="customer_id"/>
+        </constraint>
+
+        <index referenceId="IDX_CUST_CUSTOMER_ID_DIVISION_ID_SOURCE_CODE_ID" indexType="btree">
+            <column name="customer_id" />
+            <column name="division_id" />
+            <column name="source_code_id" />
+        </index>
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BA_BASYS_STORE_CUSTOMER_SOURCE_CODE_ID_BA_BASYS_STORE_SOURCE_CODE_SOURCE_CODE_ID" 
+                    table="ba_basys_store_customer"
+                    column="source_code_id" 
+                    referenceTable="ba_basys_store_source_code"
+                    referenceColumn="source_code_id"
+                    onDelete="CASCADE"/>
+
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BA_BASYS_STORE_CUSTOMER_DIVISION_ID_BA_BASYS_STORE_DIVISION_DIVISION_ID" 
+                    table="ba_basys_store_customer"
+                    column="division_id" 
+                    referenceTable="ba_basys_store_division"
+                    referenceColumn="division_id"
+                    onDelete="CASCADE"/>
+
+    </table>
+
+    <table name="ba_basys_store_keygroup" resource="default" engine="innodb" comment="Basys Key Groups">
+        <column name="keygroup_id" xsi:type="int" unsigned="true" nullable="false" comment="Key Group ID" identity="false"/>
+        <column name="name" xsi:type="varchar" length="64" nullable="false" comment="Key Group Name" />
+        <column name="division_id" xsi:type="int" unsigned="true" nullable="false" comment="Associated Dvision ID" />
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="keygroup_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" 
+                    referenceId="BA_KEYGROUP_DIVISION_ID_DIVISION_DIVISION_ID" 
+                    table="ba_basys_store_keygroup"
+                    column="division_id" 
+                    referenceTable="ba_basys_store_division"
+                    referenceColumn="division_id"
+                    onDelete="CASCADE"/>
+
+    </table>
+
+    <table name="ba_basys_lookup_table" resource="default" engine="innodb" comment="Basys Lookup Table for website, store and store view ids">
+        <column name="division_id" xsi:type="int" unsigned="true" nullable="false" comment="Division ID"  />
+        <column name="website_id" xsi:type="int" unsigned="true" nullable="false" comment="Website ID"  />
+        <column name="catalog_id" xsi:type="int" unsigned="true" nullable="true" comment="Catalog ID"  />
+        <column name="store_id" xsi:type="int" unsigned="true" nullable="true" comment="Store ID"  />
+        <column name="source_id" xsi:type="int" unsigned="true" nullable="true" comment="Source ID"  />
+        <column name="store_view_id" xsi:type="int" unsigned="true" nullable="true" comment="Store View ID"  />
+        <column name="root_category_id" xsi:type="int" unsigned="true" nullable="true" comment="Root Category ID"  />
+
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="division_id"/>
+        </constraint>
+    </table>
+    <!-- Catalog -->
+    <table name="ba_basys_catalog_product_map">
+        <column name="entity_id" xsi:type="int" unsigned="true" nullable="false" comment="Magento Product ID" identity="false" />
+        <column name="basys_id" xsi:type="int" unsigned="true" nullable="false" comment="Basys Product Entity ID" identity="false" />
+        <column name="division_id" xsi:type="int" unsigned="true" nullable="false" comment="Basys Product Division ID" identity="false" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id" />
+            <column name="basys_id" />
+        </constraint>
+
+        <index referenceId="IDX_PRODUCT_MAP_ENTITY_ID" indexType="btree">
+            <column name="entity_id" />
+        </index>
+
+        <constraint xsi:type="foreign" referenceId="PRODUCT_MAP_ENTITY_ID_CAT_PRD_ENT_ENTITY_ID" table="ba_basys_product_map" column="entity_id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE" />
+    </table>
+
+    <table name="ba_basys_catalog_product" engine="innodb">
+        <column name="product_id" xsi:type="int" unsigned="true" nullable="false" identity="true" />
+        <column name="catalog_id" xsi:type="int" unsigned="true" nullable="false" />
+        <column name="basys_id" xsi:type="int" unsigned="true" nullable="false" />
+        <column name="division_id" xsi:type="int" unsigned="true" nullable="false" />
+        <column name="sku" xsi:type="varchar" length="32" nullable="false" />
+        <column name="title" xsi:type="varchar" length="128" nullable="false"  />
+        <column name="description" xsi:type="text"  nullable="true" />
+        <column name="weight" xsi:type="decimal" scale="2" nullable="false"  precision="20" unsigned="false" />
+        <column name="usnspc" xsi:type="int" nullable="true"  unsigned="true" />
+        <column name="report_sku" xsi:type="varchar" length="32" nullable="false" />
+        <column name="report_title" xsi:type="varchar" length="64" nullable="false" />
+        <column name="base_colour" xsi:type="smallint" nullable="false"  />
+        <column name="trim_colour" xsi:type="smallint" nullable="false"  />
+        <column name="prices_id" xsi:type="smallint" nullable="false"  />
+        <column name="price_break_id" xsi:type="smallint" nullable="false"  />
+        <column name="stock_item" xsi:type="tinyint" identity="false" />
+        <column name="points_rate" xsi:type="decimal" scale="6" precision="20" unsigned="false" />
+        <column name="points_valid" xsi:type="tinyint" nullable="true" />
+        <column name="version" xsi:type="int" nullable="false" unsigned="false" identity="false" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="product_id" />
+        </constraint>
+
+        <constraint xsi:type="unique" referenceId="UQ_BA_BASYS_CATALOG_PRODUCT_BASYS_ID_CATALOG_ID">
+            <column name="catalog_id" />
+            <column name="basys_id" />
+        </constraint>
+
+        <index referenceId="IDX_BASYS_ID">
+            <column name="basys_id" />
+        </index>
+    </table>
+
+    <table name="ba_basys_catalog_product_queue" engine="innodb">
+        <column name="product_id" xsi:type="int" unsigned="true" nullable="false" identity="true" />
+        <column name="catalog_id" xsi:type="int" unsigned="true" nullable="false" />
+        <column name="basys_id" xsi:type="int" unsigned="true" nullable="false" />
+        <column name="division_id" xsi:type="int" unsigned="true" nullable="false" />
+        <column name="sku" xsi:type="varchar" length="32" nullable="false" />
+        <column name="title" xsi:type="varchar" length="128" nullable="false"  />
+        <column name="description" xsi:type="text"  nullable="true" />
+        <column name="weight" xsi:type="decimal" scale="2" nullable="false"  precision="20" unsigned="false" />
+        <column name="usnspc" xsi:type="int" nullable="true"  unsigned="true" />
+        <column name="report_sku" xsi:type="varchar" length="32" nullable="false" />
+        <column name="report_title" xsi:type="varchar" length="64" nullable="false" />
+        <column name="base_colour" xsi:type="smallint" nullable="false"  />
+        <column name="trim_colour" xsi:type="smallint" nullable="false"  />
+        <column name="prices_id" xsi:type="smallint" nullable="false"  />
+        <column name="price_break_id" xsi:type="smallint" nullable="false"  />
+        <column name="stock_item" xsi:type="tinyint" identity="false" />
+        <column name="points_rate" xsi:type="decimal" scale="6" precision="20" unsigned="false" />
+        <column name="points_valid" xsi:type="tinyint" nullable="true" />
+        <column name="version" xsi:type="int" nullable="false" unsigned="false" identity="false" />
+        <column name="processed" xsi:type="tinyint" default="0" nullable="false" unsigned="false" identity="false" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="product_id" />
+        </constraint>
+
+        <constraint xsi:type="unique" referenceId="UQ_BA_BASYS_CATALOG_PRODUCT_QUEUE_BASYS_ID_CATALOG_ID">
+            <column name="catalog_id" />
+            <column name="basys_id" />
+        </constraint>
+    </table>
+
+    <table name="ba_basys_catalog_product_level" engine="innodb">
+        <column name="basys_id" xsi:type="int" unsigned="true" nullable="false" identity="false" />
+        <column name="level" xsi:type="smallint" unsigned="true" nullable="false" default="0" />
+        <column name="due" xsi:type="varchar" length="64" nullable="true" />
+        <column name="created_at" xsi:type="timestamp" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" />
+        <column name="updated_at" xsi:type="timestamp" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="basys_id" />
+        </constraint>
+    </table>
+
+    <table name="ba_basys_catalog_product_version" engine="innodb">
+        <column name="catalog_id" xsi:type="int" unsigned="true" nullable="false" />
+        <column name="basys_id" xsi:type="int" unsigned="true" nullable="false" />
+        <column name="version" xsi:type="int" nullable="false" unsigned="false" identity="false" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="catalog_id" />
+            <column name="basys_id" />
+        </constraint>
+    </table>
+
+    <table name="ba_basys_catalog_product_price" engine="innodb">
+        <column name="catalog_id" xsi:type="int" unsigned="true" nullable="false" />
+        <column name="basys_id" xsi:type="int" unsigned="true" nullable="false" />
+        <column name="type_id" xsi:type="tinyint" unsigned="true" nullable="false" />
+        <column name="break" xsi:type="smallint" nullable="false" />
+        <column name="price" xsi:type="decimal" scale="6" precision="20" nullable="false"  />
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="catalog_id" />
+            <column name="basys_id" />
+            <column name="type_id" />
+        </constraint>
+    </table>
+
+    <table name="ba_basys_catalog_product_price_queue" engine="innodb">
+        <column name="catalog_id" xsi:type="int" unsigned="true" nullable="false" />
+        <column name="basys_id" xsi:type="int" unsigned="true" nullable="false" />
+        <column name="type_id" xsi:type="tinyint" unsigned="true" nullable="false" />
+        <column name="break" xsi:type="smallint" nullable="false" />
+        <column name="price" xsi:type="decimal" scale="6" precision="20" nullable="false"  />
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="catalog_id" />
+            <column name="basys_id" />
+            <column name="type_id" />
+        </constraint>
+    </table>
+</schema>

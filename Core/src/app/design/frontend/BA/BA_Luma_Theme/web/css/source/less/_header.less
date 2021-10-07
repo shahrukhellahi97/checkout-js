@@ -1,0 +1,208 @@
+// HEADER STARTS
+
+& when (@media-common = true) { // mobile first to styles-m.css
+    // container outer
+    .page-header .panel.wrapper {
+        background-color: white;
+        border: none;
+        color: @magento-text-color;
+        line-height: 32px;
+        vertical-align: middle;
+    }
+    // container inner
+    .page-header .header.panel {
+        padding: 18px 20px 0px 20px;
+        text-align: center;
+    }
+    // logo
+    .logo {
+        float: none;
+        display:inline-block;
+        margin: 0;
+        }
+    .header.content {
+        display: none;
+    }
+
+    // header icons
+    .minicart-wrapper .action.showcart:before, .minicart-wrapper .action.showcart.active:before { // cart icon
+        width: @ba-header-icon-width;
+        height: @ba-header-icon-height;
+        display: inline-block;
+        content: url(../images/icon_cart.svg);
+    }
+    .customer-name:before { // customer icon
+        width: @ba-header-icon-width;
+        height: @ba-header-icon-height;
+        display: inline-block;
+        content: url(../images/icon_customer.svg);
+    }
+    .block-search .label:before, .search-trigger-desktop:before  { // search icon
+        width: @ba-header-icon-width;
+        height: @ba-header-icon-height;
+        display: inline-block;
+        cursor: pointer;
+        content: url(../images/icon_search.svg);
+    }
+
+    // search
+    .ba_header_desktop_search {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: block;
+        box-sizing: border-box;
+        transition: all 1s ease-in;
+    }
+    .block-search {
+        margin-top: 0;
+        .control {
+            border: none;
+        }
+        .label { // hide magentos mobile show search trigger
+            display: none;
+        }
+        input {
+            position: relative;
+            left: auto;
+            margin-top: 5px;
+        }
+    }
+
+
+
+    // mini cart
+    .minicart-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        float: none;
+        margin-top: 15px;
+        margin-right: 17px;
+        margin-left: @ba-header-icon-margin-left;
+        .action.showcart .counter.qty {
+            background: transparent;
+            color: @magento-text-color;
+        }
+        .action.showcart .counter.qty:before {
+            content: '(';
+        }
+        .action.showcart .counter.qty:after {
+            content: ')';
+        }
+        .action.showcart .counter-number {
+            text-shadow: none;
+        }
+        .action.showcart .counter.qty {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .nav-toggle {
+        left:17px;
+    }
+
+
+    // desktop search icon
+    .search-trigger-desktop {
+        display: none;
+    }
+    .page-header .switcher {
+        margin-right: 0;
+        margin-left: @ba-header-icon-margin-left;
+    }
+    // remove carat from currency and language
+    .page-header .panel.wrapper .switcher .options .action.toggle:after, .page-header .panel.wrapper .switcher .options .action.toggle.active:after {
+        display: none;
+    }
+    .header.links .action.switch {
+        display:none;
+    }
+    .customer-welcome .action.switch {
+        color: @magento-text-color;
+    }
+    .customer-welcome .action.switch:after {
+        line-height: @ba-header-icon-height;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) { // desktop to styles-l.css
+    .page-header .panel.wrapper {
+        background-color: white;
+        border-bottom: none;
+    }
+    .block-search .label { // hide magentos mobile show search trigger
+        display: block;
+    }
+    .block-search input {
+        position: static;
+    }
+    .page-header .header.panel {
+        padding-top: 25px;
+        padding-bottom: 0;
+        text-align: left;
+    }
+    .logo {
+        float: left;
+        display:block;
+        margin: 0;
+    }
+    .search-trigger-desktop {
+        display: block;
+        float: right;
+        margin-left: @ba-header-icon-margin-left;
+        span {
+            display:none
+        }
+    }
+    .ba_header_desktop_search {
+        display: none;
+    }
+    .minicart-wrapper {
+        float: right;
+        position: relative;
+        margin-top: 0;
+        margin-right: 0;
+    }
+    .customer-welcome ul {
+        top:32px;
+    }
+}
+
+// HEADER ENDS
+
+
+
+
+
+// CATEGORIES STARTS
+// top level
+.nav-sections                                   {
+    background: @header-categories-outer;
+    border-bottom: 1px solid @header-categories-outer-border-bottom;
+    padding-bottom: 10px;
+}
+// container level
+.navigation {
+    background-color: white;
+    padding: 0;
+    ul {
+        text-align:@header-categories-overall-alignment;
+        padding: 0 20px;
+    }
+}
+.navigation .level0                             {margin:0 25px 0 0; padding: 0; transition: all 0.7s ease;} // li
+.navigation .level0:hover                       {color: #252525; background-color: #ffffff;} //li:hover
+.navigation .level0:hover .level-top            {border-color: transparent;} //li:hover
+.navigation .level0 > .level-top                {color: @header-categories-text-color; line-height: 40px; font-weight: 400; padding: 0; font-size: 16px; } // li a
+.navigation .level0.active>.level-top, .navigation .level0.has-active>.level-top {
+    border-color: #ff5501;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    color: #333;
+    text-decoration: none;
+    display: inline-block;
+}
+// CATEGORIES ENDS

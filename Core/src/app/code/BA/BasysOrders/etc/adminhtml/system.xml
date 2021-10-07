@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="basys_store" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="payment_types" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Payment Types</label>
+                <attribute type="expanded">1</attribute>
+
+                <field id="button" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Get Payment Types</label>
+                    <frontend_model>BA\BasysOrders\Block\Adminhtml\System\Config\Form\Field\GetPaymentTypes</frontend_model>
+                </field>
+
+                <field id="active" translate="label" type="multiselect" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Active</label>
+                    <source_model>BA\BasysOrders\Model\Config\Source\PaymentTypes</source_model>
+                </field>
+
+                <field id="default" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default</label>
+                    <source_model>BA\BasysOrders\Model\Config\Source\VisiblePaymentTypes</source_model>
+                </field>
+
+                <field id="udfs" translate="label" type="label" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>UDF Defaults</label>
+                    <frontend_model>BA\BasysOrders\Block\Adminhtml\System\Config\Form\Field\UserDefinedFields</frontend_model>
+                </field>
+            </group>
+        </section>
+
+        <!-- <section id="basys_payments" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Payment Types</label>
+            <group id="store" translate="label" type="text" sortOrder="10" showInDefault="0" showInWebsite="1" showInStore="1">
+                <label>Dynamic Groups</label>
+                <field id="button" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Get Payment Types</label>
+                    <frontend_model>BA\BasysOrders\Block\Adminhtml\System\Config\Form\Field\GetPaymentTypes</frontend_model>
+                </field>
+            </group>
+        </section> -->
+    </system>
+</config>

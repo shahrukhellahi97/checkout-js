@@ -1,0 +1,122 @@
+// FOOTER STARTS
+& when (@media-common = true) { // mobile first to styles-m.css
+    .footer_customise {
+        background-color: @ba-footer-background;
+        border-top: none;
+        padding: 45px 0 25px 0;
+    
+        > div { // flex container
+            display: flex;
+            flex-direction: column;
+            max-width: 1280px;  // container width
+            margin: 0 auto;
+            > div { // flex container column
+                flex-grow: 1;
+                padding: 0 20px 0 20px;
+                box-sizing: border-box;
+                > ul { // footer list
+                    list-style-type:none;
+                    padding: 0;
+                    margin: 0 0 15px 0;
+                    > li { // footer list item
+                        color: #ffffff;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 30px;
+                        margin: 0;
+                        position: relative;
+                        > a { // footer links
+                            color: @ba-footer-links;
+                            font-weight: 400;
+                            font-size: 14px; 
+                            position: relative;
+                            display: inline-block;
+                        }
+                        > a:hover {
+                            text-decoration: none;
+                        }
+                        > a::after { // li a after
+                            content: "";
+                            height: 1px;
+                            position: absolute; 
+                            left: 0;
+                            background: #ffffff;
+                            bottom: 4px;
+                            width:0%;
+                            transition: width .3s ease;
+                        }
+                    }
+                    > li:hover > a::after {
+                        width:100%;
+                    }
+                }
+                > h4 { // footer heading
+                    color: #ffffff;
+                    font-size: 18px;
+                    font-weight: 600;
+                    padding-top: 22px;
+                    margin: 0 0 11px 0;
+                    border-top: none;
+                    padding-top: 15px;
+                }
+            }
+            div:first-of-type > h4 { // first footer heading only has border top for mobile
+                border-top: 8px solid @ba-footer-secondary-colour;
+                padding-top: 30px;
+            }
+        }
+
+        .footer_copyright_div {
+            display: block;
+            padding: 0 15px;
+            box-sizing: border-box;
+            margin-top: 16px;
+            p {
+                color: #ffffff;
+                text-align: center;
+                font-size: 10px;
+                font-weight: 100;
+                font-style: normal;
+                line-height: 14px;
+                margin-bottom: 8px;
+                padding: 0 15px;
+                border-top: 4px solid @ba-footer-secondary-colour;
+                a {
+                    color: #ffffff;
+                    text-decoration: underline;
+                }
+            }
+        }
+    
+    }
+}
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) { // desktop to styles-l.css
+    .footer_customise {
+        > div { // flex container
+            flex-direction: row;
+            > div { // container column
+                padding: 0 20px 15px 20px;
+                > ul > li { // footer list item
+                    font-size: 14px;
+                }
+                padding: 0 20px 0 20px;
+                > h4 { // footer heading
+                    font-size: 20px;
+                    border-top: none;
+                    padding-top: 22px;
+                    border-top: 8px solid@ba-footer-secondary-colour;
+                }
+            }
+            > div:first-of-type > h4 { // first footer heading only has border top for mobile
+                border-top: 8px solid @ba-footer-secondary-colour;
+                padding-top: 30px;
+            }
+        }
+        .footer_copyright_div {
+            margin-top: 0px;
+        }
+    }
+}
+// FOOTER ENDS

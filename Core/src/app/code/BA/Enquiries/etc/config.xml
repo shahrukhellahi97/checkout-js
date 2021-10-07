@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <basys_enquiries>
+            <general>
+                <override>0</override>
+                <from>noreply@brand-estore.com</from>
+                <from_name>Enquiries</from_name>
+            </general>
+            <summary>
+                <fields>
+                    <item1>
+                        <label>Additional Comments</label>
+                        <is_required>0</is_required>
+                        <type>2</type>
+                    </item1>
+                </fields>
+            </summary>
+            <custom>
+                <fields>
+                    <item1>
+                        <label>Phone</label>
+                        <is_required>1</is_required>
+                        <type>1</type>
+                    </item1>
+                    <item2>
+                        <label>Event</label>
+                        <is_required>1</is_required>
+                        <type>1</type>
+                    </item2>
+                    <item3>
+                        <label>Target audience (who are you giving it to)</label>
+                        <is_required>1</is_required>
+                        <type>1</type>
+                    </item3>
+                    <item4>
+                        <label>Ideas you have already thought about</label>
+                        <is_required>1</is_required>
+                        <type>1</type>
+                    </item4>
+                    <item5>
+                        <label>Quantity</label>
+                        <is_required>1</is_required>
+                        <type>1</type>
+                    </item5>
+                    <item6>
+                        <label>Budget</label>
+                        <is_required>1</is_required>
+                        <type>1</type>
+                    </item6>
+                    <item7>
+                        <label>Colour</label>
+                        <is_required>0</is_required>
+                        <type>1</type>
+                    </item7>
+                    <item8>
+                        <label>Delivery Date</label>
+                        <is_required>1</is_required>
+                        <type>4</type>
+                    </item8>
+                    <item9>
+                        <label>Delivery Address</label>
+                        <is_required>0</is_required>
+                        <type>2</type>
+                    </item9>
+                    <item10>
+                        <label>Additional Comments</label>
+                        <is_required>0</is_required>
+                        <type>2</type>
+                    </item10>
+                </fields>
+            </custom>
+        </basys_enquiries>
+    </default>
+</config>

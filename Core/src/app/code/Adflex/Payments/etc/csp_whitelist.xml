@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="adflex_test_script_cdn" type="host">paypage-test-cdn.adflex.co.uk</value>
+                <value id="adflex_prod_script_cdn" type="host">paypage-cdn.adflex.co.uk</value>
+            </values>
+        </policy>
+        <policy id="style-src">
+            <values>
+                <value id="adflex_test_style_cdn" type="host">paypage-test-cdn.adflex.co.uk</value>
+                <value id="adflex_prod_style_cdn" type="host">paypage-cdn.adflex.co.uk</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="adflex_test_frame_cdn" type="host">paypage-test.adflex.co.uk</value>
+                <value id="adflex_prod_frame_cdn" type="host">paypage.adflex.co.uk</value>
+            </values>
+        </policy>
+        <policy id="form-action">
+            <values>
+                <value id="adflex_test_form_cdn" type="host">paypage-test.adflex.co.uk</value>
+                <value id="adflex_prod_form_cdn" type="host">paypage.adflex.co.uk</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Indexer/etc/indexer.xsd">
+    <indexer id="ba_product_mapping" view_id="ba_basys_catalog_product_map" class="BA\BasysCatalog\Model\Indexer\Mapping">
+        <title>Basys - Entity to Catalog Mapping</title>
+        <description>Handle Entity to Catalog Mapping</description>
+    </indexer>
+<!-- 
+    <indexer id="ba_product_mapping_website" view_id="catalog_product_website" class="BA\BasysCatalog\Model\Indexer\Website">
+        <title>Basys - Website Association</title>
+        <description>Handle Website Association</description>
+    </indexer> -->
+
+    <indexer id="ba_product_availability" view_id="ba_basys_catalog_product_index" class="BA\BasysCatalog\Model\Indexer\Availability">
+        <title>Basys - Visibility</title>
+        <description>Handle Product Visbility</description>
+
+        <dependencies>
+            <indexer id="ba_product_mapping" />
+        </dependencies>
+    </indexer>
+</config>

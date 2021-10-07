@@ -1,0 +1,30 @@
+<!--@subject Special Request  @-->
+<!--@vars {
+"var contact.name":"Contact Name",
+"var contact.email":"Contact Email"
+} @-->
+{{inlinecss file=BA_Enquiries::css/enquiry.css}}
+{{template config_path="design/email/header_template"}}
+
+<table style="width:100%;">
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "%customer_name," customer_name=$contact.name}}</p>
+            <p>
+                {{trans "Thank you for your request, a member of our team will be in touch shortly."}}
+            </p>
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            <h1>{{trans 'Request Details'}}</h1>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{layout handle="customer_enquiry_summary_details" area="frontend"}}
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

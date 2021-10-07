@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.panel" remove="false" />    
+        <referenceBlock name="store_language" remove="true" />
+        <referenceBlock name="currency" remove="true" />
+        <referenceBlock name="top.search" remove="true" />
+        <referenceBlock name="header-search-trigger-button" remove="true" />
+        <referenceBlock name="top.links" remove="true" />
+        <referenceBlock name="header.links" remove="true" />
+        <referenceBlock name="minicart" remove="true" />
+    </body>
+</page> 

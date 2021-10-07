@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+   
+    <preference for="BA\BasysGiftCertificate\Api\GiftManagementInterface" type="BA\BasysGiftCertificate\Model\Service\GiftManagement" />
+    <preference for="BA\BasysGiftCertificate\Api\GiftQuoteManagementInterface" type="BA\BasysGiftCertificate\Model\Service\GiftQuoteManagement" />
+    <preference for="BA\BasysGiftCertificate\Api\Data\GiftCertAccountInterface" type="BA\BasysGiftCertificate\Model\Data\GiftCertAccount"/>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+		<arguments>
+			<argument name="commands" xsi:type="array">
+				<item name="check_balance" xsi:type="object">BA\BasysGiftCertificate\Console\Command\CheckBalance</item>
+			</argument>
+		</arguments>
+    </type>
+    
+    <virtualType name="CheckBalanceTransferFactory" type="BA\Basys\Webservices\Http\BasysTransferFactory">
+        <arguments>
+            <argument name="endpoint" xsi:type="string">giftcertificateservice.asmx</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="CheckBalanceCommand" type="BA\Basys\Webservices\Command\Command">
+        <arguments>
+            <argument name="commandName" xsi:type="string">check_balance</argument>
+            <argument name="request" xsi:type="object">BA\BasysGiftCertificate\Webservices\Request\CheckBalance</argument>
+            <argument name="transferFactory" xsi:type="object">CheckBalanceTransferFactory</argument>
+            <argument name="handler" xsi:type="object">BA\BasysGiftCertificate\Webservices\Response\CheckBalanceHandler</argument>
+        </arguments>
+    </virtualType>
+    
+    <type name="BA\Basys\Webservices\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="check_balance" xsi:type="string">CheckBalanceCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Quote\Api\CartRepositoryInterface">
+        <plugin name="ba_basysgiftcertificate_plugin_cart_repository" type="BA\BasysGiftCertificate\Plugin\CartRepositoryPlugin"/>
+    </type>
+
+    <virtualType name="BA\BasysOrders\Gateway\Request\OrderDataBuilderComposite" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="gift_certificate" xsi:type="string">BA\BasysGiftCertificate\Gateway\Request\GiftCertificateBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+</config>

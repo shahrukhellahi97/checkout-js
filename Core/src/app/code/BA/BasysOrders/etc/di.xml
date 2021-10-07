@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+   
+    <preference for="BA\BasysOrders\Api\OrderManagementInterface" type="BA\BasysOrders\Model\OrderManagement" />
+
+    <preference for="BA\BasysOrders\Api\PaymentTypeManagmentInterface" type="BA\BasysOrders\Model\PaymentTypeManagment" />
+    <preference for="BA\BasysOrders\Api\Data\PaymentTypeInterface" type="BA\BasysOrders\Model\PaymentType" />
+    <preference for="BA\BasysOrders\Api\UserDefinedFieldInterface" type="BA\BasysOrders\Model\UserDefinedField" />
+    <preference for="BA\BasysOrders\Api\UserDefinedFieldOptionInterface" type="BA\BasysOrders\Model\UserDefinedFieldOption" />
+
+    <preference for="BA\BasysOrders\Model\PaymentType\MutatorInterface" type="BA\BasysOrders\Model\PaymentType\Mutator" />
+    
+    <type name="BA\BasysOrders\Model\PaymentType\Mutator">
+        <arguments>
+            <argument name="mutators" xsi:type="array">
+                <item name="add_visibility" xsi:type="object">BA\BasysOrders\Model\PaymentType\Mutator\Visibility</item>
+                <item name="add_values" xsi:type="object">BA\BasysOrders\Model\PaymentType\Mutator\Values</item>
+                <item name="add_labels" xsi:type="object">BA\BasysOrders\Model\PaymentType\Mutator\Label</item>
+            </argument>
+        </arguments>
+    </type>
+    
+    <type name="Magento\Config\Model\Config\Structure\Data">
+        <plugin name="ba_payment_config" type="BA\BasysOrders\Model\Config\Structure\Field\Data"/>
+    </type>
+
+    <type name="BA\BasysOrders\Model\Config\Structure\Field\Provider\UserDefinedFields">
+        <arguments>
+            <argument name="fieldProviders" xsi:type="array">
+                <item name="label" xsi:type="object">BA\BasysOrders\Model\Config\Structure\Field\Provider\UserDefinedField\Label</item>
+                <item name="autofill" xsi:type="object">BA\BasysOrders\Model\Config\Structure\Field\Provider\UserDefinedField\Autofill</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="BA\BasysOrders\Model\Config\Structure\Field\Data">
+        <arguments>
+            <argument name="fieldProviders" xsi:type="array">
+                <item name="label" xsi:type="object">BA\BasysOrders\Model\Config\Structure\Field\Provider\Label</item>
+                <item name="udfs" xsi:type="object">BA\BasysOrders\Model\Config\Structure\Field\Provider\VisibleUserDefinedFields</item>
+                <item name="udf_groups" xsi:type="object">BA\BasysOrders\Model\Config\Structure\Field\Provider\UserDefinedFields</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- <preference for="Magento\Checkout\Block\Onepage\Success" type="BA\BasysOrders\Rewrite\Magento\Checkout\Block\Onepage\Success"/> -->
+
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid" type="Magento\Sales\Model\ResourceModel\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="basys_order_id" xsi:type="string">sales_order.basys_order_id</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Webservices -->
+    <!-- <virtualType name="OrderFactory" type="BA\Basys\Webservices\Http\BasysTransferFactory">
+        <arguments>
+            <argument name="endpoint" xsi:type="string">order.asmx</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PlaceOrder" type="BA\Basys\Webservices\Command\Command">
+        <arguments>
+            <argument name="commandName" xsi:type="string">place_order</argument>
+            <argument name="request" xsi:type="object">BA\BasysOrders\Webservices\Request\GetPaymentTypes</argument>
+            <argument name="transferFactory" xsi:type="object">OrderFactory</argument>
+            <argument name="handler" xsi:type="object">BA\BasysOrders\Webservices\Response\GetPaymentTypesHandler</argument>
+        </arguments>
+    </virtualType> -->
+    
+
+    <virtualType name="PaymentTypesFactory" type="BA\Basys\Webservices\Http\BasysTransferFactory">
+        <arguments>
+            <argument name="endpoint" xsi:type="string">paymenttypes.asmx</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PaymentTypesCommand" type="BA\Basys\Webservices\Command\Command">
+        <arguments>
+            <argument name="commandName" xsi:type="string">payment_get_types</argument>
+            <argument name="request" xsi:type="object">BA\BasysOrders\Webservices\Request\GetPaymentTypes</argument>
+            <argument name="transferFactory" xsi:type="object">PaymentTypesFactory</argument>
+            <argument name="handler" xsi:type="object">BA\BasysOrders\Webservices\Response\GetPaymentTypesHandler</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="BA\Basys\Webservices\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="payment_get_types" xsi:type="string">PaymentTypesCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Payment Methods -->
+    <virtualType name="BasysConolidatedInvoiceFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">BA\BasysOrders\Ui\Methods\ConsolidatedInvoiceConfigProvider::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">BA\BasysOrders\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">BasysWebserviceGatewayValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">BasysValidatorPool</argument>
+            <argument name="commandPool" xsi:type="object">BasysWebserviceGatewayCommandPool</argument>
+        </arguments>
+    </virtualType>
+    
+    <virtualType name="BasysValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="availability" xsi:type="string">BA\BasysOrders\Gateway\Validator\IsMethodAvailableValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Value Handler -->
+    <virtualType name="BasysWebserviceGatewayValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">BasysWebserviceGatewayConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="BasysWebserviceGatewayConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">BasysGatewayConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="BasysGatewayConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">BA\BasysOrders\Ui\Methods\ConsolidatedInvoiceConfigProvider::CODE</argument>
+        </arguments>
+    </virtualType>
+    
+    <!-- Order Gateway -->
+    <virtualType name="BasysWebserviceGatewayCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <!-- <item name="initialize" xsi:type="string">AdflexPaymentsGatewaySessionCommand</item> -->
+                <item name="session" xsi:type="string">BasysWebservicesInitializeCommand</item>
+                <item name="authorize" xsi:type="string">BasysWebservicesAuthoriseCommand</item>
+                
+                <!-- 
+                <item name="capture" xsi:type="string">AdflexPaymentsGatewaySettleCommand</item>
+                <item name="vault_initialize" xsi:type="string">AdflexPaymentsTokenInfoCommand</item>
+                <item name="vault_authorize" xsi:type="string">AdflexVaultAuthoriseCommand</item>
+                <item name="vault_sale" xsi:type="string">AdflexPaymentsVaultSettleCommand</item> 
+            -->
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="BasysWebservicesAuthoriseCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">BA\BasysOrders\Gateway\Request\OrderDataBuilderComposite</argument>
+            <argument name="handler" xsi:type="object">BasysWebservicesAuthoriseResponseHandler</argument>
+            <argument name="transferFactory" xsi:type="object">BA\BasysOrders\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">BA\BasysOrders\Gateway\Http\Client\Soap</argument>
+            <!-- <argument name="validator" xsi:type="object">BA\BasysOrders\Gateway\Validator\IsMethodAvailableValidator</argument> -->
+        </arguments>
+    </virtualType>
+
+    <virtualType name="BasysWebservicesInitializeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">BasysWebservicesInitializeRequest</argument>
+            <argument name="handler" xsi:type="object">BA\BasysOrders\Gateway\Response\InitializeResponseHandler</argument>
+            <argument name="transferFactory" xsi:type="object">BA\BasysOrders\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">BA\BasysOrders\Gateway\Http\Client\Soap</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="BasysWebservicesAuthoriseResponseHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="authorisation" xsi:type="string">BA\BasysOrders\Gateway\Response\AuthoriseResponseHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="BasysWebservicesInitializeRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="initialize" xsi:type="string">BA\BasysOrders\Gateway\Request\InitializeDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="BA\BasysOrders\Gateway\Request\OrderDataBuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="address" xsi:type="string">BA\BasysOrders\Gateway\Request\AddressDataBuilder</item>
+                <item name="order" xsi:type="string">BA\BasysOrders\Gateway\Request\OrderDataBuilder</item>
+                <item name="store" xsi:type="string">BA\BasysOrders\Gateway\Request\StoreDataBuilder</item>
+                <item name="udf" xsi:type="string">BA\BasysOrders\Gateway\Request\UserDefinedFieldsDataBuilder</item>
+                <item name="type" xsi:type="string">BA\BasysOrders\Gateway\Request\Type\InvoiceToOpen</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="BasysWebservicesAuthoriseRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="address" xsi:type="string">BA\BasysOrders\Gateway\Request\AddressDataBuilder</item>
+                <item name="order" xsi:type="string">BA\BasysOrders\Gateway\Request\OrderDataBuilder</item>
+                <item name="store" xsi:type="string">BA\BasysOrders\Gateway\Request\StoreDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

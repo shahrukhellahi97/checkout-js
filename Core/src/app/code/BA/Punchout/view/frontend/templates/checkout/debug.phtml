@@ -1,0 +1,85 @@
+<?php
+/** @var \BA\Punchout\ViewModel\CheckoutViewModel $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<form method="post" action="<?= $block->getUrl('punchout/checkout/post')?>" id="post-punchout">
+    <fieldset class="fieldset">
+        <legend class="legend">Request</legend>
+
+        <div class="field required">
+            <label class="label">Post URL</label>
+            <div class="control">
+                <input type="text" name="post_url" value="<?= $viewModel->getHookUrl(); ?>" />
+            </div>
+        </div>
+
+        <div class="field required">
+            <label class="label">Procurement App</label>
+            <div class="control">
+                <input type="text" name="post_headers" value="<?= $viewModel->getProcurementApp(); ?>" />
+            </div>
+        </div>
+
+        <div class="field required">
+            <label class="label">POOM</label>
+            <div class="control">
+                <textarea name="post_payload" id="payload" style="height:700px; font-size:80%;"><?= $viewModel->getOrderMessage(); ?> </textarea>
+            </div>
+        </div>
+
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action submit primary" title="Submit" id="submit-button">
+                    <span>Submit</span>
+                </button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<fieldset class="fieldset">
+    <legend class="legend">Response</legend>
+    <div class="field">
+        <div class="control">
+            <textarea id="response-text" style="height:200px; font-size:80%;"></textarea>
+        </div>
+    </div>
+</fieldset>
+<script>
+</script>
+<script type="text/javascript">
+require([
+    'jquery',
+    'mage/mage'
+], function($) {
+    $(document).ready(function() {
+        $('#post-punchout').mage(
+            'validation',
+            {
+                submitHandler: function(form) {
+                    $.ajax({
+                        url: form.getAttribute('action'),
+                        type: form.getAttribute('method'),
+                        data: $(form).serialize(),
+                        dataType: 'json',
+                        beforeSend: function() {
+                            $('#submit-button span').text('Sending....');
+                            $('#post-punchout > fieldset').prop('disabled', true);
+                        },
+                        success: function(data, status, xhr) {
+                            $('#submit-button span').text('Submit');
+                            $('#post-punchout > fieldset').prop('disabled', false);
+
+                            $('#response-text').val(data.response);
+                        },
+                        error: function (xhr, status, errorThrown) {
+                            console.log('Error happens. Try again.');
+                            console.log(errorThrown);
+                        }
+                    });
+                }
+            }
+        );
+    });
+});
+</script>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <basys>
+            <webservices>
+                <mode>0</mode>
+                <endpoint_staging>https://brandtestwebservices.net/webservicestest/</endpoint_staging>
+                <endpoint_production>https://brandwebservices.net/webservicesadflex/</endpoint_production>
+                <auth_username backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+                <auth_password backend_model="Magento\Config\Model\Config\Backend\Encrypted" />
+            </webservices>
+        </basys>
+    </default>
+</config>

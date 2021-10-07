@@ -1,0 +1,370 @@
+[
+    {
+        "DivisionId": "8",
+        "Name": "KPMG"
+    },
+    {
+        "DivisionId": "15",
+        "Name": "Rolls Royce"
+    },
+    {
+        "DivisionId": "31",
+        "Name": "RBS"
+    },
+    {
+        "DivisionId": "33",
+        "Name": "IBM"
+    },
+    {
+        "DivisionId": "34",
+        "Name": "BT"
+    },
+    {
+        "DivisionId": "39",
+        "Name": "JCB"
+    },
+    {
+        "DivisionId": "43",
+        "Name": "WEB Test Scheme Div."
+    },
+    {
+        "DivisionId": "54",
+        "Name": "MASSEY FERGUSON AGCO"
+    },
+    {
+        "DivisionId": "57",
+        "Name": "MERCEDES"
+    },
+    {
+        "DivisionId": "58",
+        "Name": "EDS"
+    },
+    {
+        "DivisionId": "76",
+        "Name": "Dewalt"
+    },
+    {
+        "DivisionId": "87",
+        "Name": "DHL"
+    },
+    {
+        "DivisionId": "90",
+        "Name": "NISSAN"
+    },
+    {
+        "DivisionId": "94",
+        "Name": "NatWest"
+    },
+    {
+        "DivisionId": "96",
+        "Name": "ERICSSON"
+    },
+    {
+        "DivisionId": "119",
+        "Name": "Nissan Europe"
+    },
+    {
+        "DivisionId": "130",
+        "Name": "NissanGB HQ BK-2-BK"
+    },
+    {
+        "DivisionId": "133",
+        "Name": "Lexus"
+    },
+    {
+        "DivisionId": "135",
+        "Name": "Accenture"
+    },
+    {
+        "DivisionId": "137",
+        "Name": "Stanley Black & Decker"
+    },
+    {
+        "DivisionId": "141",
+        "Name": "JP Morgan Chase"
+    },
+    {
+        "DivisionId": "145",
+        "Name": "EE"
+    },
+    {
+        "DivisionId": "162",
+        "Name": "Virgin Atlantic"
+    },
+    {
+        "DivisionId": "163",
+        "Name": "HSBC"
+    },
+    {
+        "DivisionId": "179",
+        "Name": "Cadbury"
+    },
+    {
+        "DivisionId": "185",
+        "Name": "Intel"
+    },
+    {
+        "DivisionId": "188",
+        "Name": "Rolls-Royce Motor C"
+    },
+    {
+        "DivisionId": "197",
+        "Name": "Tarmac"
+    },
+    {
+        "DivisionId": "206",
+        "Name": "PWC"
+    },
+    {
+        "DivisionId": "213",
+        "Name": "Sopra Steria"
+    },
+    {
+        "DivisionId": "214",
+        "Name": "Visa"
+    },
+    {
+        "DivisionId": "215",
+        "Name": "Caterpillar"
+    },
+    {
+        "DivisionId": "218",
+        "Name": "Michelin"
+    },
+    {
+        "DivisionId": "223",
+        "Name": "MSD"
+    },
+    {
+        "DivisionId": "234",
+        "Name": "TATA"
+    },
+    {
+        "DivisionId": "240",
+        "Name": "Motorola Solutions"
+    },
+    {
+        "DivisionId": "241",
+        "Name": "Vauxhall"
+    },
+    {
+        "DivisionId": "244",
+        "Name": "Chep"
+    },
+    {
+        "DivisionId": "246",
+        "Name": "Aviva"
+    },
+    {
+        "DivisionId": "247",
+        "Name": "LTA"
+    },
+    {
+        "DivisionId": "248",
+        "Name": "Google"
+    },
+    {
+        "DivisionId": "252",
+        "Name": "Friends Life"
+    },
+    {
+        "DivisionId": "265",
+        "Name": "ExxonMobil"
+    },
+    {
+        "DivisionId": "268",
+        "Name": "Michelin Turkey"
+    },
+    {
+        "DivisionId": "269",
+        "Name": "Legal & General"
+    },
+    {
+        "DivisionId": "273",
+        "Name": "Arqiva"
+    },
+    {
+        "DivisionId": "275",
+        "Name": "ExxonMobil Turkey"
+    },
+    {
+        "DivisionId": "279",
+        "Name": "Arthur J Gallagher"
+    },
+    {
+        "DivisionId": "287",
+        "Name": "Mac Tools"
+    },
+    {
+        "DivisionId": "288",
+        "Name": "Nespresso"
+    },
+    {
+        "DivisionId": "290",
+        "Name": "Sky"
+    },
+    {
+        "DivisionId": "306",
+        "Name": "C&C Intl Ireland"
+    },
+    {
+        "DivisionId": "308",
+        "Name": "Nutricia Ireland"
+    },
+    {
+        "DivisionId": "316",
+        "Name": "Schneider"
+    },
+    {
+        "DivisionId": "319",
+        "Name": "Rated People"
+    },
+    {
+        "DivisionId": "324",
+        "Name": "Brand Addition Marketing"
+    },
+    {
+        "DivisionId": "325",
+        "Name": "The Body Shop"
+    },
+    {
+        "DivisionId": "327",
+        "Name": "Unibet"
+    },
+    {
+        "DivisionId": "329",
+        "Name": "Qlik"
+    },
+    {
+        "DivisionId": "333",
+        "Name": "Orange S.A."
+    },
+    {
+        "DivisionId": "337",
+        "Name": "Arnold Clark Ltd"
+    },
+    {
+        "DivisionId": "338",
+        "Name": "ABB Germany"
+    },
+    {
+        "DivisionId": "343",
+        "Name": "Zurich Germany"
+    },
+    {
+        "DivisionId": "347",
+        "Name": "Recaro Germany"
+    },
+    {
+        "DivisionId": "349",
+        "Name": "IBM GERMANY"
+    },
+    {
+        "DivisionId": "350",
+        "Name": "Vattenfall Germany"
+    },
+    {
+        "DivisionId": "351",
+        "Name": "Hella Germany"
+    },
+    {
+        "DivisionId": "354",
+        "Name": "Timken Germany"
+    },
+    {
+        "DivisionId": "357",
+        "Name": "Adient Germany"
+    },
+    {
+        "DivisionId": "361",
+        "Name": "Schneider Germany"
+    },
+    {
+        "DivisionId": "364",
+        "Name": "ExxonMobil Germany"
+    },
+    {
+        "DivisionId": "376",
+        "Name": "Georg Fischer Germany"
+    },
+    {
+        "DivisionId": "379",
+        "Name": "Workday"
+    },
+    {
+        "DivisionId": "380",
+        "Name": "Maersk"
+    },
+    {
+        "DivisionId": "381",
+        "Name": "SKF"
+    },
+    {
+        "DivisionId": "382",
+        "Name": "INDEED"
+    },
+    {
+        "DivisionId": "383",
+        "Name": "Danske Bank"
+    },
+    {
+        "DivisionId": "384",
+        "Name": "Manchester United"
+    },
+    {
+        "DivisionId": "414",
+        "Name": "MAERSK COOKIES AND CALENDARS"
+    },
+    {
+        "DivisionId": "419",
+        "Name": "Stars Group"
+    },
+    {
+        "DivisionId": "422",
+        "Name": "Tata Consultancy Services"
+    },
+    {
+        "DivisionId": "423",
+        "Name": "Delivery Hero Germany"
+    },
+    {
+        "DivisionId": "424",
+        "Name": "TMD Friction Germany"
+    },
+    {
+        "DivisionId": "425",
+        "Name": "MANN FILTER GERMANY"
+    },
+    {
+        "DivisionId": "426",
+        "Name": "GetYourGuide Germany"
+    },
+    {
+        "DivisionId": "427",
+        "Name": "MAERSK DRILLING"
+    },
+    {
+        "DivisionId": "428",
+        "Name": "Aggreko"
+    },
+    {
+        "DivisionId": "429",
+        "Name": "Finastra"
+    },
+    {
+        "DivisionId": "432",
+        "Name": "Hitachi-ABB Germany"
+    },
+    {
+        "DivisionId": "433",
+        "Name": "Scania"
+    },
+    {
+        "DivisionId": "434",
+        "Name": "Mambu Germany"
+    },
+    {
+        "DivisionId": "2361",
+        "Name": "Eaton Germany"
+    }
+]

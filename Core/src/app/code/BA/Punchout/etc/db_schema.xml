@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+        
+    <table name="ba_punchout_request">
+        <column name="request_id" xsi:type="int" unsigned="false" nullable="false" padding="11" identity="true" />
+        <column name="payload_id" xsi:type="varchar" length="255" nullable="false" />
+        <column name="store_id" xsi:type="smallint" padding="5" unsigned="true" nullable="false" default="0" />
+        <column name="customer_id" xsi:type="int" padding="10" unsigned="true" nullable="false" />
+        <column name="token" xsi:type="varchar" length="255" nullable="false" />
+        <column name="timestamp" xsi:type="timestamp" nullable="true" />
+        <column name="email" xsi:type="varchar" length="255" nullable="false"  />
+        <column name="name" xsi:type="varchar" length="255" nullable="false"  />
+        <column name="currency" xsi:type="varchar" length="3" nullable="false"  />
+        <column name="procurement_application" xsi:type="varchar" length="255" nullable="false" />
+        <column name="buyer_cookie" xsi:type="varchar" length="255" nullable="false"  />
+        <column name="browser_from_post" xsi:type="varchar" length="255" nullable="false" />
+        <column name="return_url" xsi:type="varchar" length="255" nullable="false"  />
+        <column name="deliver_to" xsi:type="varchar" length="255" nullable="true"  />
+        <column name="street"  xsi:type="varchar" length="255" nullable="true" />
+        <column name="city" xsi:type="varchar" length="255" nullable="true"/>
+        <column name="state" xsi:type="varchar" length="255" nullable="true"/>
+        <column name="postcode" xsi:type="varchar" length="255" nullable="true"/>
+        <column name="country" xsi:type="varchar" length="255" nullable="true"/>
+        <column name="created_at" xsi:type="timestamp" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" />
+        <column name="updated_at" xsi:type="timestamp" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="request_id" />
+        </constraint>
+
+        <constraint xsi:type="unique" referenceId="UQ_BA_PUNCHOUT_REQUEST_PAYLOAD_ID">
+            <column name="payload_id" />
+        </constraint>
+
+        <constraint xsi:type="unique" referenceId="UQ_BA_PUNCHOUT_REQUEST_TOKEN">
+            <column name="token" />
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="FK_BA_PUNCHOUT_REQUEST_STORE_ID_STORE_STORE_ID"
+                    table="ba_punchout_request" column="store_id" 
+                    referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+    </table>
+
+    <table name="ba_punchout_request_credential">
+        <column name="credential_id" xsi:type="int" unsigned="false" nullable="false" padding="11" identity="true" />
+        <column name="request_id"  xsi:type="int" unsigned="false" nullable="false" padding="11" />
+        <column name="type_id" xsi:type="smallint" nullable="false" />
+        <column name="identity" xsi:type="varchar" length="255" nullable="false" />
+        <column name="shared_secret" xsi:type="varchar" length="255" nullable="true" />
+        <column name="domain" xsi:type="varchar" length="255" nullable="true"  />
+        <column name="user_agent" xsi:type="varchar" length="255" nullable="true" />
+
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="credential_id" />
+        </constraint>
+
+        <constraint xsi:type="unique" referenceId="UQ_BA_PUNCHOUT_REQUEST_CREDENTIAL_REQUEST_ID_TYPE_ID">
+            <column name="request_id" />
+            <column name="type_id" />
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="FK_BA_PUNCHOUT_REQUEST_CREDENTIAL_REQUEST_ID_BA_PUNCHOUT_REQUEST_REQUEST_ID"
+                    table="ba_punchout_request_credential" column="request_id" 
+                    referenceTable="ba_punchout_request" referenceColumn="request_id" onDelete="CASCADE" />
+    </table>
+
+    <table name="ba_punchout_order">
+        <column name="order_id" xsi:type="int" unsigned="false" nullable="false" padding="11" identity="true" />
+        <column name="request_id" xsi:type="int" unsigned="false" nullable="false" padding="11" />
+        <column name="timestamp" xsi:type="timestamp" nullable="true" />
+        <column name="created_at" xsi:type="timestamp" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" />
+        <column name="updated_at" xsi:type="timestamp" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" />
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="order_id" />
+        </constraint>
+        
+        <constraint xsi:type="foreign" referenceId="FK_BA_PUNCHOUT_ORDER_REQUEST_IDBA_PUNCHOUT_REQUEST_REQUEST_ID"
+                table="ba_punchout_order" column="order_id" 
+                referenceTable="ba_punchout_request" referenceColumn="request_id" onDelete="CASCADE" />
+    </table>
+</schema>

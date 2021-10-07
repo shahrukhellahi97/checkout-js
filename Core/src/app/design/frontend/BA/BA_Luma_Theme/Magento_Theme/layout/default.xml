@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!--<referenceContainer name="header.container">
+            <container name="ba.header.desktop.search" as="ba_header_desktop_search" label="Page Header Container"  htmlTag="div" htmlClass="ba_header_desktop_search" after="header.panel.wrapper"/>
+        </referenceContainer>
+        <move element="top.search" destination="ba.header.desktop.search" after="-"/>-->
+        <move element="register-link" destination="top.links"/>
+        <!--<referenceContainer name="header.panel">
+            <block class="Magento\Theme\Block\Html\Header" name="header-search-trigger-button" template="header-search-trigger-button.phtml" after="header.links"/>
+        </referenceContainer>-->
+        <move element="minicart" destination="header.panel" before="-"/>
+        <move element="currency" destination="header.panel" after="-"/>
+        <move element="store_language" destination="header.panel" after="-"/>
+        <move element="top.search" destination="header.panel" after="-"/>
+        <move element="logo" destination="header.panel" before="-"/>
+
+
+
+        <container name="footer-custom-container" as="custom-content" htmlTag="footer" htmlClass="footer_customise">
+            <container name="footer-custom-flex" as="custom-content" htmlTag="div">
+
+                <container name="footer-custom-flexcolumn-contact" htmlTag="div" htmlClass="footer_column_contact">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-contact-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Contact</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Theme\Block\Html\Footer" name="footer_custom_contact" template="footer-custom-contact.phtml">
+                        <arguments>
+                            <argument name="view_model" xsi:type="object">BA\Theme\ViewModel\ContactViewModel</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="footer-custom-flexcolumn-info" htmlTag="div" htmlClass="footer_column_information">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-info-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Information</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_cms">
+                    </block>
+                </container>
+                
+                <container name="footer-custom-flexcolumn-categories" htmlTag="div" htmlClass="footer_column_categories">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-categories-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Categories</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Theme\Block\Html\Footer" name="footer_custom_categories" template="footer-custom-categories.phtml">
+                        <arguments>
+                            <argument name="view_model" xsi:type="object">BA\Theme\ViewModel\CategoryViewModel</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="footer-custom-flexcolumn-giftcertificate" htmlTag="div" htmlClass="footer_column_giftcertificates">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-giftcert-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Gift Certificates</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-giftcert-list">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<ul><li><a href="#">Buy Gift Certificates</a></li><li><a href="#">Check Gift Certificate balance</a></li></ul>]]></argument>
+                        </arguments>
+                    </block>
+                </container>
+
+            </container>
+        </container>
+
+        <move element="privacy-policy-link" destination="footer_links_cms"/>
+        <move element="contact-us-link" destination="footer_links_cms"/>
+        <move element="search-term-popular-link" destination="footer_links_cms"/>
+        <move element="catalog-search-advanced-link" destination="footer_links_cms"/>
+        <move element="sales-guest-form-link" destination="footer_links_cms"/>
+
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true" />
+        <move element="copyright" destination="footer-custom-container" after="-"/>
+
+    </body>
+</page>

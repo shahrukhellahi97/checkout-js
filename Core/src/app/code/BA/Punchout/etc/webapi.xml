@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/punchout/setup" method="POST">
+        <service class="BA\Punchout\Api\Processor\SetupRequestProcessorInterface" method="process"/>
+        <resources>
+            <resource ref="BA_Punchout::punchout_api" />
+        </resources>
+    </route>
+
+<!-- 
+    <route url="/V1/punchout/setup" method="POST">
+        <service class="BA\Punchout\Api\RequestManagementInterface" method="setup"/>
+        <resources>
+            <resource ref="BA_Punchout::punchout_api" />
+        </resources>
+    </route> 
+-->
+</routes>

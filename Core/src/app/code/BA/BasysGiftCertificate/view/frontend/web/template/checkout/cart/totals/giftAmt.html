@@ -1,0 +1,12 @@
+<!-- ko -->
+<tr class="totals giftAmt excl"  data-bind="afterRender:isDisplayed()">
+    <td class="mark remove-giftamt" colspan="1" scope="row">
+        <span data-bind="text: title"></span>
+        <a href="#" id="remove-gift-card" data-bind="click:removeGiftCard">Remove</a>
+    </td>
+    <td class="amount">
+        <span class="price" data-bind="text: getValue()"></span>
+    </td>
+    
+</tr>
+<!-- /ko -->

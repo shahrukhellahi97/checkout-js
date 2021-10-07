@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="brand_addition_menu" 
+             title="Brand Addition " 
+             module="BA_BasysCatalog" 
+             sortOrder="60"
+             resource="Magento_Backend::content" />
+             
+        <add id="BA_BasysCatalog::section" title="UI Settings" module="BA_BasysCatalog" resource="BA_BasysCatalog::section" parent="brand_addition_menu"/> 
+    </menu>
+</config>

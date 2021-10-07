@@ -1,0 +1,78 @@
+// PRODUCT PAGE CROSS SELLS STARTS
+#upsellitem_carousel, #relateditem_carousel {
+    text-align: left;
+    margin:0;
+    .owl-nav {
+        margin-top: 10px;
+        text-align: center;
+        -webkit-tap-highlight-color: transparent; 
+    }
+    .owl-nav [class*='owl-'] {
+        color: @primary__color;
+        font-size: 36px;
+        margin: 5px;
+        padding: 4px 7px;
+        background: #D6D6D6;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    .owl-nav [class*='owl-']:hover {
+    background: #869791;
+    color: #FFF;
+    text-decoration: none; }
+
+    .owl-dots {
+        position: relative;
+        margin: 20px 0 40px 0;
+        width: 100%;
+        text-align: center;
+        .active {
+            background-color: @primary__color;
+        }
+    }
+    .owl-dot {
+        width:20px;
+        height: 20px;
+        border: 1px solid @primary__color;
+        border-radius: 10px;
+        margin: 0 10px;
+    }
+
+    .field.choice.related { // checkboxes
+        display:none;
+    }
+    .owl-item {
+        box-sizing: border-box;
+        padding: 10px;
+        .product-item-info {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 15px;
+            background-color: #ffffff;
+            -webkit-box-shadow: @ba-shadows;
+            -moz-box-shadow: @ba-shadows;
+            box-shadow: @ba-shadows;
+            .product-item-details {
+                margin: 15px 0 0 0;
+            }
+            .product.name a {
+                font-size: 15px;
+                font-weight: 300;
+                line-height: 150%;
+                color: @primary__color;
+                margin: 15px 0 0 0;
+                text-align: left;
+            }
+            .price {
+                margin: 0;
+                font-size: 30px;
+                line-height: 100%;
+                color: @primary__color;
+                text-align: left;
+            }
+        }
+
+    }
+}
+// PRODUCT PAGE CROSS SELLS ENDS

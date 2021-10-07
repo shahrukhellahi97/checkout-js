@@ -1,0 +1,209 @@
+{
+    "ba_basys_store_division": {
+        "column": {
+            "division_id": true,
+            "name": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "ba_basys_store_catalog": {
+        "column": {
+            "catalog_id": true,
+            "name": true,
+            "currency": true,
+            "division_id": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_03468297AA5FEE95D7765E9118CF6CEB": true
+        }
+    },
+    "ba_basys_store_source_code": {
+        "column": {
+            "source_code_id": true,
+            "name": true,
+            "catalog_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BA_BASYS_STORE_SOURCE_CODE_CAT_ID_BA_BASYS_STORE_CAT_CAT_ID": true
+        }
+    },
+    "ba_basys_store_keygroup": {
+        "column": {
+            "keygroup_id": true,
+            "name": true,
+            "division_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_F2C4F9B93CB6C3C787E79BC57D7A3FA4": true
+        }
+    },
+    "ba_basys_store_customer": {
+        "column": {
+            "customer_id": true,
+            "division_id": true,
+            "source_code_id": true,
+            "name": true,
+            "customer_contact_id": true,
+            "sales_person_id": true
+        },
+        "index": {
+            "BA_BASYS_STORE_CUSTOMER_CUSTOMER_ID_DIVISION_ID_SOURCE_CODE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_7AC6C2EC5993EDAD0638D1DBFD5FA053": true,
+            "FK_9077EDDBB439E7791B2ABE300476026A": true
+        }
+    },
+    "ba_basys_lookup_table": {
+        "column": {
+            "division_id": true,
+            "website_id": true,
+            "catalog_id": true,
+            "store_id": true,
+            "source_id": true,
+            "store_view_id": true,
+            "root_category_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "ba_basys_catalog_product_map": {
+        "column": {
+            "entity_id": true,
+            "basys_id": true,
+            "division_id": true
+        },
+        "index": {
+            "BA_BASYS_CATALOG_PRODUCT_MAP_ENTITY_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BA_BASYS_CAT_PRD_MAP_ENTT_ID_CAT_PRD_ENTT_ENTT_ID": true
+        }
+    },
+    "ba_basys_catalog_product": {
+        "column": {
+            "product_id": true,
+            "catalog_id": true,
+            "basys_id": true,
+            "sku": true,
+            "price": true,
+            "version": true,
+            "division_id": true,
+            "title": true,
+            "description": true,
+            "weight": true,
+            "usnspc": true,
+            "report_sku": true,
+            "report_title": true,
+            "base_colour": true,
+            "trim_colour": true,
+            "prices_id": true,
+            "stock_item": true,
+            "points_rate": true,
+            "points_valid": true,
+            "prices_break_id": true,
+            "price_break_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BA_BASYS_CATALOG_PRODUCT_CATALOG_ID_BASYS_ID": true
+        },
+        "index": {
+            "BA_BASYS_CATALOG_PRODUCT_BASYS_ID": true
+        }
+    },
+    "ba_basys_catalog_product_price": {
+        "column": {
+            "catalog_id": true,
+            "basys_id": true,
+            "type_id": true,
+            "break": true,
+            "price": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "ba_basys_catalog_product_queue": {
+        "column": {
+            "product_id": true,
+            "catalog_id": true,
+            "basys_id": true,
+            "division_id": true,
+            "sku": true,
+            "title": true,
+            "description": true,
+            "weight": true,
+            "usnspc": true,
+            "report_sku": true,
+            "report_title": true,
+            "base_colour": true,
+            "trim_colour": true,
+            "prices_id": true,
+            "stock_item": true,
+            "points_rate": true,
+            "points_valid": true,
+            "version": true,
+            "prices_break_id": true,
+            "price_break_id": true,
+            "processed": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "BA_BASYS_CATALOG_PRODUCT_QUEUE_CATALOG_ID_BASYS_ID": true
+        }
+    },
+    "ba_basys_catalog_product_level": {
+        "column": {
+            "basys_id": true,
+            "level": true,
+            "due": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "ba_basys_catalog_product_version": {
+        "column": {
+            "catalog_id": true,
+            "basys_id": true,
+            "version": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "ba_basys_catalog_product_price_queue": {
+        "column": {
+            "catalog_id": true,
+            "basys_id": true,
+            "type_id": true,
+            "break": true,
+            "price": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "ba_basys_catalog_product_index": {
+        "column": {
+            "entity_id": true,
+            "catalog_id": true,
+            "sku": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

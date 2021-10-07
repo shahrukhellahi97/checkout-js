@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_width" xsi:type="number">150</argument>
+            </arguments>
+        </referenceBlock>
+
+        <!--<referenceContainer name="header.container">
+            <container name="ba.header.desktop.search" as="ba_header_desktop_search" label="Page Header Container"  htmlTag="div" htmlClass="ba_header_desktop_search" after="header.panel.wrapper"/>
+        </referenceContainer>
+        <move element="top.search" destination="ba.header.desktop.search" after="-"/>-->
+        <move element="register-link" destination="top.links"/>
+        <!--<referenceContainer name="header.panel">
+            <block class="Magento\Theme\Block\Html\Header" name="header-search-trigger-button" template="header-search-trigger-button.phtml" after="header.links"/>
+        </referenceContainer>-->
+
+        <referenceContainer name="header.panel">
+            <block class="Magento\Framework\View\Element\Text" name="intel.site.selector">
+                <arguments>
+                    <argument name="text" xsi:type="string"><![CDATA[<div class="intel_site_selector"><a href="https://www.theintelstore.com/shop.axd/WorldMap"><i class="fa fa-globe"></i><span>EMEA</span></a></div>]]></argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+
+        <move element="minicart" destination="header.panel" after="-"/>
+        <move element="currency" destination="header.panel" before="-"/>
+        <move element="intel.site.selector" destination="header.panel" after="-"/>
+        <move element="top.search" destination="header.panel" before="-"/>
+
+
+
+        <move element="store_language" destination="header.panel" after="-"/>
+        <move element="logo" destination="header.panel" before="-"/>
+
+
+
+
+
+
+        <container name="footer-custom-container" as="custom-content" htmlTag="footer" htmlClass="footer_customise">
+
+            <container name="footer-pre-footer" htmlTag="div" htmlClass="footer_prefooter">
+                <block class="Magento\Framework\View\Element\Text" name="footer-pre-footer-row">
+                    <arguments>
+                        <argument name="text" xsi:type="string"><![CDATA[<p><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 216 216" xml:space="preserve" style="width:80px; height:80px; display:block; margin-left:-12px"><style>.st1{fill:#262626}</style><path fill="#0068b5" d="M34.2 74.2h11.4v11.4H34.2z"></path><path class="st1" d="M45.3 133.4v-41H34.5v40.9h10.8zm71.4.4v-10c-1.6 0-2.9-.1-3.9-.3-1.1-.2-2-.6-2.5-1.1s-.9-1.4-1.1-2.4c-.2-1-.3-2.3-.3-3.9v-14.3h7.8v-9.2h-7.8V76.5H98.2V116c0 3.3.3 6.2.9 8.4.6 2.2 1.5 4.1 2.9 5.4 1.3 1.4 3.1 2.4 5.3 2.9 2.2.6 4.9.9 8.2.9l1.2.2zm61.8-.4v-60h-10.8v60h10.8zM87.8 96.5c-3-3.2-7.2-4.9-12.5-4.9-2.6 0-4.9.5-7.1 1.6-2.1 1.1-3.9 2.5-5.4 4.4l-.6.8v-5.9H51.6v40.9h10.7v-21.8.8c.1-3.8 1.1-6.7 2.8-8.5 1.9-1.9 4.2-2.9 6.8-2.9 3.1 0 5.5.9 7.1 2.8 1.5 1.8 2.3 4.5 2.3 7.8V133.3h10.9v-23.2c.1-5.8-1.4-10.4-4.4-13.6zm74.3 16.3c0-2.9-.5-5.7-1.6-8.3-1-2.6-2.5-4.8-4.3-6.8-1.9-1.9-4.1-3.4-6.7-4.5-2.6-1.1-5.5-1.6-8.6-1.6-2.9 0-5.7.6-8.3 1.7-2.6 1.1-4.9 2.6-6.8 4.6-1.9 1.9-3.4 4.2-4.6 6.8-1.1 2.6-1.7 5.4-1.7 8.3 0 2.9.5 5.7 1.6 8.3 1.1 2.6 2.6 4.8 4.4 6.8 1.9 1.9 4.2 3.4 6.8 4.5 2.7 1.1 5.6 1.7 8.8 1.7 9.1 0 14.8-4.1 18.2-8l-7.8-5.9c-1.6 1.9-5.5 4.6-10.4 4.6-3 0-5.5-.7-7.4-2.1-1.9-1.4-3.2-3.3-3.9-5.7l-.1-.4h32.2l.2-4zm-32-3.7c0-3 3.4-8.2 10.9-8.2 7.4 0 10.9 5.2 10.9 8.2h-21.8zM190.8 128.2c-.2-.5-.5-.9-.9-1.3s-.8-.7-1.3-.9c-.5-.2-1-.3-1.6-.3s-1.1.1-1.6.3-.9.5-1.3.9-.6.8-.9 1.3c-.2.5-.3 1-.3 1.6s.1 1.1.3 1.6.5.9.9 1.3.8.6 1.3.9c.5.2 1 .3 1.6.3s1.1-.1 1.6-.3.9-.5 1.3-.9.6-.8.9-1.3c.2-.5.3-1 .3-1.6 0-.6-.1-1.1-.3-1.6zm-.7 2.8c-.2.4-.4.8-.7 1.1-.3.3-.6.5-1.1.7-.4.2-.8.3-1.3.3s-.9-.1-1.3-.3-.8-.4-1.1-.7c-.3-.3-.5-.6-.7-1.1-.2-.4-.3-.8-.3-1.3s.1-.9.3-1.3.4-.8.7-1.1c.3-.3.6-.5 1.1-.7.4-.2.8-.3 1.3-.3s.9.1 1.3.3c.4.2.8.4 1.1.7.3.3.5.6.7 1.1.2.4.3.8.3 1.3s-.1.9-.3 1.3zm-2.2-.9c.3 0 .6-.1.8-.4.2-.2.3-.5.3-.9s-.1-.8-.4-1-.7-.3-1.2-.3h-1.8v4.5h.8v-1.9h.6l1.1 1.9h.9l-1.1-1.9zm-.5-.7h-1v-1.3h1c.1 0 .2 0 .4.1.1 0 .2.1.3.2.1.1.1.2.1.4 0 .1 0 .3-.1.4-.1.1-.1.1-.3.2h-.4z"></path></svg></p>]]></argument>
+                    </arguments>
+                </block>
+            </container>
+
+            <container name="footer-custom-flex" as="custom-content" htmlTag="div">
+
+                <container name="footer-custom-flexcolumn-contact" htmlTag="div" htmlClass="footer_column_contact">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-contact-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Contact</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Text" name="footer_custom_contact">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<ul><li>Broadway House<br>Trafford Wharf Rd, Trafford Park<br>Stretford, Manchester, M17 1DD</li><li>8:00am - 6:00pm<br>Monday - Friday</li><li>+44 (0) 161 786 0217</li><li><a href="mailto:intelstore@brandaddition.com">intelstore@brandaddition.com</a></li></ul>]]></argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="footer-custom-flexcolumn-info" htmlTag="div" htmlClass="footer_column_information">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-info-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Information</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_cms">
+                    </block>
+                </container>
+                
+                <container name="footer-custom-flexcolumn-categories" htmlTag="div" htmlClass="footer_column_categories">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-categories-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Categories</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Theme\Block\Html\Footer" name="footer_custom_categories" template="footer-custom-categories.phtml">
+                        <arguments>
+                            <argument name="view_model" xsi:type="object">BA\Theme\ViewModel\CategoryViewModel</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="footer-custom-flexcolumn-giftcertificate" htmlTag="div" htmlClass="footer_column_giftcertificates">
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-giftcert-heading">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<h4>Gift Certificates</h4>]]></argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Text" name="footer-custom-giftcert-list">
+                        <arguments>
+                            <argument name="text" xsi:type="string"><![CDATA[<ul><li><a href="#">Buy Gift Certificates</a></li><li><a href="#">Check Gift Certificate balance</a></li></ul>]]></argument>
+                        </arguments>
+                    </block>
+                </container>
+
+            </container>
+
+            <container name="footer-copyright" htmlTag="div" htmlClass="footer_copyright_div">
+                <block class="Magento\Framework\View\Element\Text" name="footer-copyright-block">
+                    <arguments>
+                        <argument name="text" xsi:type="string"><![CDATA[<p>This site is owned and operated by Brand Addition and is not affiliated with Intel, its subsidiaries or affiliates.</p><p>Any information collected on this site is subject to and governed by Brand Addition <a href="https://www.brand-estore.com/Intel/info/terms_and_conditions">privacy statement and terms and conditions.</a></p><p>© 2020 <a href="https://www.brandaddition.com/">Brand Addition</a></p>]]></argument>
+                    </arguments>
+                </block>
+            </container>
+
+        </container>
+
+        <move element="privacy-policy-link" destination="footer_links_cms"/>
+        <move element="contact-us-link" destination="footer_links_cms"/>
+        <move element="search-term-popular-link" destination="footer_links_cms"/>
+        <move element="catalog-search-advanced-link" destination="footer_links_cms"/>
+        <move element="sales-guest-form-link" destination="footer_links_cms"/>
+
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true" />
+        <referenceBlock name="copyright" remove="true" />
+
+    </body>
+</page>

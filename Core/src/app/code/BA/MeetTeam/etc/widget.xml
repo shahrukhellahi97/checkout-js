@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget class="BA\MeetTeam\Block\Widget\LoadTeamMembers" id="ba_MeetTeam_team_members">
+		<label>Team Members</label>
+		<description>Team Members</description>
+		<parameters>
+			<parameter name="enable_heading" xsi:type="select" visible="true" required="true" sort_order="1">
+                <label translate="true">Enable Heading</label>
+                <options>
+                    <option name="1" value="1">
+                        <label>Yes</label>
+                    </option>
+                    <option name="0" value="0" selected="true">
+                        <label>No</label>
+                    </option>                   
+                </options>
+            </parameter>
+			<parameter name="team_members" sort_order="2" visible="true" xsi:type="text">
+				<label>Heading</label>
+				<value>Meet The Team</value>
+			</parameter>
+			<parameter name="list_team_members"  xsi:type="multiselect"  visible="true" sort_order="3" source_model="BA\MeetTeam\Model\Config\Source\Teamlist">
+				<label translate="true">Select Members </label>
+				<description translate="true">Select the members you want to display</description>
+			</parameter>
+		</parameters>
+	</widget>
+</widgets>

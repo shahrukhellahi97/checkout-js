@@ -1,0 +1,111 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Grouped product data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\BaseImage
+ * @var $block \Magento\GroupedProduct\Block\Product\View\Type\Grouped
+ */
+?>
+<?php $block->setPreconfiguredValue(); ?>
+<?php $_product = $block->getProduct(); ?>
+<?php $enable_traffic_layout = $_product->getData('traffic_layout');?>
+<?php $_associatedProducts = $block->getAssociatedProducts(); ?>
+<?php $_hasAssociatedProducts = count($_associatedProducts) > 0; ?>
+</form>
+<div class="table-wrapper grouped retailbb">
+    <?php if ($_hasAssociatedProducts) : ?>
+    <div class="table data grouped retailbb-attribute-tbl">
+        <?php $attrArray = $block->getViewModel()->getLayoutCustAttributes($_associatedProducts);
+        foreach ($attrArray as $key => $value) : ?>
+            <ul class="retail-attr-list">
+                <?php $attrCode = $key; ?>
+                <li class="attributes-label"><?= $block->escapeHtml(__(ucfirst(str_replace('_', ' ', $key)))); ?> </li>
+                <?php foreach ($value as $key => $attrVal) :?>
+                    <?php if ($attrCode == 'size') : ?>
+                        <?php $atValue = ($attrVal == '')? '-' : $attrVal; ?>
+                        <li class="item-row-<?= $block->escapeHtML(__($key)); ?>">
+                            <input type="button" class="item-<?= $block->escapeHtML(__($key)); ?> item_status btnstyle" value="<?= $block->escapeHtml(__($atValue)); ?>"/>
+                        </li>
+                    <?php elseif (($attrCode == 'stock') && ($enable_traffic_layout)) : ?>
+                        <?php
+                            switch (true) {
+                                case $attrVal <= 0:
+                                    $className = 'no-stock';
+                                    break;
+                            
+                                case $attrVal <= 10:
+                                    $className = 'low-stock';
+                                    break;
+                             
+                                default:
+                                    $className = 'more-stock';
+                                    break;
+                            }
+                        ?>
+                        <li class="item-row-<?= $block->escapeHtML(__($key)); ?>">
+                            <span class="stock-traffic-layout <?= $block->escapeHtML(__($className)); ?>"><?= $block->escapeHtml(__($attrVal)); ?></span>
+                        </li>
+                    <?php elseif (($attrCode == 'stock') && (!$enable_traffic_layout)) : ?>
+                        <li class="item-row-<?= $block->escapeHtML(__($key)); ?>">
+                            <span class="stock"><?= $block->escapeHtml(__($attrVal)); ?></span>
+                        </li>
+                    <?php else : ?>
+                        <?php $atValue = ($attrVal == '')? '-' : $attrVal; ?>
+                        <li class="item-row-<?= $block->escapeHtML(__($key)); ?>">
+                            <span><?= $block->escapeHtml(__($atValue)); ?></span>
+                        </li>
+                    <?php endif; ?>
+                   
+                <?php endforeach; ?>
+            </ul>
+        <?php endforeach;?>
+    </div>
+    <?php endif; ?>
+    <div class="table data grouped retailbb-cart-tbl" data-mage-init='{ "Magento_GroupedProduct/js/product-ids-resolver": {} }'>
+        <?php if ($_hasAssociatedProducts) : ?>
+            <?php
+            $i = 1;
+            foreach ($_associatedProducts as $_item) :
+                 $item_selected = ($i == 1)? 'item_status is-active':'item_status';  ?>
+                <div class="<?= $block->escapeHtML($item_selected); ?> item-<?= $block->escapeHtML(__($_item->getId())); ?>">
+                    <div class="item-td-<?= $block->escapeHtML(__($_item->getId())); ?>">
+                    <span><?= /* @noEscape */ $block->getProductPrice($_item);  ?></span>
+                    <form action="<?= $block->escapeHtml($block->getAddToCartUrl($_item)); ?>" method="post">
+                        <input type="hidden" name="product" value="<?= $block->escapeHtml($_item->getId()); ?>">
+                        <input type="hidden" name="related_product" value="">
+                        <input type="number"
+                            name="qty"
+                            value="<?= /* @escapeNotVerified */ $_item->getQty() * 1 ?>"
+                            title="<?= /* @escapeNotVerified */ $block->escapeHtml(__('Qty')) ?>"
+                            class="input-text qty required retail-qty"
+                            />
+                        <?= $block->getBlockHtml('formkey')?>
+                        <button type="submit" title="Add to Cart" class="addtocart">Add to Cart</button>
+                    </form>
+                    </div>
+                </div>
+            <?php $i++; ?>
+            <?php endforeach; ?>
+        
+        <?php else : ?>        
+            <ul>
+                <li class="unavailable"
+                    colspan="<?php if ($_product->isSaleable()) : ?>4<?php else : ?>3<?php endif; ?>">
+                    <?= $block->escapeHtml(__('No options of this product are available.')) ?>
+                </li>
+            </ul>        
+        <?php endif; ?>    
+    </div>
+<div id="validation-message-box"></div>
+</div>
+<form>
+<script>
+    require(['jquery', 'styleProdDetails'], function($, styleProdDetails) {
+        styleProdDetails();
+    });
+</script>

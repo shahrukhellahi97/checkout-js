@@ -1,0 +1,10 @@
+Magento 2 changelog:
+
+version 0.1: Alpha development
+version 0.8: Beta
+version 0.9: Release candidate - 2.3.x
+version 0.9.6: Support for Magento 2.2.x, various bug fixes.
+version 0.9.7: Separate backport version for 2.1.x
+version 0.9.8: Various bug fixes, closing on stable release.
+version 1.0.0: Stable release.
+version 1.0.1: Fix bug with multi-currencies and add content security policy support for 2.3.5+/2.4.x.
