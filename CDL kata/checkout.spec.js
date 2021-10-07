@@ -13,4 +13,10 @@ describe("No products Checkout will return", () =>{
         const checkout = new Checkout(priceRules);
         expect(checkout.total()).toBe(0);
     })
+
+       it("50 for 'A'", () =>{
+        const checkout = new Checkout(priceRules);
+        checkout.scan("A");
+        expect(checkout.total()).toBe(50);
+    })
 })
