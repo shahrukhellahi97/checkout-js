@@ -8,9 +8,10 @@ describe("simple check", () =>{
 const priceRules = [
 
     {
-
-
+        item: "A",
+        unitPrice: 50
     }
+    
 ];
 
 

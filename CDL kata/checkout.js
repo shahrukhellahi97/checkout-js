@@ -1,14 +1,16 @@
 class Checkout {
     constructor(priceRules){
-
+        this.priceRules = priceRules;
+        this.CurrentTotal = 0;
     }
 
     scan(item){
 
+        this.CurrentTotal += this.priceRules.find(x => x.item === item).unitPrice;
     }
 
     total(){
-        return 0;
+        return this.CurrentTotal;
     }
 }
 
