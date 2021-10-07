@@ -9,12 +9,23 @@ const priceRules = [
 
     {
         item: "A",
-        unitPrice: 50
+        unitPrice: 50,
+        specialPriceA: {
+            count: 3,
+            discountValue: 20,
+            NewPrice: 130 
+
+        }
     },
 
     {
         item: "B",
-        unitPrice: 30
+        unitPrice: 30,
+        specialPriceB: {
+            count: 2,
+            discountValue: 15,
+            NewPrice: 45
+        }
     },
     {
         item: "C",
