@@ -5,7 +5,13 @@ describe("simple check", () =>{
     })
 })
 
-const priceRules = [];
+const priceRules = [
+
+    {
+
+
+    }
+];
 
 
 describe("No products Checkout will return", () =>{
@@ -14,7 +20,7 @@ describe("No products Checkout will return", () =>{
         expect(checkout.total()).toBe(0);
     })
 
-       it("50 for 'A'", () =>{
+       it("A = 50", () =>{
         const checkout = new Checkout(priceRules);
         checkout.scan("A");
         expect(checkout.total()).toBe(50);
