@@ -55,12 +55,4 @@ describe("No products Checkout will return", () =>{
             checkout.scan("D");
             expect(checkout.total()).toBe(15);
     })
-
-    it("AB = 80",() =>{
-        const checkout = new Checkout(priceRules);
-        checkout.scan("A");
-        checkout.scan("B");
-    })
-
-
 })
